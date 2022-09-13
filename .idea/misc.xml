@@ -3,7 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_Calenda.xml" value="0.2715" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_calender.xml" value="0.161" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_home.xml" value="0.158" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_user.xml" value="0.161" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1585" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1585" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/tranparent_background.xml" value="0.128" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_home.xml" value="0.22" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_user.xml" value="0.1" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_datlich.xml" value="0.1" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_user.xml" value="0.1" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18611111111111112" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/menu/nav_bottom.xml" value="0.3223958333333333" />
       </map>
     </option>
   </component>
