@@ -10,11 +10,12 @@
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1585" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1585" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/tranparent_background.xml" value="0.128" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/tranparentbackground.xml" value="0.1175" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_home.xml" value="0.22" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_user.xml" value="0.1" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_datlich.xml" value="0.1" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_home.xml" value="0.20542412002308136" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_lichsucut.xml" value="0.23889392565729828" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_user.xml" value="0.1" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_lichsucut.xml" value="0.23889392565729828" />

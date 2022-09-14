@@ -43,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.frag_home:
                             selectedFragment = new Fragment_home();
                             break;
-                        case R.id.frag_calenda:
-                            selectedFragment = new Fragment_DatLich();
-                            break;
+
                         case R.id.frag_user:
                             selectedFragment = new Fragment_User();
                             break;
