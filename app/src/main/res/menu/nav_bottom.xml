@@ -4,9 +4,7 @@
     <item android:id="@+id/frag_home"
         android:icon="@drawable/ic_home"
         android:title="Home"/>
-    <item android:id="@+id/frag_calenda"
-        android:icon="@drawable/ic_calender"
-        android:title="Đặt Lịch"/>
+
     <item android:id="@+id/frag_user"
         android:icon="@drawable/ic_user"
         android:title="Tài khoản"/>
