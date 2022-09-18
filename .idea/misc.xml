@@ -3,29 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_Calenda.xml" value="0.2715" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_calender.xml" value="0.161" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_home.xml" value="0.158" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-anydpi/ic_user.xml" value="0.161" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1585" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1585" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/tranparent_background.xml" value="0.128" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/tranparentbackground.xml" value="0.1175" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_home.xml" value="0.22" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_user.xml" value="0.1" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_datlich.xml" value="0.1" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_lichsucut.xml" value="0.23889392565729828" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_user.xml" value="0.1" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_lichsucut.xml" value="0.23889392565729828" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18611111111111112" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/menu/nav_bottom.xml" value="0.3223958333333333" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/drawable/home.xml" value="0.187" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/drawable/tranparentbackground.xml" value="0.186" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/activity_accout.xml" value="0.264" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/activity_datlich.xml" value="0.264" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/activity_main.xml" value="0.24365942028985507" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/activity_tai_khoan.xml" value="0.2359375" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/fragment_TaiKhoan.xml" value="0.24139492753623187" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/fragment_datlich.xml" value="0.24365942028985507" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/fragment_home.xml" value="0.24365942028985507" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/fragment_lichsucut.xml" value="0.24365942028985507" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/fragment_taikhoan.xml" value="0.2" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/fragment_user.xml" value="0.24365942028985507" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/layout/item_lichsucut.xml" value="0.24365942028985507" />
+        <entry key="..\:/Github/UngDungDatLichCatToc/app/src/main/res/menu/nav_bottom.xml" value="0.25" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16_PREVIEW" project-jdk-name="16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
