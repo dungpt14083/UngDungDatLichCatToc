@@ -5,7 +5,7 @@
         android:id="@+id/cardview_lichsu_lichsucut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="40dp">
+        app:cardCornerRadius="30dp">
     <LinearLayout
         android:layout_width="match_parent"
 
@@ -107,4 +107,5 @@
             android:textColor="@color/black"
             android:text="XEM CHI TIẾT"/>
     </LinearLayout>
+
     </androidx.cardview.widget.CardView>

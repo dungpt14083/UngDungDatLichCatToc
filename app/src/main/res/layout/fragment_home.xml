@@ -156,7 +156,7 @@
                         app:cardElevation="0dp"
                         android:id="@+id/home_cardview_banggia"
                         android:layout_width="80dp"
-                        android:layout_height="80dp">
+                        android:layout_height="90dp">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -165,7 +165,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/icon_note_icon"/>
+                                android:src="@drawable/calenda"/>
                             <TextView
 
                                 android:layout_gravity="center"
@@ -196,7 +196,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/gitf"/>
+                                android:src="@drawable/icons8gift50"/>
                             <TextView
 
                                 android:layout_gravity="center"
@@ -259,6 +259,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_margin="10dp"
 
                 app:cardCornerRadius="30dp"
                 app:cardBackgroundColor="#D9D9D9">
