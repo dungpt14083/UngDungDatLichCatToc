@@ -13,7 +13,7 @@ public class DatlichActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datlich);
-        //spAllSalon = findViewById(R.id.sp_allSalon) ;
+      //  spAllSalon = findViewById(R.id.sp_allSalon) ;
 
     }
 }
