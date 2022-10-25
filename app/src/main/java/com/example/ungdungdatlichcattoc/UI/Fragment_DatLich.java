@@ -16,6 +16,8 @@ public class Fragment_DatLich extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_datlich,container,false);
+        //this is api
+        
 
         return view;
     }
