@@ -13,12 +13,13 @@ import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.Service;
 import com.google.android.material.button.MaterialButton;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class ServiceAdapter extends BaseAdapter {
-   private Context context;
-   private  int idLayout;
-   private List<Service> serviceList;
+    private Context context;
+    private int idLayout;
+    private List<Service> serviceList;
 
     public ServiceAdapter(Context context, int idLayout, List<Service> serviceList) {
         this.context = context;
@@ -28,8 +29,7 @@ public class ServiceAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        if(serviceList.size()!=0&& !serviceList.isEmpty())
-        {
+        if (serviceList.size() != 0 && !serviceList.isEmpty()) {
             return serviceList.size();
         }
         return 0;
@@ -47,21 +47,22 @@ public class ServiceAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-       if(view==null)
-       {
-           view = LayoutInflater.from(viewGroup.getContext()).inflate(idLayout,viewGroup,false);
-       }
-        TextView item_chondichvu_tvName =(TextView) view.findViewById(R.id.item_chondichvu_tvName);
-       TextView item_chondichvu_tvDesc = (TextView)view.findViewById(R.id.item_chondichvu_tvDesc);
-       TextView item_chondichvu_tvPrice = (TextView) view.findViewById(R.id.item_chondichvu_tvPrice);
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(idLayout, viewGroup, false);
+        }
+        TextView item_chondichvu_tvName = (TextView) view.findViewById(R.id.item_chondichvu_tvName);
+        TextView item_chondichvu_tvDesc = (TextView) view.findViewById(R.id.item_chondichvu_tvDesc);
+        TextView item_chondichvu_tvPrice = (TextView) view.findViewById(R.id.item_chondichvu_tvPrice);
         ImageView item_chondichvu_img = (ImageView) view.findViewById(R.id.item_chondichvu_img);
         MaterialButton item_chondichvu_btn_chon = view.findViewById(R.id.item_chondichvu_btn_chon);
-        final  Service service = serviceList.get(i);
-        if(serviceList!= null&& !serviceList.isEmpty()){
+        final Service service = serviceList.get(i);
+        if (serviceList != null && !serviceList.isEmpty()) {
             item_chondichvu_tvName.setText(service.getNameService());
             item_chondichvu_tvDesc.setText(service.getDescribe());
-            item_chondichvu_tvPrice.setText(String.valueOf(service.getPrice()));
-           // Glide.with(holder.img_avatar.getContext()).load(comics.getImage()).into(holder.img_avatar);
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
+            String price = formatter.format(service.getPrice());
+            item_chondichvu_tvPrice.setText(price + " VNĐ");
+            // Glide.with(holder.img_avatar.getContext()).load(comics.getImage()).into(holder.img_avatar);
             Glide.with(item_chondichvu_img.getContext()).load(service.getImages()).into(item_chondichvu_img);
 
             item_chondichvu_btn_chon.setOnClickListener(new View.OnClickListener() {
