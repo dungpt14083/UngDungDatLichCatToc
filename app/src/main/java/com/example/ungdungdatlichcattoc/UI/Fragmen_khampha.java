@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.ungdungdatlichcattoc.R;
 
-public class Fragment_DatLich extends Fragment {
+public class Fragmen_khampha extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.fragment_datlich,container,false);
+        View view =inflater.inflate(R.layout.fragment_khampha,container,false);
         //this is api
         return view;
     }

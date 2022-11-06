@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#D0D1D1"
+    android:background="#EAECEC"
     tools:context=".activity.AccoutActivity">
     <TextView
         android:layout_width="match_parent"
@@ -18,30 +18,34 @@
         android:textColor="@color/black"
         />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:background="#595C5C"
-        android:layout_height="150dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_horizontal"
         >
-        <com.google.android.material.imageview.ShapeableImageView
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher_round"
-            app:shapeAppearanceOverlay="@style/cilcle"
+            android:layout_marginLeft="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="250dp">
 
-            />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="250dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/thuy"
+                    android:id="@+id/idfragmentHomeImageAvatar" />
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_gravity="bottom"
-            android:src="@drawable/ic_launcher_background" />
+
     </LinearLayout>
 
         <LinearLayout
@@ -53,10 +57,11 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:text="THÔNG TIN TÀI KHOẢN"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:textSize="15dp"
                 />
             <TextView
+                android:id="@+id/txtChinhSua_Accout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -64,31 +69,33 @@
                 android:text="Chỉnh sửa"
                 android:textColor="#EAD608"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#F8F8F8"
+
             >
             <LinearLayout
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+
                 >
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:textSize="15dp"
                     android:text="HỌ VÀ TÊN"
+
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:gravity="right"
                     android:textSize="15dp"
                     android:text="NAM PHƯƠNG BÙI "
@@ -99,22 +106,22 @@
                 android:layout_height="1dp"
                 android:background="@android:color/black" />
             <LinearLayout
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:textSize="15dp"
                     android:text="SỐ ĐIỆN THOẠI"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:gravity="right"
                     android:textSize="15dp"
                     android:text="012345679 "
@@ -125,7 +132,7 @@
                 android:layout_height="1dp"
                 android:background="@android:color/black" />
             <LinearLayout
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -133,7 +140,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+
                     android:textSize="15dp"
                     android:text="EMAIL"
                     />
@@ -141,14 +148,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:gravity="right"
                     android:textSize="15dp"
+                    android:textColor="@color/black"
                     android:text=" namphuong123@gmail.com "
                     />
             </LinearLayout>
             <LinearLayout
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -156,7 +163,6 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:textSize="15dp"
                     android:text="NGÀY SINH"
                     />
@@ -175,103 +181,17 @@
 
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ĐỊA CHỈ GIÚP ANH TÌM SALON NHANH NHẤT"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:layout_margin="10dp"
-            />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#F8F8F8"
-        >
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:text="ĐỊA CHỈ NHÀ"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:gravity="right"
-                android:textSize="15dp"
-                android:text=""
-                />
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:text="ĐỊA CHỈ CƠ QUAN"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:gravity="right"
-                android:textSize="15dp"
-                android:text=""
-                />
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:text="NƠI HAY ĐI LẠI "
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:gravity="right"
-                android:textSize="15dp"
-                android:text=" "
-                />
-        </LinearLayout>
-    </LinearLayout>
     <TextView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ĐĂNG XUẤT"
-        android:layout_margin="30dp"
+        android:layout_margin="45dp"
         android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         />
-</LinearLayout>
+    </LinearLayout>
+
+
