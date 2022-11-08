@@ -63,7 +63,7 @@ public class ServiceAdapter extends BaseAdapter {
             String price = formatter.format(service.getPrice());
             item_chondichvu_tvPrice.setText(price + " VNĐ");
             // Glide.with(holder.img_avatar.getContext()).load(comics.getImage()).into(holder.img_avatar);
-            Glide.with(item_chondichvu_img.getContext()).load(service.getImages()).into(item_chondichvu_img);
+            Glide.with(item_chondichvu_img.getContext()).load("http://io.supermeo.com:8000/"+service.getImages()).into(item_chondichvu_img);
 
             item_chondichvu_btn_chon.setOnClickListener(new View.OnClickListener() {
                 @Override
