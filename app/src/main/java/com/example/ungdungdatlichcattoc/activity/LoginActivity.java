@@ -64,11 +64,49 @@ public class LoginActivity extends AppCompatActivity {
                 if (!Utils.checkValidate(list)) {
                     return;
                 }
+
+                loginUser(phone, password);
             }
         });
 
     }
 
 
+    private void loginUser(String phone, String password) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://io.supermeo.com:8000/customer/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
+        ApiService api = retrofit.create(ApiService.class);
+        Call<LoginResponse> call = api.login(phone, password, getUniqueId());
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Log.d("TAG", "onFailure: " + "Throw" + t.toString());
+            }
+        });
+
+    }
+
+    @SuppressLint("HardwareIds")
+    private String getUniqueId() {
+        return Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
 }
+
+
