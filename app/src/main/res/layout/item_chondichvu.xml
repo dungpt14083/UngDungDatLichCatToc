@@ -4,47 +4,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="5"
+    android:layout_margin="10dp"
+    android:gravity="center"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:src="@drawable/tocnamdep"
-        android:id="@+id/item_chondichvu_img"/>
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-       >
-        <TextView
+        app:cardElevation="3dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ShineCombo cắt gội 10 bước"
-            android:textSize="30dp"
-            android:textColor="@color/black"
-            android:id="@+id/item_chondichvu_tvName"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đặc sắc nổi tiếng"
-            android:textColor="@color/black"
-            android:id="@+id/item_chondichvu_tvDesc"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="100k"
-            android:textColor="@color/black"
-            android:id="@+id/item_chondichvu_tvPrice"/>
-    </LinearLayout>
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Chọn"
-        android:textColor="@color/black"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp"
-        app:cornerRadius="50dp"
-        android:id="@+id/item_chondichvu_btn_chon"/>
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFF"
+                >
+                <ImageView
+                    android:minHeight="200dp"
+                    android:minWidth="200dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/tocnamdep"
+                    android:id="@+id/item_chondichvu_img"/>
+                <TextView
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ShineCombo cắt gội 10 bước"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:id="@+id/item_chondichvu_tvName"/>
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đặc sắc nổi tiếng"
+                    android:textColor="@color/black"
+                    android:id="@+id/item_chondichvu_tvDesc"/>
+
+                <TextView
+                    android:id="@+id/item_chondichvu_tvPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100k"
+                    android:textColor="#BD190D"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:text="Chọn"
+                android:gravity="center"
+                android:textColor="@color/black"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp"
+                app:cornerRadius="50dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/item_chondichvu_btn_chon"/>
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

@@ -7,7 +7,29 @@
     android:orientation="vertical"
     android:weightSum="10"
     tools:context=".activity.BanGiaActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home1"
+            android:id="@+id/btnhomeBangGia"
+            />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Bảng Giá Dịch Vụ"
+            android:textColor="@color/black"
+            android:layout_marginTop="1dp"
+            android:textSize="32dp" />
+    </LinearLayout>
     <androidx.cardview.widget.CardView
         android:layout_weight="0.5"
         android:layout_width="match_parent"

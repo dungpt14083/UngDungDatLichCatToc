@@ -17,6 +17,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/home1"
+            android:id="@+id/btnhomeDatLich"
             />
 
         <TextView
@@ -34,6 +35,18 @@
         android:layout_height="1dp"
         android:background="@android:color/black" />
 <!--    -->
+    <ScrollView
+        android:layout_weight="2"
+        android:fillViewport="true"
+        android:id="@+id/scrollview_Datlich"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,7 +118,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="XEM TẤT CẢ SALON"
+                    android:text="Số 7 Thiền Quang"
                     android:textSize="14dp"
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center_vertical"
@@ -145,7 +158,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TÌM TẤT CẢ SALON"
+                android:text="TÌM ĐƯỜNG TỚI SALON"
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"
                 />
@@ -284,4 +297,6 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
         android:textSize="15dp"
         android:gravity="center"
         />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
