@@ -1,4 +1,4 @@
-package com.example.ungdungdatlichcattoc.API;
+package com.example.ungdungdatlichcattoc.Api;
 
 import com.example.ungdungdatlichcattoc.model.Service;
 import com.google.gson.Gson;

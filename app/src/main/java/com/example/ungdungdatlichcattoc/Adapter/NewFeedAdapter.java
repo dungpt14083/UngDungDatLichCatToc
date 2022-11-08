@@ -26,7 +26,11 @@ public class NewFeedAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return newFeedList.size();
+        if (newFeedList.size() != 0 && !newFeedList.isEmpty()) {
+            return newFeedList.size();
+        }
+        return 0;
+
     }
 
     @Override
@@ -36,13 +40,13 @@ public class NewFeedAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return newFeedList.size();
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        Log.d("asdfgh", "onCreate: "+newFeedList.size());
         ViewHolder viewHolder ;
+        final Newfeed newfeed = newFeedList.get(i);
         if (view == null)
         {
             viewHolder = new ViewHolder();
@@ -57,7 +61,7 @@ public class NewFeedAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         Newfeed newf = newFeedList.get(i);
-        Glide.with(viewHolder.avatar.getContext()).load(newf.getImage()).into(viewHolder.avatar);
+        Glide.with(viewHolder.avatar).load("http://io.supermeo.com:8000/"+newfeed.getImage()[0]).into(viewHolder.avatar);
         viewHolder.title.setText(newf.getTitle());
         return  view ;
     }

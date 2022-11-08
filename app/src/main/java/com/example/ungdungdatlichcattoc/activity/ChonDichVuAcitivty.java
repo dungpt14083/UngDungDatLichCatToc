@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ungdungdatlichcattoc.API.ApiService;
+import com.example.ungdungdatlichcattoc.Api.ApiService;
 import com.example.ungdungdatlichcattoc.Adapter.ServiceAdapter;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.Service;

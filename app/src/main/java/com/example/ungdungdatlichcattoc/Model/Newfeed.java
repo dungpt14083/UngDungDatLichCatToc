@@ -5,9 +5,9 @@ import android.media.Image;
 public class Newfeed {
 
     public String _id,title , contentTitle , description;
-    public Image image ;
+    public String[] image ;
 
-    public Newfeed(String _id, String title, String contentTitle, String description, Image image) {
+    public Newfeed(String _id, String title, String contentTitle, String description, String[] image) {
         this._id = _id;
         this.title = title;
         this.contentTitle = contentTitle;
@@ -31,7 +31,7 @@ public class Newfeed {
         return description;
     }
 
-    public Image getImage() {
+    public String[] getImage() {
         return image;
     }
 }
