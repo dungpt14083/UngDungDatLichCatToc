@@ -2,6 +2,7 @@ package com.example.ungdungdatlichcattoc.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_2);
+
 
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -85,6 +87,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
+                        SharedPreferences.Editor editor = getSharedPreferences("HAIR", MODE_PRIVATE).edit();
+                        editor.putString("phone", phone);
+                        editor.putString("password", password);
+                        editor.putString("id", response.body().getId());
+                        editor.apply();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
                     } else {
