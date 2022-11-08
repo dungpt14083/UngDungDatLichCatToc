@@ -22,11 +22,4 @@ public interface ApiService {
             @Field("phone") String phone,
             @Field("password") String password);
 
-    @FormUrlEncoded
-    @POST("login")
-    Call<LoginResponse> login(
-            @Field("phone") String phone,
-            @Field("password") String password,
-            @Field("uniqueId") String uniqueId
-    );
 }
