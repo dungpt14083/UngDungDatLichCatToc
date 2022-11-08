@@ -1,19 +1,19 @@
 package com.example.ungdungdatlichcattoc;
 
-import com.example.ungdungdatlichcattoc.Api.Api;
+import com.example.ungdungdatlichcattoc.Api.ApiNewFeed;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static RetrofitClient instance = null;
-    private Api myApi;
+    private ApiNewFeed myApi;
 
     private RetrofitClient() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.BASE_URL)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(ApiNewFeed.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        myApi = retrofit.create(Api.class);
+        myApi = retrofit.create(ApiNewFeed.class);
     }
 
     public static synchronized RetrofitClient getInstance() {
@@ -23,7 +23,7 @@ public class RetrofitClient {
         return instance;
     }
 
-    public Api getMyApi() {
+    public ApiNewFeed getMyApi() {
         return myApi;
     }
 }
