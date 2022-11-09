@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                 String phone = editTextPhone.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
+                // check validate
                 List<EditText> list = new ArrayList<>();
                 list.add(editTextPhone);
                 list.add(editTextPassword);
