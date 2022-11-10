@@ -252,6 +252,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
                 android:src="@drawable/calenda"
 
                 />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -261,6 +262,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
+                    android:id="@+id/datlich_tv_namestylish"
                     android:layout_marginTop="5dp"
                     android:text="HÔM NAY .T4(7/9/2022)"
                     android:textSize="14dp"
@@ -268,16 +270,16 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
                     android:textStyle="bold" />
             </LinearLayout>
 
-
             <Spinner
+                android:id="@+id/spinerstylish"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textStyle="bold"
                 android:gravity="right"
-                android:textSize="15dp"
                 android:text="NAM PHƯƠNG BÙI "
-                android:layout_gravity="right"
+                android:layout_gravity="center"
                 />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <Button
