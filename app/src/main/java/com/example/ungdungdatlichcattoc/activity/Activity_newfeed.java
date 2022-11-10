@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.Adapter.NewFeedAdapter;
 import com.example.ungdungdatlichcattoc.Api.ApiNewFeed;
 import com.example.ungdungdatlichcattoc.Model.Newfeed;
@@ -53,6 +54,12 @@ public class Activity_newfeed extends AppCompatActivity {
                     Log.e("TAG", "onResponse: "+newfeedList.size());
                     newFeedAdapter = new NewFeedAdapter(Activity_newfeed.this , newfeedList) ;
                     gridView.setAdapter(newFeedAdapter) ;
+                    for (int i = 0; i<newfeedList.size() ; i++)
+                    {
+                        Log.e("TAG", "onResponse: "+ newfeedList.get(i).image);
+                        Newfeed newfeed = newfeedList.get(i);
+
+                    }
                 }
             }
             @Override
