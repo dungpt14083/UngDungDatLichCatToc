@@ -1,6 +1,7 @@
 package com.example.ungdungdatlichcattoc.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +14,20 @@ import com.example.ungdungdatlichcattoc.R;
 
 public class DatlichActivity extends AppCompatActivity {
     ImageView btnHomeBack;
+    CardView crvchondichvu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datlich);
-        btnHomeBack = findViewById(R.id.btnhomeDatLich);
+        anhxa();
+        crvchondichvu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentchondichvu = new Intent(getApplicationContext(), ChonDichVuAcitivty.class);
+                startActivity(intentchondichvu);
+            }
+        });
         btnHomeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,6 +35,11 @@ public class DatlichActivity extends AppCompatActivity {
                 startActivity(intentHome);
             }
         });
-        //fixbug
+
+    }
+
+    void anhxa() {
+        btnHomeBack = findViewById(R.id.btnhomeDatLich);
+        crvchondichvu = findViewById(R.id.crv_datlich_chondichvu);
     }
 }

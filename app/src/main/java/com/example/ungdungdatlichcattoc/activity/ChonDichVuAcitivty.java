@@ -24,6 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ChonDichVuAcitivty extends AppCompatActivity {
     private GridView gridView;
     private List<Service> serviceList;
+    private ServiceAdapter serviceAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,11 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         serviceList = new ArrayList<>();
         ServiceAdapter serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
         gridView.setAdapter(serviceAdapter);
+        getservice();
+
+    }
+
+    void getservice() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/service/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -45,10 +52,11 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
                     serviceList.addAll(response.body());
                     Toast.makeText(getApplicationContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
                     gridView.setAdapter(serviceAdapter);
-                    serviceAdapter.notifyDataSetChanged();
+//                    serviceAdapter.notifyDataSetChanged();
 
                 }
             }
+
             @Override
             public void onFailure(Call<List<Service>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Lỗi rồi ông cháu: " + t, Toast.LENGTH_SHORT).show();

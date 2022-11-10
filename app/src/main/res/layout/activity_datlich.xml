@@ -175,6 +175,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
         />
 <!--    -->
     <androidx.cardview.widget.CardView
+        android:id="@+id/crv_datlich_chondichvu"
         android:layout_marginTop="10dp"
         android:layout_width="370dp"
         android:layout_height="49dp"
@@ -196,12 +197,12 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
 
                 />
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 >
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:layout_marginTop="5dp"
@@ -210,17 +211,6 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! "
                     android:layout_marginLeft="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
-
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:gravity="right"
-                android:textSize="15dp"
-                android:text="NAM PHƯƠNG BÙI "
-                android:layout_gravity="right"
-                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <TextView

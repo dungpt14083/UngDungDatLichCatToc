@@ -8,7 +8,7 @@
 
     <LinearLayout
 
-        android:background="#CCCD5C"
+        android:background="#F8D347"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="8"
@@ -124,7 +124,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/calenda" />
+                                    android:src="@drawable/img" />
 
 
                             </LinearLayout>
@@ -164,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/history" />
+                android:src="@drawable/img_2" />
 
 
         </LinearLayout>
@@ -227,7 +227,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="184dp"
+                android:layout_height="159dp"
                 android:layout_margin="10dp"
 
                 app:cardBackgroundColor="#D9D9D9"
