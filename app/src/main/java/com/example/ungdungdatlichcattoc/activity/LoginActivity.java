@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextPhone, editTextPassword;
     Button buttonLogin;
     TextView textViewRegister;
+    String token =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
+                        LoginResponse loginResponse = response.body();
+                        token = loginResponse.getToken();
                         SharedPreferences.Editor editor = getSharedPreferences("HAIR", MODE_PRIVATE).edit();
                         editor.putString("phone", phone);
                         editor.putString("password", password);
