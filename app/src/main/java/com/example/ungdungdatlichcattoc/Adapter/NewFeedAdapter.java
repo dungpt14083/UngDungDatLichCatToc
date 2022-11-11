@@ -54,6 +54,12 @@ public class NewFeedAdapter extends BaseAdapter {
             viewHolder.avatar = view.findViewById(R.id.item_khampha_img);
             viewHolder.title = view.findViewById(R.id.item_khampha_tvtitle);
             view.setTag(viewHolder);
+            viewHolder.avatar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
         }
         else{
             viewHolder = (ViewHolder) view.getTag();
