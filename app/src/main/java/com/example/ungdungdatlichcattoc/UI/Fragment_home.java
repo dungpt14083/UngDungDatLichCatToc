@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Fragment_home extends Fragment {
     CardView btnDatLich,btnBangGia,btnLichSuCut;
     ListView lv ;
+
     private List<Service> serviceList1;
     @Nullable
     @Override
@@ -48,6 +50,14 @@ public class Fragment_home extends Fragment {
         btnDatLich = view.findViewById(R.id.home_cardview_datlich);
         btnBangGia=view.findViewById(R.id.home_cardview_banggia);
         btnLichSuCut = view.findViewById(R.id.home_cardview_lichsucut);
+        btnBangGia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext() , BanGiaActivity.class);
+                startActivity(intent);
+            }
+        });
+
         lv = view.findViewById(R.id.home_rcv_dichvu) ;
         serviceList1 = new ArrayList<>();
         Adapter_traiNhiem adapter_traiNhiem = new Adapter_traiNhiem(getContext(), R.layout.item_trai_nhiem, serviceList1 ) ;
