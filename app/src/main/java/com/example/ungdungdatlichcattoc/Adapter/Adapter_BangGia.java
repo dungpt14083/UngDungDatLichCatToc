@@ -62,7 +62,7 @@ public class Adapter_BangGia extends BaseAdapter {
             String price = formatter.format(service.getPrice());
             item_chondichvu_tvPrice.setText(price + " VNĐ");
             // Glide.with(holder.img_avatar.getContext()).load(comics.getImage()).into(holder.img_avatar);
-            //Glide.with(item_banggia_img.getContext()).load("http://io.supermeo.com:8000/"+service.getImages()).into(item_banggia_img);
+            Glide.with(item_banggia_img.getContext()).load("http://io.supermeo.com:8000/"+service.getImages()).into(item_banggia_img);
         }
         return view;
     }
