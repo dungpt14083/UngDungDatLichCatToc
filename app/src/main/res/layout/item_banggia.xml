@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="5"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="match_parent"
@@ -37,14 +37,5 @@
             android:textColor="@color/black"
             android:id="@+id/item_banggia_tvPrice"/>
     </LinearLayout>
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Chọn"
-        android:textColor="@color/black"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp"
-        app:cornerRadius="50dp"
-        android:id="@+id/item_bangia_btn_chon"/>
+
 </LinearLayout>

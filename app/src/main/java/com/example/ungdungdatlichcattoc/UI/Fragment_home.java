@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -67,13 +68,20 @@ public class Fragment_home extends Fragment {
                     Toast.makeText(getContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
                     lv.setAdapter(adapter_traiNhiem);
                     adapter_traiNhiem.notifyDataSetChanged();
-
                 }
             }
             @Override
             public void onFailure(Call<List<Service>> call, Throwable t) {
                 Toast.makeText(getContext(), "Lỗi rồi ông cháu: " + t, Toast.LENGTH_SHORT).show();
                 Log.e("LoiGETDATA", "onFailure: " + t);
+            }
+        });
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), BanGiaActivity.class);
+                startActivity(intent);
             }
         });
         //
