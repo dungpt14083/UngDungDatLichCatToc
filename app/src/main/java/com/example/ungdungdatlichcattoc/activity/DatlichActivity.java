@@ -85,6 +85,7 @@ public class DatlichActivity extends AppCompatActivity {
         getHairStylishAPI();
         getAdapterHairStylish();
         token();
+        Log.e("Token", "mytoken: "+ token());
         spinnerStylish.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -116,8 +117,6 @@ public class DatlichActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Order(token,listidservice,idStylish,dateOrder,note,sumprice);
-
-
 
             }
         });
@@ -227,7 +226,7 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(DatlichActivity.this, "Đặt Lịch Thành Công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
