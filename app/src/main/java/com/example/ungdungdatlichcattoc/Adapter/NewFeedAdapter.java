@@ -1,6 +1,7 @@
 package com.example.ungdungdatlichcattoc.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.R;
+import com.example.ungdungdatlichcattoc.activity.ActivityDetail;
 import com.example.ungdungdatlichcattoc.model.Newfeed;
 
 import java.util.List;
@@ -54,12 +56,6 @@ public class NewFeedAdapter extends BaseAdapter {
             viewHolder.avatar = view.findViewById(R.id.item_khampha_img);
             viewHolder.title = view.findViewById(R.id.item_khampha_tvtitle);
             view.setTag(viewHolder);
-            viewHolder.avatar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
         }
         else{
             viewHolder = (ViewHolder) view.getTag();

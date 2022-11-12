@@ -58,6 +58,9 @@
             android:name=".activity.Activity_newfeed"
             android:exported="true" />
         <activity
+            android:name=".activity.ActivityDetail"
+            android:exported="true" />
+        <activity
             android:name=".activity.LoginActivity"
             android:exported="true">
             <intent-filter>

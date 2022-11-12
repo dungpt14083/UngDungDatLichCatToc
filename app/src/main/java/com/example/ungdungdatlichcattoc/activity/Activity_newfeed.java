@@ -1,7 +1,10 @@
 package com.example.ungdungdatlichcattoc.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -30,6 +33,7 @@ public class Activity_newfeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_khampha);
         gridView = findViewById(R.id.khampha_grid) ;
+
         //newfeedList = new
         //this is api
 //        newFeedAdapter = new NewFeedAdapter(Activity_newfeed.this , newfeedList) ;
@@ -52,8 +56,21 @@ public class Activity_newfeed extends AppCompatActivity {
                     {
                         Log.e("TAG", "onResponse: "+ newfeedList.get(i).image);
                         Newfeed newfeed = newfeedList.get(i);
-
                     }
+                    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Intent intent = new Intent(getApplicationContext(), ActivityDetail.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("vitri",i);
+                            bundle.putString("title",newfeedList.get(i).getTitle());
+                            bundle.putString("contentTitle",newfeedList.get(i).getContentTitle());
+                            bundle.putString("description",newfeedList.get(i).getDescription());
+                            bundle.putStringArray("img",newfeedList.get(i).getImage());
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
             @Override
