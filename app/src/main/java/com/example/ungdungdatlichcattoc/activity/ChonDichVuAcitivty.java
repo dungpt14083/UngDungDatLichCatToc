@@ -32,6 +32,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         serviceList = new ArrayList<>();
         ServiceAdapter serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
         gridView.setAdapter(serviceAdapter);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/service/")
                 .addConverterFactory(GsonConverterFactory.create())
