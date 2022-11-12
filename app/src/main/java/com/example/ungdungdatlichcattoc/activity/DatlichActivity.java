@@ -30,10 +30,14 @@ import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.HairStylish;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
+import com.google.gson.JsonArray;
+
+import org.json.JSONArray;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -44,14 +48,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Field;
 
 public class DatlichActivity extends AppCompatActivity {
     ImageView btnHomeBack;
     private List<HairStylish> hairStylishList;
     LinearLayout layouthairstylish;
-    SharedPreferences prefs ;
+    SharedPreferences prefs;
     String token;
-    Spinner spinnerStylish,spnfake;
+    Spinner spinnerStylish, spnfake;
     HairStylishSpinerAdapter hairStylishSpinerAdapter;
     public TextView tvNameStylish;
     CardView crv_chonService, crv_selectstylish;
@@ -64,7 +69,7 @@ public class DatlichActivity extends AppCompatActivity {
     Date dateOrder;
     EditText edtycthem;
     Button btn_order_hoantat;
-
+    final Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,15 +82,15 @@ public class DatlichActivity extends AppCompatActivity {
         crv_selectstylish = findViewById(R.id.crv_selectstylish);
         tvservice = findViewById(R.id.tv_datlich_service);
         calenda = findViewById(R.id.btn_datlich_calendar);
-        tv_datlich_time=findViewById(R.id.tv_datlich_time);
-        edtycthem=findViewById(R.id.datlich_edt_yeucauthem);
-        btn_order_hoantat=findViewById(R.id.btn_order_hoantat);
+        tv_datlich_time = findViewById(R.id.tv_datlich_time);
+        edtycthem = findViewById(R.id.datlich_edt_yeucauthem);
+        btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
         getdataService();
         intentControl();
         getHairStylishAPI();
         getAdapterHairStylish();
         token();
-        Log.e("Token", "mytoken: "+ token());
+        Log.e("Token", "mytoken: " + token());
         spinnerStylish.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -107,53 +112,50 @@ public class DatlichActivity extends AppCompatActivity {
         btn_order_hoantat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
-                String token =  token();
-                String note = edtycthem.getText().toString()+" ! ";
+                String tokencus = token();
+                String note = edtycthem.getText().toString() + " 1 ";
                 String date = tv_datlich_time.getText().toString();
-                try {
-                    dateOrder = formatter.parse(date);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                Order(token,listidservice,idStylish,dateOrder,note,sumprice);
+                dateOrder = calendar.getTime();
+
+                JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
+                Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
 
             }
         });
 
 
     }
+
     private void showDateTimeDialog(final TextView date_time_in) {
-        final Calendar calendar=Calendar.getInstance();
-        DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
+
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                calendar.set(Calendar.YEAR,year);
-                calendar.set(Calendar.MONTH,month);
-                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                        calendar.set(Calendar.MINUTE,minute);
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        calendar.set(Calendar.MINUTE, minute);
 
-                        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddHH:mm");
 
                         date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
                     }
                 };
 
-                new TimePickerDialog(DatlichActivity.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
+                new TimePickerDialog(DatlichActivity.this, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false).show();
             }
         };
 
-        new DatePickerDialog(DatlichActivity.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+        new DatePickerDialog(DatlichActivity.this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
     //fixbug
 
-    private String token()
-    {
+    private String token() {
         prefs = getSharedPreferences("HAIR", MODE_PRIVATE);
         token = prefs.getString("token", toString());
         return token;
@@ -214,21 +216,20 @@ public class DatlichActivity extends AppCompatActivity {
         });
 
     }
-    private void Order(String customerId,String[] serviceIds,String stylistId,Date time,String note,int sumpPrice)
-    {
+
+    private void Order(String customerId, JSONArray serviceIds, String stylistId,  Date time, String note, int sumPrice) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/order/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiOrder apiOrder = retrofit.create(ApiOrder.class);
-        Call<OrderResponse> call = apiOrder.order(customerId,serviceIds,stylistId,time,note,sumpPrice);
+        Call<OrderResponse> call = apiOrder.order(customerId, serviceIds, stylistId,  time, note, sumPrice);
         call.enqueue(new Callback<OrderResponse>() {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
 
                 }

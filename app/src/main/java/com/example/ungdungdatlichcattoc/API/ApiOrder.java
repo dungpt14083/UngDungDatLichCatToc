@@ -2,8 +2,11 @@ package com.example.ungdungdatlichcattoc.API;
 
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
 import com.example.ungdungdatlichcattoc.model.RegisterResponse;
+import com.google.gson.JsonArray;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import org.json.JSONArray;
 
 import java.util.Date;
 
@@ -16,11 +19,13 @@ public interface ApiOrder {
     @FormUrlEncoded
     @POST("add")
     Call<OrderResponse> order(
-            @Field("customerId") String customerId,
-            @Field("serviceIds") String[] serviceIds,
+            @Field("token") String customerId,
+            @Field("serviceIds") JSONArray serviceIds,
             @Field("stylistId") String stylistId,
+
             @Field("time") Date time,
             @Field("note") String note,
             @Field("sumPrice") int sumPrice
+
     );
 }
