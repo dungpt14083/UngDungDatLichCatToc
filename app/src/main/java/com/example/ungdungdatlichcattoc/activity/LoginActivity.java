@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("phone", phone);
                         editor.putString("password", password);
                         editor.putString("id", response.body().getId());
+                        editor.putString("token",token);
                         editor.apply();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();

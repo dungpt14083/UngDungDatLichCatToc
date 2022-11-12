@@ -7,12 +7,6 @@
     android:gravity="center"
     android:layout_margin="10dp"
     android:layout_height="match_parent">
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardElevation="3dp"
-    app:cardCornerRadius="10dp"
-    app:cardUseCompatPadding="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +25,7 @@
                 android:minWidth="200dp"
                 android:layout_gravity="center"
                 android:src="@drawable/tocnamdep"
-                android:id="@+id/item_stylish_avatar"/>
+                android:id="@+id/item_stylish_avatar_spiner"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,23 +34,8 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:id="@+id/item_stylish_tvname"/>
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
-                android:text="Chọn"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                app:strokeColor="@color/black"
-                app:strokeWidth="2dp"
-                app:cornerRadius="50dp"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/item_stylish_btn"/>
-
+                android:id="@+id/item_stylish_tvname_spiner"/>
 
         </LinearLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
-
 </LinearLayout>

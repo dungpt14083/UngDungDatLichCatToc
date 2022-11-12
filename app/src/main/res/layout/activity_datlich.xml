@@ -212,7 +212,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center_vertical"
-                            android:text="HỌ VÀ TÊN"
+                            android:text="Chọn Dịch Vụ"
                             android:textSize="14dp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -229,16 +229,14 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
                 android:textSize="20dp" />
             <!--    -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/crv_selectstylish"
                 android:layout_width="370dp"
                 android:layout_height="49dp"
                 android:layout_gravity="center"
                 app:cardBackgroundColor="#F1F0F0"
-                app:cardCornerRadius="10dp"
-
-                >
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
-                    android:id="@+id/layout_selectstylish"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -249,30 +247,20 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/account"
-
                         />
-
-
                     <Spinner
                         android:id="@+id/spinerstylish"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:drawSelectorOnTop="true"
                         android:text="NAM PHƯƠNG BÙI "
                         android:textStyle="bold" />
+
+
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tv_datlich_namestylish"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="21dp"
-                android:text="name stylish"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="370dp"
@@ -295,23 +283,48 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/calenda"
+                        android:id="@+id/btn_datlich_calendar"
 
                         />
 
-
-                    <Spinner
-
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="right"
-                        android:text="NAM PHƯƠNG BÙI "
-                        android:textStyle="bold" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/tv_datlich_time"
+                        android:text="Chọn Thời Gian"
+                        android:textSize="14dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="21dp"
+                android:text="4.YÊU CẦU THÊM CỦA ANH"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#F1F0F0"
+                app:cardCornerRadius="10dp"
+                >
+                <EditText
+                    android:hint="anh có yêu cầu gì thêm"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:id="@+id/datlich_edt_yeucauthem"/>
 
+            </androidx.cardview.widget.CardView>
             <Button
+                android:id="@+id/btn_order_hoantat"
                 android:layout_width="370dp"
                 android:layout_height="59dp"
                 android:layout_gravity="center"
@@ -325,7 +338,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                 android:gravity="center"
                 android:text="CẮT SONG TRẢ TIỀN , HỦY LỊCH KHÔNG SAO"
                 android:textSize="15dp" />
         </LinearLayout>

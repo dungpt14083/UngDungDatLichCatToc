@@ -44,12 +44,14 @@
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_datlich.xml" value="0.25" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_hair.xml" value="0.13632246376811594" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_hair_stylish.xml" value="0.33" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_hair_stylist.xml" value="0.22" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_login.xml" value="0.17831813576494426" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_login_2.xml" value="0.192481884057971" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_page1.xml" value="0.17603850050658562" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_page3.xml" value="0.17603850050658562" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_xacthuc_sdt.xml" value="0.2463768115942029" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/dialogstylish.xml" value="0.11944444444444445" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_home.xml" value="0.22" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/frag_user.xml" value="0.1" />
@@ -63,7 +65,9 @@
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_grid_khampha.xml" value="0.2975630611372381" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_lichsucut.xml" value="0.23889392565729828" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/itemstylish.xml" value="0.18" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/layout_item_stylish_rcv.xml" value="0.24592391304347827" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/layout_item_stylish_rcv.xml" value="0.25" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/layout_item_stylish_spiner.xml" value="0.1" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/layout_item_stylish_spiner_selected.xml" value="0.25" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/stylishandtime.xml" value="0.17603850050658562" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18611111111111112" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/menu/nav_bottom.xml" value="0.3223958333333333" />
