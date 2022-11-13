@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_traiNhiem;
 import com.example.ungdungdatlichcattoc.R;
+import com.example.ungdungdatlichcattoc.activity.Activity_newfeed;
 import com.example.ungdungdatlichcattoc.activity.BanGiaActivity;
 import com.example.ungdungdatlichcattoc.activity.DatlichActivity;
 import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
@@ -39,6 +41,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Fragment_home extends Fragment {
     CardView btnDatLich,btnBangGia,btnLichSuCut;
+    ImageView imgNewFeed ;
     ListView lv ;
 
     private List<Service> serviceList1;
@@ -58,6 +61,14 @@ public class Fragment_home extends Fragment {
             }
         });
 
+        imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
+        imgNewFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext() , Activity_newfeed.class);
+                startActivity( intent);
+            }
+        });
         lv = view.findViewById(R.id.home_rcv_dichvu) ;
         serviceList1 = new ArrayList<>();
         Adapter_traiNhiem adapter_traiNhiem = new Adapter_traiNhiem(getContext(), R.layout.item_trai_nhiem, serviceList1 ) ;
