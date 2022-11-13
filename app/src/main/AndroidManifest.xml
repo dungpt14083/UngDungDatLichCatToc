@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ungdungdatlichcattoc">
 
-  <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -18,11 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activity.HairStylishActivity"
-            android:exported="true" >
-
+            android:name=".ActivityDetail"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
-
         <activity
             android:name=".XacthucSDT"
             android:exported="false" />
@@ -49,6 +50,15 @@
             android:exported="true" />
         <activity
             android:name=".activity.ChonDichVuAcitivty"
+            android:exported="true" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Activity_newfeed"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ActivityDetail"
             android:exported="true" />
         <activity
             android:name=".activity.LoginActivity"
