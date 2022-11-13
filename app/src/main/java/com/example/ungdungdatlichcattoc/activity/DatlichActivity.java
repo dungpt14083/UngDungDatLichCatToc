@@ -113,10 +113,9 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String tokencus = token();
-                String note = edtycthem.getText().toString() + " 1 ";
+                String note = edtycthem.getText().toString() + " ! ";
                 String date = tv_datlich_time.getText().toString();
                 dateOrder = calendar.getTime();
-
                 JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
                 Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
 
@@ -228,7 +227,8 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DatlichActivity.this, "Đặt Lịch Thành Công", Toast.LENGTH_SHORT).show();
+                    Log.e("TAGmess", "onResponse: "+response.message());
                 } else {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
 
