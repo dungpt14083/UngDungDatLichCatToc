@@ -162,8 +162,6 @@ public class DatlichActivity extends AppCompatActivity {
     }
 
     void getAdapterHairStylish() {
-
-
     }
 
     void getHairStylishAPI() {

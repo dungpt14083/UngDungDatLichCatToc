@@ -33,11 +33,7 @@ public class Activity_newfeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_khampha);
         gridView = findViewById(R.id.khampha_grid) ;
-
-        //newfeedList = new
-        //this is api
-//        newFeedAdapter = new NewFeedAdapter(Activity_newfeed.this , newfeedList) ;
-//        gridView.setAdapter(newFeedAdapter) ;
+        //
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/newfeed/")
                 .addConverterFactory(GsonConverterFactory.create())
