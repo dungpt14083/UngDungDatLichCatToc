@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -41,6 +43,7 @@ public class Fragment_home extends Fragment {
     CardView btnDatLich,btnBangGia,btnLichSuCut;
     ImageView imgNewFeed ;
     ListView lv ;
+
     private List<Service> serviceList1;
     @Nullable
     @Override
@@ -50,6 +53,14 @@ public class Fragment_home extends Fragment {
         btnDatLich = view.findViewById(R.id.home_cardview_datlich);
         btnBangGia=view.findViewById(R.id.home_cardview_banggia);
         btnLichSuCut = view.findViewById(R.id.home_cardview_lichsucut);
+        btnBangGia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext() , BanGiaActivity.class);
+                startActivity(intent);
+            }
+        });
+
         imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
         imgNewFeed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,13 +89,20 @@ public class Fragment_home extends Fragment {
                     Toast.makeText(getContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
                     lv.setAdapter(adapter_traiNhiem);
                     adapter_traiNhiem.notifyDataSetChanged();
-
                 }
             }
             @Override
             public void onFailure(Call<List<Service>> call, Throwable t) {
                 Toast.makeText(getContext(), "Lỗi rồi ông cháu: " + t, Toast.LENGTH_SHORT).show();
                 Log.e("LoiGETDATA", "onFailure: " + t);
+            }
+        });
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), BanGiaActivity.class);
+                startActivity(intent);
             }
         });
         //
