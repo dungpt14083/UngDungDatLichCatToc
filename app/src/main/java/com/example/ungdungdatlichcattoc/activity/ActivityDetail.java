@@ -28,16 +28,19 @@ public class ActivityDetail extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         title = findViewById(R.id.tile_detail_newfeed);
         contentTitle = findViewById(R.id.tile_contentTitle_newfeed);
-        description = findViewById(R.id.description);
+        description = findViewById(R.id.title_description_newfeed);
+
         lv = findViewById(R.id.imgDetail);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if (bundle!=null)
         {
-            title.setText("Title : "+bundle.getString("title"));
-            contentTitle.setText("contentTitle : "+bundle.getString("contentTitle"));
-            description.setText("description : "+bundle.getString("description"));
+            title.setText(bundle.getString("title"));
+            contentTitle.setText(bundle.getString("contentTitle"));
+            description.setText(bundle.getString("description"));
+            //contentTitle.setText(bundle.getString("contentTitle"));
+            //description.setText("bùi văn chung ");
             String[] a = bundle.getStringArray("img");
             adapter_imgNewfeed = new Adapter_imgNewfeed(getApplicationContext(), Arrays.asList(a));
             lv.setAdapter(adapter_imgNewfeed);
