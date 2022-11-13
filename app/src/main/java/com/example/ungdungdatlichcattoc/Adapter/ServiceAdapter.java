@@ -1,6 +1,8 @@
 package com.example.ungdungdatlichcattoc.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +12,21 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.R;
+import com.example.ungdungdatlichcattoc.activity.ChonDichVuAcitivty;
 import com.example.ungdungdatlichcattoc.model.Service;
 import com.google.android.material.button.MaterialButton;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceAdapter extends BaseAdapter {
     private Context context;
     private int idLayout;
-    private List<Service> serviceList;
+    public List<Service> serviceList;
+    public ArrayList<String> idservice = new ArrayList<>();
+    public ArrayList<Integer> priceservice= new ArrayList<>();
+
 
     public ServiceAdapter(Context context, int idLayout, List<Service> serviceList) {
         this.context = context;
@@ -63,11 +70,17 @@ public class ServiceAdapter extends BaseAdapter {
             String price = formatter.format(service.getPrice());
             item_chondichvu_tvPrice.setText(price + " VNĐ");
             // Glide.with(holder.img_avatar.getContext()).load(comics.getImage()).into(holder.img_avatar);
-            Glide.with(item_chondichvu_img.getContext()).load("http://io.supermeo.com:8000/"+service.getImages()).into(item_chondichvu_img);
+            Glide.with(item_chondichvu_img.getContext()).load("http://io.supermeo.com:8000/" + service.getImages()).into(item_chondichvu_img);
 
             item_chondichvu_btn_chon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+
+                    idservice.add(service.get_id());
+                    priceservice.add(service.getPrice());
+                    item_chondichvu_btn_chon.setText("Đã Chọn");
+                    item_chondichvu_btn_chon.setEnabled(false);
 
                 }
             });
