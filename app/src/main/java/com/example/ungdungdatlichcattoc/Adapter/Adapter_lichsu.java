@@ -5,19 +5,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.History;
 import com.example.ungdungdatlichcattoc.model.Newfeed;
+import com.example.ungdungdatlichcattoc.model.Order;
 
 import java.util.List;
 
 public class Adapter_lichsu extends BaseAdapter {
-    List<History> historyList ;
+    List<Order> orderList ;
+    Context context ;
+
+    public Adapter_lichsu(List<Order> orderList, Context context) {
+        this.orderList = orderList;
+        this.context = context;
+    }
+
     @Override
     public int getCount() {
-        return historyList.size();
+        return orderList.size();
     }
 
     @Override
@@ -32,24 +42,32 @@ public class Adapter_lichsu extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-       NewFeedAdapter.ViewHolder viewHolder ;
-        final History history = historyList.get(i);
+        ViewHolderls viewHolderls  ;
+
         if (view == null)
         {
-            viewHolder = new NewFeedAdapter.ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(
+            viewHolderls = new ViewHolderls() ;
+            LayoutInflater inflater = (LayoutInflater)context .getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.item_grid_khampha , null);
-            viewHolder.avatar = view.findViewById(R.id.item_khampha_img);
-            viewHolder.title = view.findViewById(R.id.item_khampha_tvtitle);
-            view.setTag(viewHolder);
+            view = inflater.inflate(R.layout.item_lichsucut , null);
+            viewHolderls.lsNamestylist = view.findViewById(R.id.tv_lichsu_namestylist);
+            viewHolderls.lsNameskinner = view.findViewById(R.id.tv_lichsu_nameskinner);
+            viewHolderls.lsNamedichvu = view.findViewById(R.id.tv_lichsu_namedichvu);
+            viewHolderls.imglichsu = view.findViewById(R.id.img_lichsu_avatar);
+            view.setTag(viewHolderls);
         }
         else{
-            viewHolder = (NewFeedAdapter.ViewHolder) view.getTag();
+            viewHolderls = (Adapter_lichsu.ViewHolderls) view.getTag();
         }
-        Newfeed newf = newFeedList.get(i);
-        Glide.with(viewHolder.avatar).load("http://io.supermeo.com:8000/"+newfeed.getImage()[0]).into(viewHolder.avatar);
-        viewHolder.title.setText(newf.getTitle());
+        final Order order = orderList.get(i);
+        viewHolderls.lsNameskinner.setText(order.getSumPrice());
+        viewHolderls.lsNamestylist.setText(order.getStylelistId());
+        viewHolderls.lsNamedichvu.setText(order.getCustomerId());
+
         return  view ;
+    }
+    class ViewHolderls{
+        TextView lsNamestylist, lsNameskinner , lsNamedichvu;
+        ImageView imglichsu;
     }
 }

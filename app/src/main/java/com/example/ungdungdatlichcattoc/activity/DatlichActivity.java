@@ -97,7 +97,6 @@ public class DatlichActivity extends AppCompatActivity {
                 HairStylish hairStylish = hairStylishList.get(i);
                 idStylish = hairStylish.get_id();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -226,11 +225,15 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if (response.isSuccessful()) {
+                    if (response.body() != null) {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
 
                 }
+
+                }
+
             }
 
             @Override
