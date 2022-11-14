@@ -19,7 +19,7 @@ public interface ApiOrder {
     @FormUrlEncoded
     @POST("add")
     Call<OrderResponse> order(
-            @Field("token") String customerId,
+            @Field("token") String token,
             @Field("serviceIds") JSONArray serviceIds,
             @Field("stylistId") String stylistId,
 
