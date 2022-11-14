@@ -30,6 +30,7 @@ import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.HairStylish;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
+import com.example.ungdungdatlichcattoc.model.ServiceIDs;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
@@ -69,6 +70,7 @@ public class DatlichActivity extends AppCompatActivity {
     Date dateOrder;
     EditText edtycthem;
     Button btn_order_hoantat;
+    int sttTime;
     final Calendar calendar = Calendar.getInstance();
 
     @Override
@@ -90,6 +92,7 @@ public class DatlichActivity extends AppCompatActivity {
         getHairStylishAPI();
         getAdapterHairStylish();
         token();
+        sttTime =0;
         Log.e("Token", "mytoken: " + token());
         spinnerStylish.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -106,21 +109,46 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showDateTimeDialog(tv_datlich_time);
+                sttTime+=1;
             }
         });
         btn_order_hoantat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String tokencus = token();
-                String note = edtycthem.getText().toString() + " 1 ";
-                String date = tv_datlich_time.getText().toString();
-                dateOrder = calendar.getTime();
+                String note = edtycthem.getText().toString() + " ! ";
+                String date = "";
 
-                JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
-                Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
+                dateOrder = calendar.getTime();
+                if(check(listidservice,sttTime)==true){
+                    JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
+                    Log.d("array", "onClick: "+jsonArray);
+                    List<ServiceIDs> stringList = new ArrayList<>();
+                    for(int i=0;i<listidservice.length;i++){
+                        stringList.add(new ServiceIDs(listidservice[i]));
+                    }
+                  //  Log.d("ListTAG", "onClick: "+stringList);
+                  Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
+                    sttTime=0;
+                }
+
 
             }
         });
+
+
+    }
+    private boolean check(String[] listidservice,int date){
+        boolean x = true;
+        if(listidservice==null){
+            Toast.makeText(getApplicationContext(),"Anh hãy chọn dịch vụ",Toast.LENGTH_SHORT).show();
+            x= false;
+        }
+        if(date==0){
+            Toast.makeText(getApplicationContext(),"Anh hãy chọn thời gian",Toast.LENGTH_SHORT).show();
+            x= false;
+        }
+        return x;
 
 
     }
@@ -214,9 +242,9 @@ public class DatlichActivity extends AppCompatActivity {
 
     }
 
-    private void Order(String customerId, JSONArray serviceIds, String stylistId,  Date time, String note, int sumPrice) {
+    private void Order(String customerId, JSONArray serviceIds, String stylistId, Date time, String note, int sumPrice) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://io.supermeo.com:8000/order/")
+                .baseUrl("http://192.168.1.5:8000/order/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiOrder apiOrder = retrofit.create(ApiOrder.class);
@@ -227,6 +255,10 @@ public class DatlichActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DatlichActivity.this, "Đặt Lịch Thành Công", Toast.LENGTH_SHORT).show();
+                    finish();
+                    Intent intent = new Intent(DatlichActivity.this,DatlichActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
 
@@ -239,6 +271,7 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<OrderResponse> call, Throwable t) {
                 Log.d("go", "onFailure: " + t.toString());
+                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
     }

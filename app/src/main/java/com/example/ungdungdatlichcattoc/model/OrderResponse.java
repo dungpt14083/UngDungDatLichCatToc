@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import org.json.JSONArray;
 
 import java.util.Date;
+import java.util.List;
 
 public class OrderResponse {
     @SerializedName("paymentType")
@@ -17,13 +18,14 @@ public class OrderResponse {
     @Expose
     private String _id;
 
-    @SerializedName("serviceIds")
+    @SerializedName("serviceIds[]")
     @Expose
-    private JSONArray serviceIds;
+    private String[] serviceIds;
 
     @SerializedName("stylistId")
     @Expose
     private String stylistId;
+
     @SerializedName("time")
     @Expose
     private Date  time;
@@ -32,7 +34,7 @@ public class OrderResponse {
     @Expose
     private String  note;
 
-    @SerializedName("token")
+    @SerializedName("customerId")
     @Expose
     private  String customerId;
 
