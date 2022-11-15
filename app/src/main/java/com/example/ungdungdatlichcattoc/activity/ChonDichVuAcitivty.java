@@ -85,7 +85,6 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
                     gridView.setAdapter(serviceAdapter);
                     serviceAdapter.notifyDataSetChanged();
-
                 }
             }
 
