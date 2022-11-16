@@ -86,14 +86,12 @@ public class Fragment_home extends Fragment {
             public void onResponse(Call<List<Service>> call, Response<List<Service>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     serviceList1.addAll(response.body());
-                    Toast.makeText(getContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
                     lv.setAdapter(adapter_traiNhiem);
                     adapter_traiNhiem.notifyDataSetChanged();
                 }
             }
             @Override
             public void onFailure(Call<List<Service>> call, Throwable t) {
-                Toast.makeText(getContext(), "Lỗi rồi ông cháu: " + t, Toast.LENGTH_SHORT).show();
                 Log.e("LoiGETDATA", "onFailure: " + t);
             }
         });

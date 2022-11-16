@@ -40,7 +40,7 @@
             android:name=".activity.DatlichActivity"
             android:exported="true" />
         <activity
-            android:name=".AccoutActivity"
+            android:name=".activity.AccoutActivity"
             android:exported="false" />
         <activity
             android:name=".activity.BanGiaActivity"

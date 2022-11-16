@@ -39,8 +39,8 @@ public class ActivityDetail extends AppCompatActivity {
             title.setText(bundle.getString("title"));
             contentTitle.setText(bundle.getString("contentTitle"));
             description.setText(bundle.getString("description"));
-            //contentTitle.setText(bundle.getString("contentTitle"));
             //description.setText("bùi văn chung ");
+            //contentTitle.setText(bundle.getString("contentTitle"));
             String[] a = bundle.getStringArray("img");
             adapter_imgNewfeed = new Adapter_imgNewfeed(getApplicationContext(), Arrays.asList(a));
             lv.setAdapter(adapter_imgNewfeed);

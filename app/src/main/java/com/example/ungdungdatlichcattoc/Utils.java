@@ -24,6 +24,14 @@ public class Utils {
                 isReturn = false;
             }
         }
+
         return isReturn;
     }
+    public static Boolean checkPhone(String editTextList) {
+        boolean isReturn = true;
+
+
+        return isReturn;
+    }
+
 }

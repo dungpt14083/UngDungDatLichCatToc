@@ -1,6 +1,7 @@
 package com.example.ungdungdatlichcattoc.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BanGiaActivity extends AppCompatActivity {
     private GridView gridView;
     private List<Service> serviceList;
+    CardView banggia_btn_datlich;
     ImageView btnhomeback;
 
     @Override
@@ -35,6 +37,7 @@ public class BanGiaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ban_gia);
         gridView =findViewById(R.id.banggia_gridview);
+        banggia_btn_datlich=findViewById(R.id.banggia_btn_datlich);
         serviceList = new ArrayList<>();
         Adapter_BangGia adapter_bangGia = new Adapter_BangGia(getApplicationContext() , R.layout.item_banggia , serviceList);
         gridView.setAdapter(adapter_bangGia);
