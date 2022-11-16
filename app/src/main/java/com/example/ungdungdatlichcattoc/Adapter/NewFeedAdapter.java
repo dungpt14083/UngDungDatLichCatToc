@@ -46,7 +46,7 @@ public class NewFeedAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder ;
-        final Newfeed newfeed = newFeedList.get(i);
+            final Newfeed newfeed = newFeedList.get(i);
         if (view == null)
         {
             viewHolder = new ViewHolder();

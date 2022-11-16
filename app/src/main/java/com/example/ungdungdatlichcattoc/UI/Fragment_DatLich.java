@@ -1,5 +1,7 @@
 package com.example.ungdungdatlichcattoc.UI;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.ungdungdatlichcattoc.R;
 
 public class Fragment_DatLich extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -20,5 +23,6 @@ public class Fragment_DatLich extends Fragment {
         
 
         return view;
+
     }
 }

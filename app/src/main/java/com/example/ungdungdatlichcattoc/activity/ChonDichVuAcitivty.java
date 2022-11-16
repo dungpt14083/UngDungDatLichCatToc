@@ -84,7 +84,6 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
                     serviceList.addAll(response.body());
                     gridView.setAdapter(serviceAdapter);
                     serviceAdapter.notifyDataSetChanged();
-
                 }
             }
 

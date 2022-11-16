@@ -8,7 +8,7 @@
 
     <LinearLayout
 
-        android:background="#666666"
+        android:background="#F9E323"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="8"
@@ -110,7 +110,7 @@
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_margin="10dp"
-                            android:backgroundTint="#BCB2B2"
+                            android:backgroundTint="#D1D0D0"
                             app:cardCornerRadius="250dp"
                             app:cardElevation="5dp">
 
@@ -121,7 +121,7 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="32dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:src="@drawable/calenda" />
@@ -150,7 +150,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#BCB2B2"
+        android:backgroundTint="#D1D0D0"
         app:cardCornerRadius="250dp"
         app:cardElevation="5dp">
 
@@ -191,7 +191,7 @@
                         android:id="@+id/home_cardview_banggia"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:backgroundTint="#BCB2B2"
+                        android:backgroundTint="#D1D0D0"
                         android:layout_margin="10dp"
                         app:cardCornerRadius="250dp"
                         app:cardElevation="5dp">
@@ -224,67 +224,6 @@
 
                 </LinearLayout>
             </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="184dp"
-                android:layout_margin="10dp"
-
-                app:cardBackgroundColor="#D9D9D9"
-                app:cardCornerRadius="30dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-                            android:src="@drawable/thuy" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:text="Mời anh đánh giá chất lượng dịch vụ"
-                                android:textColor="@color/black"
-                                android:textSize="20dp" />
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Phản hồi của anh sẽ giúp chúng em cải thiện chất lượng dịch vụ"
-                                android:textColor="@color/black"
-                                android:textSize="13dp" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <RatingBar
-                        android:id="@+id/home_rattingbar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="10dp"
-                        android:numStars="5"
-                        android:rating="4"
-                        android:theme="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
