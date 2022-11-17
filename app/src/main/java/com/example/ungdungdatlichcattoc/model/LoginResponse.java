@@ -26,6 +26,14 @@ public class LoginResponse {
     @SerializedName("token")
     @Expose
     private String token;
+    @SerializedName("nameUser")
+    @Expose
+    private String nameUser;
+
+    @SerializedName("address")
+    @Expose
+    private String address;
+
 
     public String getId() {
         return id;
@@ -83,4 +91,19 @@ public class LoginResponse {
         this.token = token;
     }
 
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

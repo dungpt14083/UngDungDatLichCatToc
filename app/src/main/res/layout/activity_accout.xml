@@ -64,6 +64,7 @@
                 android:text="Chỉnh sửa"
                 android:textColor="#EAD608"
                 android:textSize="20dp"
+                android:id="@+id/tv_account_update"
                 android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
@@ -84,6 +85,7 @@
                     android:textStyle="bold"
                     android:textSize="15dp"
                     android:text="HỌ VÀ TÊN"
+
                     />
                 <TextView
                     android:layout_width="match_parent"
@@ -92,6 +94,7 @@
                     android:gravity="right"
                     android:textSize="15dp"
                     android:text="NAM PHƯƠNG BÙI "
+                    android:id="@+id/tv_account_nameuser"
                     />
             </LinearLayout>
             <View
@@ -118,35 +121,14 @@
                     android:gravity="right"
                     android:textSize="15dp"
                     android:text="012345679 "
+                    android:id="@+id/tv_account_phone"
                     />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/black" />
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="EMAIL"
-                    />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:gravity="right"
-                    android:textSize="15dp"
-                    android:text=" namphuong123@gmail.com "
-                    />
-            </LinearLayout>
             <LinearLayout
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
@@ -168,6 +150,7 @@
                     android:gravity="right"
                     android:textSize="15dp"
                     android:text="  "
+                    android:id="@+id/tv_account_birthday"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -210,6 +193,7 @@
                 android:gravity="right"
                 android:textSize="15dp"
                 android:text=""
+                android:id="@+id/tv_account_adress"
                 />
         </LinearLayout>
         <View

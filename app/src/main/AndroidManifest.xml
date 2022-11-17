@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.UpdateAccountActivity"
+            android:exported="true" />
+        <activity
             android:name=".ActivityDetail"
             android:exported="false">
             <meta-data

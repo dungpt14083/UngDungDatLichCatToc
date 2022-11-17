@@ -16,6 +16,7 @@ import com.example.ungdungdatlichcattoc.Adapter.Adapter_BangGia;
 import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.Service;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BanGiaActivity extends AppCompatActivity {
     private GridView gridView;
     private List<Service> serviceList;
-    CardView banggia_btn_datlich;
+    MaterialButton banggia_btn_datlich;
     ImageView btnhomeback;
 
     @Override
