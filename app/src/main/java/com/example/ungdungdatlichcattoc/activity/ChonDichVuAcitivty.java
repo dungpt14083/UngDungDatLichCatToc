@@ -82,7 +82,6 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
             public void onResponse(Call<List<Service>> call, Response<List<Service>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     serviceList.addAll(response.body());
-                    Toast.makeText(getApplicationContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
                     gridView.setAdapter(serviceAdapter);
                     serviceAdapter.notifyDataSetChanged();
                 }
@@ -90,7 +89,6 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Service>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Lỗi rồi ông cháu: " + t, Toast.LENGTH_SHORT).show();
                 Log.e("LoiGETDATA", "onFailure: " + t);
             }
         });

@@ -135,13 +135,13 @@
                             android:src="@drawable/account"
                             />
                         <TextView
-                            android:layout_gravity="right"
+                            android:layout_gravity="center"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginRight="10dp"
                             android:text="THÔNG TIN TÀI KHOẢN"
-                            android:gravity="right"
+                            android:gravity="left"
                             />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -178,7 +178,7 @@
                             android:text="ĐỊA CHỈ CỦA ANH "
                             android:textColor="@color/black"
                             android:layout_marginRight="10dp"
-                            android:gravity="right"
+                            android:gravity="left"
                             />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -213,7 +213,7 @@
                             android:textColor="@color/black"
                             android:layout_marginRight="10dp"
                             android:text="LỊCH SỬ CẮT "
-                            android:gravity="right"
+                            android:gravity="left"
                             />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -249,7 +249,7 @@
                             android:layout_height="match_parent"
 
                             android:text="THÔNG TIN HỖ TRỢ KHÁCH HÀNG "
-                            android:gravity="right"
+                            android:gravity="left"
                             />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.UpdateAccountActivity"
+            android:exported="true" />
+        <activity
             android:name=".ActivityDetail"
             android:exported="false">
             <meta-data
@@ -40,7 +43,7 @@
             android:name=".activity.DatlichActivity"
             android:exported="true" />
         <activity
-            android:name=".AccoutActivity"
+            android:name=".activity.AccoutActivity"
             android:exported="false" />
         <activity
             android:name=".activity.BanGiaActivity"

@@ -29,12 +29,14 @@ import com.example.ungdungdatlichcattoc.Adapter.HairStylishSpinerAdapter;
 import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.HairStylish;
+import com.example.ungdungdatlichcattoc.model.LoginResponse;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
 import com.example.ungdungdatlichcattoc.model.ServiceIDs;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -92,6 +94,8 @@ public class DatlichActivity extends AppCompatActivity {
         getHairStylishAPI();
         getAdapterHairStylish();
         token();
+
+
         sttTime =0;
         Log.e("Token", "mytoken: " + token());
         spinnerStylish.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -127,7 +131,6 @@ public class DatlichActivity extends AppCompatActivity {
                     for(int i=0;i<listidservice.length;i++){
                         stringList.add(new ServiceIDs(listidservice[i]));
                     }
-                  //  Log.d("ListTAG", "onClick: "+stringList);
                   Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
                     sttTime=0;
                 }
@@ -244,7 +247,7 @@ public class DatlichActivity extends AppCompatActivity {
 
     private void Order(String customerId, JSONArray serviceIds, String stylistId, Date time, String note, int sumPrice) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.5:8000/order/")
+                .baseUrl("http://io.supermeo.com:8000/order/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiOrder apiOrder = retrofit.create(ApiOrder.class);
@@ -253,9 +256,8 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if (response.isSuccessful()) {
-                    
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(DatlichActivity.this, "Đặt Lịch Thành Công", Toast.LENGTH_SHORT).show();
+                    Log.e("TAGmess", "onResponse: "+response.message());
                     finish();
                     Intent intent = new Intent(DatlichActivity.this,DatlichActivity.class);
                     startActivity(intent);
@@ -268,7 +270,6 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<OrderResponse> call, Throwable t) {
                 Log.d("go", "onFailure: " + t.toString());
-                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
     }
