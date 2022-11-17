@@ -1,6 +1,7 @@
 package com.example.ungdungdatlichcattoc.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,13 @@ import com.example.ungdungdatlichcattoc.model.History;
 import com.example.ungdungdatlichcattoc.model.Newfeed;
 import com.example.ungdungdatlichcattoc.model.Order;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class Adapter_lichsu extends BaseAdapter {
     List<Order> orderList ;
     Context context ;
-
     public Adapter_lichsu(List<Order> orderList, Context context) {
         this.orderList = orderList;
         this.context = context;
@@ -53,21 +55,39 @@ public class Adapter_lichsu extends BaseAdapter {
             viewHolderls.lsNamestylist = view.findViewById(R.id.tv_lichsu_namestylist);
             viewHolderls.lsNameskinner = view.findViewById(R.id.tv_lichsu_nameskinner);
             viewHolderls.lsNamedichvu = view.findViewById(R.id.tv_lichsu_namedichvu);
+            viewHolderls.lsTime = view.findViewById(R.id.tv_lichsu_thoigian) ;
+            viewHolderls.lsdiachi = view.findViewById(R.id.tv_lichsu_diachi) ;
             viewHolderls.imglichsu = view.findViewById(R.id.img_lichsu_avatar);
             view.setTag(viewHolderls);
         }
         else{
-            viewHolderls = (Adapter_lichsu.ViewHolderls) view.getTag();
+            viewHolderls = (ViewHolderls) view.getTag();
         }
         final Order order = orderList.get(i);
         viewHolderls.lsNameskinner.setText(order.getSumPrice());
-        viewHolderls.lsNamestylist.setText(order.getStylelistId());
-        viewHolderls.lsNamedichvu.setText(order.getCustomerId());
+        viewHolderls.lsNamestylist.setText(order.getNameStylist());
+        viewHolderls.lsdiachi.setText("Số 7 Thiền Quang");
+        viewHolderls.lsNameskinner.setText(order.getNameStylist());
+        String a [] = orderList.get(i).getNameServices();
+        Log.e("TAG3", "getView:"+a );
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = format.parse(order.getTime());
+            System.out.println(date);
+            viewHolderls.lsTime.setText(format.format(date));
+        } catch (Exception e) {
 
+        }
+        //(order.getTime());
+        viewHolderls.lsNamedichvu.setText("");
+        for(int y=0; y< a.length; y++){
+            viewHolderls.lsNamedichvu.append(a[y]+"\n");   //prints all strings in the array
+            //viewHolderls.lsNamedichvu.append("\n");
+        }
         return  view ;
     }
     class ViewHolderls{
-        TextView lsNamestylist, lsNameskinner , lsNamedichvu;
+        TextView lsNamestylist, lsNameskinner , lsNamedichvu , lsTime , lsdiachi;
         ImageView imglichsu;
     }
 }

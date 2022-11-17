@@ -48,11 +48,11 @@ public class Activity_newfeed extends AppCompatActivity {
                     Log.e("TAG", "onResponse: "+newfeedList.size());
                     newFeedAdapter = new NewFeedAdapter(Activity_newfeed.this , newfeedList) ;
                     gridView.setAdapter(newFeedAdapter) ;
-                    for (int i = 0; i<newfeedList.size() ; i++)
-                    {
-                        Log.e("TAG", "onResponse: "+ newfeedList.get(i).image);
-                        Newfeed newfeed = newfeedList.get(i);
-                    }
+//                    for (int i = 0; i<newfeedList.size() ; i++)
+//                    {
+//                        Log.e("TAG", "onResponse: "+ newfeedList.get(i).image);
+//                        Newfeed newfeed = newfeedList.get(i);
+//                    }
                     gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
