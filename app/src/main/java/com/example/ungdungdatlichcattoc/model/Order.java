@@ -5,17 +5,23 @@ public class Order {
     private  String[] serviceIds ;
     private  String stylelistId ;
     private  String Status ;
-    private  String time  ,  totalTime , note , sumPrice ;
+    private String nameStylist ;
+    private  String time  , totalTime , note , sumPrice  , description , nameUser ;
+    private  String [] nameServices ;
 
-    public Order(String customerId, String[] serviceIds, String stylelistId, String status, String time, String totalTime, String note, String sumPrice) {
+    public Order(String customerId, String[] serviceIds, String stylelistId, String status, String nameStylist, String time, String totalTime, String note, String sumPrice, String description, String nameUser, String[] nameServices) {
         this.customerId = customerId;
         this.serviceIds = serviceIds;
         this.stylelistId = stylelistId;
         Status = status;
+        this.nameStylist = nameStylist;
         this.time = time;
         this.totalTime = totalTime;
         this.note = note;
         this.sumPrice = sumPrice;
+        this.description = description;
+        this.nameUser = nameUser;
+        this.nameServices = nameServices;
     }
 
     public String getCustomerId() {
@@ -50,6 +56,14 @@ public class Order {
         Status = status;
     }
 
+    public String getNameStylist() {
+        return nameStylist;
+    }
+
+    public void setNameStylist(String nameStylist) {
+        this.nameStylist = nameStylist;
+    }
+
     public String getTime() {
         return time;
     }
@@ -80,5 +94,29 @@ public class Order {
 
     public void setSumPrice(String sumPrice) {
         this.sumPrice = sumPrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
+
+    public String[] getNameServices() {
+        return nameServices;
+    }
+
+    public void setNameServices(String[] nameServices) {
+        this.nameServices = nameServices;
     }
 }
