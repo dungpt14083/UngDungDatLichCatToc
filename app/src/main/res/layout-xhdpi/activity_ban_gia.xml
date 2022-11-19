@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".activity.BanGiaActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home1"
+            android:id="@+id/btnhomeBangGia"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Bảng Giá Dịch Vụ"
+            android:textColor="@color/black"
+            android:layout_marginTop="1dp"
+            android:textSize="32dp" />
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#D8F4E8"
+        app:cardCornerRadius="40dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Hãy để Salon phục vụ anh với những thứ tốt nhất "
+            android:gravity="center"/>
+    </androidx.cardview.widget.CardView>
+<GridView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8.5"
+    android:numColumns="2"
+    android:id="@+id/banggia_gridview"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:backgroundTint="#E8E6E6"
+        android:text="Đặt Lịch Ngay"
+        android:textColor="@color/black"
+        android:id="@+id/banggia_btn_datlich"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
