@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:background="#F5F6F8">
+    android:background="#F6F6F6">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_marginTop="70dp"
         android:id="@+id/img_logo"
         android:layout_width="130dp"
         android:layout_height="130dp"
@@ -19,12 +16,11 @@
 
     <TextView
         android:id="@+id/tv_hair_salon"
-        android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hair Salon"
         android:textColor="#8D12B8"
-        android:textSize="20dp"
+        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_logo" />
@@ -34,163 +30,100 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/roboto"
-        android:text="Đăng nhập"
+        android:text="SIGN IN"
         android:textColor="#666C1C"
-        android:textSize="40dp"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_hair_salon" />
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="32dp"
-        android:layout_marginHorizontal="27dp"
-        android:layout_width="match_parent"
-        app:startIconDrawable="@drawable/ic_phone"
-        android:layout_height="wrap_content"
-        android:hint="Số điện thoại "
-        android:backgroundTint="#666C1C"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:shapeAppearance="@style/Rounded"
-        app:boxBackgroundColor="#FFFFFF"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-       >
-        <com.google.android.material.textfield.TextInputEditText
-            android:textSize="18sp"
-            android:fontFamily="@font/robotolight"
-            android:id="@+id/editTextPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_buttom_input"
+        android:drawableStart="@drawable/ic_phone"
+        android:elevation="10dp"
+        android:drawableTint="#FFA318"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:paddingStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_in" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="32dp"
-        android:layout_marginHorizontal="27dp"
-        android:layout_width="match_parent"
-        app:startIconDrawable="@drawable/ic_password"
-        android:layout_height="wrap_content"
-        android:hint="Mật khẩu "
-        android:backgroundTint="#666C1C"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:shapeAppearance="@style/Rounded"
-        app:boxBackgroundColor="#FFFFFF"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:textSize="18sp"
-            android:fontFamily="@font/robotolight"
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_buttom_input"
+        android:drawableStart="@drawable/ic_password"
+        android:drawableEnd="@drawable/ic_show"
+        android:elevation="10dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPhone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLogin"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_button_login"
+        android:elevation="20dp"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
 
     <TextView
         android:id="@+id/forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
         android:text="@string/forgot_password"
         android:textColor="#686868"
-        android:textSize="16dp"
-        android:layout_gravity="right"
-        />
-
-
-
-<!--    <androidx.appcompat.widget.AppCompatEditText-->
-<!--        android:id="@+id/editTextPhone"-->
-<!--        android:layout_marginHorizontal="27dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:background="@drawable/custom_buttom_input"-->
-<!--        android:drawableStart="@drawable/ic_phone"-->
-<!--        android:elevation="10dp"-->
-<!--        android:drawableTint="#FFA318"-->
-<!--        android:hint="@string/phone"-->
-<!--        android:inputType="phone"-->
-<!--        android:paddingStart="20dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/tv_sign_in" />-->
-
-<!--    <androidx.appcompat.widget.AppCompatEditText-->
-<!--        android:id="@+id/editTextPassword"-->
-<!--        android:layout_width="350dp"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:background="@drawable/custom_buttom_input"-->
-<!--        android:drawableStart="@drawable/ic_password"-->
-<!--        android:drawableEnd="@drawable/ic_show"-->
-<!--        android:elevation="10dp"-->
-<!--        android:hint="@string/password"-->
-<!--        android:inputType="textPassword"-->
-<!--        android:padding="20dp"-->
-<!--        android:backgroundTint="#8A8A8A"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/editTextPhone" />-->
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/buttonLogin"-->
-<!--        android:layout_width="350dp"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:background="@drawable/custom_button_login"-->
-<!--        android:elevation="20dp"-->
-<!--        android:text="@string/login"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="30sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />-->
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLogin"
-        android:layout_marginTop="38dp"
-        android:layout_width="215dp"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="78dp"
-        android:text="Đăng nhập "
-        android:textSize="24dp"
-        android:fontFamily="@font/robotomedium"
-        android:textColor="#ffff"
-        android:background="@drawable/my_corner_button"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
 
     <TextView
         android:id="@+id/tv_member"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:textColor="#8A8686"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="50dp"
         android:text="@string/not_a_member"
-        android:textSize="18sp"
-        android:fontFamily="@font/robotolight"
-         />
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forget_password" />
 
     <TextView
         android:id="@+id/textViewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="110dp"
         android:text="@string/register_now"
         android:textColor="#0A8ED9"
-        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/forget_password" />
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:src="@drawable/ic_line_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
