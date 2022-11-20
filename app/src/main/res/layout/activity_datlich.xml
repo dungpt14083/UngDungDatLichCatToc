@@ -140,7 +140,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
 <!--                        android:textStyle="bold" />-->
 <!--                </LinearLayout>-->
 <!--            </androidx.cardview.widget.CardView>-->
-<!--            &lt;!&ndash;    &ndash;&gt;-->
+            <!--    -->
 <!--            <androidx.cardview.widget.CardView-->
 <!--                android:layout_width="215dp"-->
 <!--                android:layout_height="52dp"-->
@@ -170,16 +170,14 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
 
 <!--            </androidx.cardview.widget.CardView>-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="20dp"-->
-<!--                android:text="2.CHỌN DỊCH VỤ"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="24dp" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="2.CHỌN DỊCH VỤ"
+                android:textColor="@color/black"
+                android:textSize="24dp" />
             <!--    -->
-
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/datlich_crv_chondichvu"
                 android:layout_width="370dp"

@@ -43,6 +43,7 @@
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_chon_dich_vu.xml" value="0.33" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_datlich.xml" value="0.25" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_detail.xml" value="0.4282238442822384" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_hair.xml" value="0.13632246376811594" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_hair_stylish.xml" value="0.33" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/activity_hair_stylist.xml" value="0.22" />
@@ -63,7 +64,7 @@
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_lichsucut.xml" value="0.23889392565729828" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/fragment_user.xml" value="0.33" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_banggia.xml" value="0.24230072463768115" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_chondichvu.xml" value="0.2096069868995633" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_chondichvu.xml" value="0.4282238442822384" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_grid_khampha.xml" value="0.2975630611372381" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_lichsucut.xml" value="0.23889392565729828" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/itemstylish.xml" value="0.18" />

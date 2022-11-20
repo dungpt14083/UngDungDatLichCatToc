@@ -2,6 +2,7 @@ package com.example.ungdungdatlichcattoc.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import com.example.ungdungdatlichcattoc.API.ApiCustomer;
 import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.CusstomerInfo;
+import com.example.ungdungdatlichcattoc.model.ProfileCus;
 import com.example.ungdungdatlichcattoc.model.RegisterResponse;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -34,12 +37,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UpdateAccountActivity extends AppCompatActivity {
 
-    TextInputEditText edt_update_account_username, edt_update_account_birthday, edt_update_account_Adress;
+    EditText edt_update_account_username, edt_update_account_birthday, edt_update_account_Adress;
     MaterialButton btn_updateaccount_Update;
+    TextView txtluuthongtin ;
     private String nameUser, birThday, Phone, token, andress;
     SharedPreferences prefs;
     final Calendar calendar = Calendar.getInstance();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,16 +52,18 @@ public class UpdateAccountActivity extends AppCompatActivity {
         edt_update_account_username = findViewById(R.id.edt_update_account_username);
         edt_update_account_birthday = findViewById(R.id.edt_update_account_birthday);
         edt_update_account_Adress = findViewById(R.id.edt_update_account_Adress);
-        btn_updateaccount_Update = findViewById(R.id.btn_updateaccount_Update);
+        txtluuthongtin = findViewById(R.id.tvLuuthongtin);
+        //btn_updateaccount_Update = findViewById(R.id.btn_updateaccount_Update);
 
         getUserinfo();
+        Profile(token);
         edt_update_account_birthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDateTimeDialog(edt_update_account_birthday);
+                showDateTimeDialog((TextInputEditText) edt_update_account_birthday);
             }
         });
-        btn_updateaccount_Update.setOnClickListener(new View.OnClickListener() {
+        txtluuthongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -75,23 +82,51 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     void getUserinfo() {
         prefs = getSharedPreferences("HAIR", MODE_PRIVATE);
-        nameUser = prefs.getString("nameUser", toString());
-        birThday = prefs.getString("birthday", toString());
-        Phone = prefs.getString("phone", toString());
         token = prefs.getString("token", token);
-        andress = prefs.getString("address", toString());
-        edt_update_account_username.setText(nameUser);
-        edt_update_account_Adress.setText(andress);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            Date date = format.parse(birThday);
-            System.out.println(date);
-            edt_update_account_birthday.setText(format.format(date));
-        } catch (Exception e) {
-
-        }
 
     }
+    private void Profile(String customerId) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://io.supermeo.com:8000/customer/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiCustomer apiCustomer = retrofit.create(ApiCustomer.class);
+        Call<ProfileCus> call = apiCustomer.Getprofile(customerId);
+        call.enqueue(new Callback<ProfileCus>() {
+            @Override
+            public void onResponse(Call<ProfileCus> call, Response<ProfileCus> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    ProfileCus profileCus = response.body();
+                    nameUser =profileCus.getNameUser();
+                    birThday = profileCus.getBirthOfYear();
+                    Phone= profileCus.getPhone();
+                    andress =profileCus.getAddress();
+
+                    edt_update_account_username.setText(nameUser);
+                    edt_update_account_Adress.setText(andress);
+
+
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    try {
+                        Date date = format.parse(birThday);
+
+                        edt_update_account_birthday.setText(format.format(date));
+                    } catch (Exception e) {
+                     //   Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+
+                    }
+                } else {
+                    Log.e("loi", "onResponse: looix");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProfileCus> call, Throwable t) {
+                Log.e("loi", "onResponse: looix "+t.getMessage());
+            }
+        });
+    }
+
 
     private void showDateTimeDialog(final TextInputEditText date_time_in) {
 
