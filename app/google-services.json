@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567513220532",
+    "project_id": "babershopotp",
+    "storage_bucket": "babershopotp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567513220532:android:a6a77f8f316ec7adfddee1",
+        "android_client_info": {
+          "package_name": "com.example.ungdungdatlichcattoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567513220532-0o87fb4hqp7ab9vtv8pv7i5i3g71k4up.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB5svG7OjdNaTa5dbDoifs4gs6Kj4kr_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567513220532-0o87fb4hqp7ab9vtv8pv7i5i3g71k4up.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
