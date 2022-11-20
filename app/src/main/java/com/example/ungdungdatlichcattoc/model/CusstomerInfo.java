@@ -10,8 +10,9 @@ public class CusstomerInfo {
     private String password;
     private String created;
     private Date birthOfYear;
+    private String phone;
 
-    public CusstomerInfo(String token, String nameUser, String address, String _id, String password, String created, Date birthOfYear) {
+    public CusstomerInfo(String token, String nameUser, String address, String _id, String password, String created, Date birthOfYear, String phone) {
         this.token = token;
         this.nameUser = nameUser;
         this.address = address;
@@ -19,6 +20,7 @@ public class CusstomerInfo {
         this.password = password;
         this.created = created;
         this.birthOfYear = birthOfYear;
+        this.phone = phone;
     }
 
     public CusstomerInfo() {
@@ -78,5 +80,13 @@ public class CusstomerInfo {
 
     public void setBirthOfYear(Date birthOfYear) {
         this.birthOfYear = birthOfYear;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

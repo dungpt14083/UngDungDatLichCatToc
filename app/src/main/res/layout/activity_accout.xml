@@ -15,9 +15,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -205,8 +202,13 @@
                     android:text="@string/txtchinhsua"
 
                     />
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ĐĂNG XUẤT"
+                    android:layout_margin="30dp"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/tv_account_logout"/>
             </LinearLayout>
 
         </LinearLayout>

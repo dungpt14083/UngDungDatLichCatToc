@@ -28,7 +28,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".XacthucSDT"
+            android:name=".activity.XacthucSDT"
             android:exported="false" />
         <activity
             android:name=".CreateAccountActivity"
