@@ -9,85 +9,41 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
         <LinearLayout
-            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
             >
-
             <TextView
-                android:fontFamily="@font/barlowcondensed_medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DISCOVER"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="28dp"/>
-
-
-            <ImageView
-                android:layout_marginTop="-26dp"
-                android:layout_marginLeft="-170dp"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/back"
-                />
-
-            <TextView
-                android:layout_marginTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="1.5dp"
-                android:background="#A6A1A1"/>
-
-
-            <TextView
-                android:fontFamily="@font/roboto_medium"
-                android:layout_marginTop="25dp"
                 android:id="@+id/tile_detail_newfeed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="title"
+                android:textStyle="bold"
                 android:textColor="#252525"
-                android:textSize="24dp"
+                android:textSize="40dp"
                 android:gravity="center_horizontal"
                 />
             <TextView
-                android:fontFamily="@font/roboto_lightItalic"
                 android:id="@+id/tile_contentTitle_newfeed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:text="chung"
+                android:textStyle="bold"
                 android:textColor="#534848"
                 android:textSize="20dp"
 
                 />
-            <TextView
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:fontFamily="@font/roboto_medium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Question"
-                />
-
-            <TextView
-                android:textSize="18dp"
-                android:fontFamily="@font/roboto_light"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="chung"
-                />
-
             <ListView
                 android:id="@+id/imgDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title_description_newfeed"
+                android:text="chung"
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

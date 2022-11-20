@@ -11,15 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_marginLeft="-50dp"
             android:id="@+id/btnhomeDatLich"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="13dp"
+            android:layout_margin="10dp"
             android:src="@drawable/home1" />
 
         <TextView
@@ -50,12 +48,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <TextView
-                android:fontFamily="@font/robotocondensed_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="24dp"
-                android:text="1.Chọn Dịch Vụ"
+                android:layout_margin="20dp"
+                android:text="1 .CHỌN SALON"
                 android:textColor="@color/black"
                 android:textSize="24dp" />
 
@@ -197,6 +195,7 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:src="@drawable/mone"
 
                         />
 
@@ -222,13 +221,12 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:fontFamily="@font/robotocondensed_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="21dp"
-                android:text="2.Chọn Stylist"
+                android:text="3.CHỌN NGÀY GIỜ VÀ STYLELIST"
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="20dp" />
             <!--    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/crv_selectstylish"
@@ -301,15 +299,12 @@ salon lần trước hoặc salon gần nhất phía dưới nhé ! " />
                         android:textStyle="bold"/>
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <TextView
-                android:fontFamily="@font/robotocondensed_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="21dp"
-                android:text="3.Chọn ngày, giờ"
+                android:text="4.YÊU CẦU THÊM CỦA ANH"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
             <androidx.cardview.widget.CardView
