@@ -257,5 +257,6 @@
         android:text="ĐĂNG XUẤT"
         android:layout_margin="30dp"
         android:gravity="center_horizontal"
+        android:id="@+id/tv_account_logout"
         />
 </LinearLayout>
