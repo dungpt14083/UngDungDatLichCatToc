@@ -8,8 +8,13 @@
     <string name="not_a_member">Bạn chưa có tài khoản ?</string>
     <string name="forgot_password"><u>Quên mật khẩu </u>.
     </string>
+    <string name="txtchinhsua"><u>CHỈNH SỬA THÔNG TIN  </u> </string>
+    <string name="txtname"><u>Bùi Phương Nam   </u>
+    </string>
+    <string name="txtlogin"><u>Đăng nhập </u>
+    </string>
 
-    <string name="txtlogin"><u>Đăng nhập </u>.
+    <string name="txtluuthongtin"><u>Lưu thông tin </u>
     </string>
 
     <string name="login">LOGIN</string>
