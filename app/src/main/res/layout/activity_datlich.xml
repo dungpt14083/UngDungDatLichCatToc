@@ -123,12 +123,12 @@
                     android:src="@drawable/content_cut" />
 
 
-                <Spinner
+                <TextView
                     android:background="#F1F0F0"
                     android:gravity="center"
                     android:layout_marginBottom="16dp"
                     android:layout_marginLeft="50dp"
-                    android:id="@+id/spinerService"
+                    android:id="@+id/tv_datlich_service"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:drawSelectorOnTop="true"
