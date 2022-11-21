@@ -28,7 +28,7 @@ public class ActivityDetail extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         title = findViewById(R.id.tile_detail_newfeed);
         contentTitle = findViewById(R.id.tile_contentTitle_newfeed);
-        description = findViewById(R.id.title_description_newfeed);
+//        description = findViewById(R.id.title_description_newfeed);
 
         lv = findViewById(R.id.imgDetail);
 

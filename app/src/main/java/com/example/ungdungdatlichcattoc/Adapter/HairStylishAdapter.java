@@ -56,28 +56,28 @@ public class HairStylishAdapter extends BaseAdapter {
         }
         TextView tvNameStylish = (TextView) view.findViewById(com.example.ungdungdatlichcattoc.R.id.item_stylish_tvname);
         ImageView imgAvatar = (ImageView) view.findViewById(R.id.item_stylish_avatar);
-        MaterialButton btnselect = (MaterialButton) view.findViewById(R.id.item_stylish_btn);
+//        MaterialButton btnselect = (MaterialButton) view.findViewById(R.id.item_stylish_btn);
         final HairStylish hairStylish = stylishList.get(i);
         if(hairStylish!=null&&!stylishList.isEmpty()){
             tvNameStylish.setText(hairStylish.getNameStylist());
             Glide.with(imgAvatar.getContext()).load("http://io.supermeo.com:8000/" + hairStylish.getImageStylist()).into(imgAvatar);
-            btnselect.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    HairStylishActivity hairStylishActivity = new HairStylishActivity();
-                    String[] listidservice = hairStylishActivity.listidservice;
-                    int sumprice = hairStylishActivity.sumprice;
-                    Intent intent = new Intent(context, DatlichActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("nameStylish",hairStylish.getNameStylist());
-                    bundle.putString("idstylish",hairStylish.get_id());
-                    bundle.putInt("sumprice",sumprice);
-                    bundle.putStringArray("listidservice",listidservice);
-                    intent.putExtras(bundle);
-                    context.startActivity(intent);
-
-                }
-            });
+//            btnselect.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    HairStylishActivity hairStylishActivity = new HairStylishActivity();
+//                    String[] listidservice = hairStylishActivity.listidservice;
+//                    int sumprice = hairStylishActivity.sumprice;
+//                    Intent intent = new Intent(context, DatlichActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("nameStylish",hairStylish.getNameStylist());
+//                    bundle.putString("idstylish",hairStylish.get_id());
+//                    bundle.putInt("sumprice",sumprice);
+//                    bundle.putStringArray("listidservice",listidservice);
+//                    intent.putExtras(bundle);
+//                    context.startActivity(intent);
+//
+//                }
+//            });
 
         }
         return view;

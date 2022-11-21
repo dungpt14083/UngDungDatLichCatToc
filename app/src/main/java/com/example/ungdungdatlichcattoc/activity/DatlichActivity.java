@@ -2,7 +2,11 @@ package com.example.ungdungdatlichcattoc.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -25,6 +29,8 @@ import android.widget.Toast;
 
 import com.example.ungdungdatlichcattoc.API.ApiHairStylish;
 import com.example.ungdungdatlichcattoc.API.ApiOrder;
+import com.example.ungdungdatlichcattoc.Adapter.Adapter_rec_btnTime;
+import com.example.ungdungdatlichcattoc.Adapter.Adapter_ryc_Stylist;
 import com.example.ungdungdatlichcattoc.Adapter.HairStylishSpinerAdapter;
 import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
@@ -64,9 +70,21 @@ public class DatlichActivity extends AppCompatActivity {
     public TextView tvNameStylish;
     CardView crv_chonService, crv_selectstylish;
     TextView tvservice;
+
+    RecyclerView recyclerView_btnTime;
+    List<String> listTime = new ArrayList<>();
+    Adapter_rec_btnTime adapter_rec_btnTime;
+
+
+    RecyclerView rcy_Stylist;
+    List<HairStylish> stylishList = new ArrayList<>();
+    Adapter_ryc_Stylist adapter_ryc_stylist;
+
+
+
     String[] listidservice;
     int sumprice;
-    String idStylish;
+    String idStylish = null;
     ImageView calenda;
     TextView tv_datlich_time;
     Date dateOrder;
@@ -75,6 +93,7 @@ public class DatlichActivity extends AppCompatActivity {
     int sttTime;
     final Calendar calendar = Calendar.getInstance();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,16 +103,34 @@ public class DatlichActivity extends AppCompatActivity {
         spinnerStylish = findViewById(R.id.spinerstylish);
         crv_chonService = findViewById(R.id.datlich_crv_chondichvu);
         crv_selectstylish = findViewById(R.id.crv_selectstylish);
-        tvservice = findViewById(R.id.tv_datlich_service);
+//        tvservice = findViewById(R.id.tv_datlich_service);
         calenda = findViewById(R.id.btn_datlich_calendar);
         tv_datlich_time = findViewById(R.id.tv_datlich_time);
-        edtycthem = findViewById(R.id.datlich_edt_yeucauthem);
-        btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
+//        edtycthem = findViewById(R.id.datlich_edt_yeucauthem);
+//        btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
+
+        recyclerView_btnTime = findViewById(R.id.rec_btnTime);
+        add_timeBtn();
+        adapter_rec_btnTime = new Adapter_rec_btnTime(listTime);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DatlichActivity.this, 4);
+        recyclerView_btnTime.setLayoutManager(mLayoutManager);
+        recyclerView_btnTime.setAdapter(adapter_rec_btnTime);
+
+
+        rcy_Stylist = findViewById(R.id.rec_stylist);
+
         getdataService();
         intentControl();
         getHairStylishAPI();
         getAdapterHairStylish();
         token();
+
+
+        adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList);
+        GridLayoutManager mLayoutStylist = new GridLayoutManager(DatlichActivity.this ,1);
+        mLayoutStylist.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rcy_Stylist.setLayoutManager(mLayoutStylist);
+        rcy_Stylist.setAdapter(adapter_ryc_stylist);
 
 
         sttTime =0;
@@ -116,31 +153,36 @@ public class DatlichActivity extends AppCompatActivity {
                 sttTime+=1;
             }
         });
-        btn_order_hoantat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String tokencus = token();
-                String note = edtycthem.getText().toString() + " ! ";
-                String date = "";
-
-                dateOrder = calendar.getTime();
-                if(check(listidservice,sttTime)==true){
-                    JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
-                    Log.d("array", "onClick: "+jsonArray);
-                    List<ServiceIDs> stringList = new ArrayList<>();
-                    for(int i=0;i<listidservice.length;i++){
-                        stringList.add(new ServiceIDs(listidservice[i]));
-                    }
-                  Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
-                    sttTime=0;
-                }
 
 
-            }
-        });
+//        btn_order_hoantat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String tokencus = token();
+//                String note = edtycthem.getText().toString() + " ! ";
+//                String date = "";
+//
+//                dateOrder = calendar.getTime();
+//                if(check(listidservice,sttTime)==true){
+//                    JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
+//                    Log.d("array", "onClick: "+jsonArray);
+//                    List<ServiceIDs> stringList = new ArrayList<>();
+//                    for(int i=0;i<listidservice.length;i++){
+//                        stringList.add(new ServiceIDs(listidservice[i]));
+//                    }
+//                  Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
+//                    sttTime=0;
+//                }
+//
+//
+//            }
+//        });
 
 
     }
+
+
+
     private boolean check(String[] listidservice,int date){
         boolean x = true;
         if(listidservice==null){
@@ -209,8 +251,12 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<HairStylish>> call, Response<List<HairStylish>> response) {
                 hairStylishList.addAll(response.body());
+                stylishList.addAll(response.body());
+
                 hairStylishSpinerAdapter = new HairStylishSpinerAdapter(getApplicationContext(), R.layout.layout_item_stylish_spiner_selected, hairStylishList);
                 spinnerStylish.setAdapter(hairStylishSpinerAdapter);
+
+
             }
 
             @Override
@@ -278,5 +324,33 @@ public class DatlichActivity extends AppCompatActivity {
         });
     }
 
+    void add_timeBtn(){
+
+        listTime.add("9h00");
+        listTime.add("9h30");
+        listTime.add("10h00");
+        listTime.add("10h30");
+        listTime.add("11h00");
+        listTime.add("11h30");
+        listTime.add("12h00");
+        listTime.add("12h30");
+        listTime.add("13h00");
+        listTime.add("13h30");
+        listTime.add("14h00");
+        listTime.add("14h30");
+        listTime.add("15h00");
+        listTime.add("15h30");
+        listTime.add("16h00");
+        listTime.add("16h30");
+        listTime.add("17h00");
+        listTime.add("17h30");
+        listTime.add("18h00");
+        listTime.add("18h30");
+        listTime.add("19h00");
+        listTime.add("19h30");
+        listTime.add("20h00");
+        listTime.add("20h30");
+
+    }
 
 }
