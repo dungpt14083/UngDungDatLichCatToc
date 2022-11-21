@@ -37,15 +37,17 @@
                 android:src="@drawable/back"
                 />
 
-            <TextView
+            <View
                 android:layout_marginTop="25dp"
                 android:layout_width="match_parent"
-                android:layout_height="1.5dp"
-                android:background="#A6A1A1"/>
+                android:layout_height="1dp"
+                android:background="@color/black" />
 
 
             <TextView
-                android:fontFamily="@font/roboto_medium"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/robotomedium"
                 android:layout_marginTop="25dp"
                 android:id="@+id/tile_detail_newfeed"
                 android:layout_width="match_parent"
@@ -56,34 +58,47 @@
                 android:gravity="center_horizontal"
                 />
             <TextView
-                android:fontFamily="@font/roboto_lightItalic"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/robotolightitalic"
                 android:id="@+id/tile_contentTitle_newfeed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:text="chung"
                 android:textColor="#534848"
-                android:textSize="20dp"
+                android:textSize="20sp"
 
                 />
             <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:textStyle="bold"
-                android:textSize="18dp"
-                android:fontFamily="@font/roboto_medium"
+                android:textSize="18sp"
+                android:fontFamily="@font/robotomedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Question"
                 />
 
             <TextView
-                android:textSize="18dp"
-                android:fontFamily="@font/roboto_light"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/robotolight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="chung"
                 />
 
             <ListView
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/imgDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
