@@ -67,6 +67,8 @@ public class AccoutActivity extends AppCompatActivity {
                         LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+               // onDestroy();
+
             }
         });
         getUserinfo();
