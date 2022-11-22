@@ -1,8 +1,11 @@
 package com.example.ungdungdatlichcattoc.Adapter;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -38,9 +41,10 @@ public class Adapter_rec_btnTime extends RecyclerView.Adapter<Adapter_rec_btnTim
         String time = mNoteList.get(position);
         DatlichActivity datlichActivity = new DatlichActivity();
 
-        holder.layoutitemtime.setOnClickListener(new View.OnClickListener() {
+        holder.btnTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                holder.btnTime.setBackgroundColor(Color.parseColor("#FFCA39"));
                 datlichActivity.hour =time;
                 itemClickListener.onClickItemTime(time);
             }
@@ -62,13 +66,13 @@ public class Adapter_rec_btnTime extends RecyclerView.Adapter<Adapter_rec_btnTim
     class NoteVH extends RecyclerView.ViewHolder {
 
         private AppCompatButton btnTime;
-        private LinearLayout layoutitemtime;
+        //private Button layoutitemtime;
 
         public NoteVH(View itemView) {
             super(itemView);
             btnTime = (AppCompatButton) itemView.findViewById(R.id.btnTime);
 
-            layoutitemtime = itemView.findViewById(R.id.layoutitemtime);
+          //  layoutitemtime = itemView.findViewById(R.id.btnTime);
         }
 
         public void bindData(String note) {

@@ -115,6 +115,8 @@ public class DatlichActivity extends AppCompatActivity {
         adapter_rec_btnTime = new Adapter_rec_btnTime(listTime, new ItemClickListener() {
             @Override
             public void onClickItemTime(String time) {
+                hour = time;
+                Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -170,27 +172,28 @@ public class DatlichActivity extends AppCompatActivity {
                 String date = tv_datlich_time.getText().toString();
 
                 Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
-               Dateandhour = date+hour;
-             //   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+               Dateandhour = date+" "+hour;
+              SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
                 dateOrder = calendar.getTime();
                 if(check(listidservice,sttTime)==true){
 
-                    JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
-                    Log.d("array", "onClick: "+jsonArray);
-                    List<ServiceIDs> stringList = new ArrayList<>();
-                    for(int i=0;i<listidservice.length;i++){
-                        stringList.add(new ServiceIDs(listidservice[i]));
+
+                    try {
+                        Date date2 = format.parse(Dateandhour);
+                        JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
+                        Log.d("array", "onClick: "+jsonArray);
+                        List<ServiceIDs> stringList = new ArrayList<>();
+                        for(int i=0;i<listidservice.length;i++){
+                            stringList.add(new ServiceIDs(listidservice[i]));
+                        }
+                        Order(tokencus, jsonArray, idStylish, date2, note, sumprice);
+                        sttTime=0;
+
+                    } catch (Exception e) {
+                          Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+
                     }
-                    Order(tokencus, jsonArray, idStylish, dateOrder, note, sumprice);
-                    sttTime=0;
-//                    try {
-//                        Date date2 = format.parse(Dateandhour);
-//
-//                    } catch (Exception e) {
-//                          Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-//
-//                    }
                 }
             }
         });
