@@ -116,7 +116,7 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onClickItemTime(String time) {
                 hour = time;
-                Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+           //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -171,7 +171,7 @@ public class DatlichActivity extends AppCompatActivity {
                 String note =  " ! ";
                 String date = tv_datlich_time.getText().toString();
 
-                Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+           //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
                Dateandhour = date+" "+hour;
               SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -191,7 +191,7 @@ public class DatlichActivity extends AppCompatActivity {
                         sttTime=0;
 
                     } catch (Exception e) {
-                          Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                      //    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -219,23 +219,30 @@ public class DatlichActivity extends AppCompatActivity {
     }
 
     private void showDateTimeDialog(final TextView date_time_in) {
-
-
-
-
-        DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                calendar.set(Calendar.YEAR,year);
-                calendar.set(Calendar.MONTH,month);
-                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+              //  datePicker.setMinDate(System.currentTimeMillis()-1000);
+                calendar.set(Calendar.YEAR,i);
+                calendar.set(Calendar.MONTH,i1);
+                calendar.set(Calendar.DAY_OF_MONTH,i2);
                 SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy-MM-dd");
                 date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
-
             }
-        };
+        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)
+        );
+        final Calendar cMin = Calendar.getInstance();
+        final Calendar cMax = Calendar.getInstance();
 
-        new DatePickerDialog(DatlichActivity.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+        cMin.set(cMin.get(Calendar.YEAR),cMin.get(Calendar.MONTH),cMin.get(Calendar.DAY_OF_MONTH)); // for date 16/Aug/2022
+        cMax.set(cMax.get(Calendar.YEAR),cMax.get(Calendar.MONTH),cMax.get(Calendar.DAY_OF_MONTH)+2); // for date 16/Aug/2022
+
+        datePickerDialog.getDatePicker().setMinDate(cMin.getTimeInMillis());
+        datePickerDialog.getDatePicker().setMaxDate(cMax.getTimeInMillis());
+        datePickerDialog.show();
+
+
 
 
     }
@@ -271,7 +278,7 @@ public class DatlichActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<HairStylish>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "lỗi rồi", Toast.LENGTH_SHORT).show();
+            //    Toast.makeText(getApplicationContext(), "lỗi rồi", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -282,7 +289,7 @@ public class DatlichActivity extends AppCompatActivity {
         if (bundle != null) {
             listidservice = bundle.getStringArray("listidservice");
             sumprice = bundle.getInt("sumprice");
-            tvservice.setText("Bạn đã chọn: " + listidservice.length + "dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
+            tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
         }
     }
 
@@ -322,7 +329,7 @@ public class DatlichActivity extends AppCompatActivity {
                     Intent intent = new Intent(DatlichActivity.this,DatlichActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -44,6 +44,7 @@ public class Adapter_rec_btnTime extends RecyclerView.Adapter<Adapter_rec_btnTim
         holder.btnTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 holder.btnTime.setBackgroundColor(Color.parseColor("#FFCA39"));
                 datlichActivity.hour =time;
                 itemClickListener.onClickItemTime(time);
