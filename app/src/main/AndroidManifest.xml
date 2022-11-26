@@ -27,6 +27,13 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".Activity_DichVuChiTiet"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ThongtTinHoTroKhActivity"
             android:exported="false">
             <meta-data
