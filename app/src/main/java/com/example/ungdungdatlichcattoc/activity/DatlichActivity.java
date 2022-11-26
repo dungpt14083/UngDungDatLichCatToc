@@ -39,6 +39,7 @@ import com.example.ungdungdatlichcattoc.model.HairStylish;
 import com.example.ungdungdatlichcattoc.model.LoginResponse;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
 import com.example.ungdungdatlichcattoc.model.ServiceIDs;
+import com.example.ungdungdatlichcattoc.model.TimePickerStylelish;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
@@ -73,14 +74,13 @@ public class DatlichActivity extends AppCompatActivity {
     TextView tvservice;
 
     RecyclerView recyclerView_btnTime;
-    List<String> listTime = new ArrayList<>();
+    List<TimePickerStylelish> listTime = new ArrayList<>();
     Adapter_rec_btnTime adapter_rec_btnTime;
     String Dateandhour;
-  public   String hour;
+    public String hour;
     RecyclerView rcy_Stylist;
     List<HairStylish> stylishList = new ArrayList<>();
     Adapter_ryc_Stylist adapter_ryc_stylist;
-
 
 
     String[] listidservice;
@@ -104,19 +104,20 @@ public class DatlichActivity extends AppCompatActivity {
         spinnerStylish = findViewById(R.id.spinerstylish);
         crv_chonService = findViewById(R.id.datlich_crv_chondichvu);
         crv_selectstylish = findViewById(R.id.crv_selectstylish);
-      tvservice = findViewById(R.id.tv_datlich_service);
+        tvservice = findViewById(R.id.tv_datlich_service);
         calenda = findViewById(R.id.btn_datlich_calendar);
         tv_datlich_time = findViewById(R.id.tv_datlich_time);
-    //   edtycthem = findViewById(R.id.datlich_edt_yeucauthem);
-       btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
-        hour="";
+        //   edtycthem = findViewById(R.id.datlich_edt_yeucauthem);
+        btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
+        hour = "";
+        getTimenow();
         recyclerView_btnTime = findViewById(R.id.rec_btnTime);
         add_timeBtn();
         adapter_rec_btnTime = new Adapter_rec_btnTime(listTime, new ItemClickListener() {
             @Override
             public void onClickItemTime(String time) {
                 hour = time;
-           //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+                //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -135,20 +136,25 @@ public class DatlichActivity extends AppCompatActivity {
 
 
         adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList);
-        GridLayoutManager mLayoutStylist = new GridLayoutManager(DatlichActivity.this ,1);
+        GridLayoutManager mLayoutStylist = new GridLayoutManager(DatlichActivity.this, 1);
         mLayoutStylist.setOrientation(LinearLayoutManager.HORIZONTAL);
         rcy_Stylist.setLayoutManager(mLayoutStylist);
         rcy_Stylist.setAdapter(adapter_ryc_stylist);
+        sttTime = 0;
+        getTimenow();
 
-
-        sttTime =0;
         Log.e("Token", "mytoken: " + token());
         spinnerStylish.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 HairStylish hairStylish = hairStylishList.get(i);
                 idStylish = hairStylish.get_id();
+
+                if (!tv_datlich_time.getText().toString().isEmpty()) {
+                    getFreeTimeHairStylishAPI(idStylish, tv_datlich_time.getText().toString());
+                }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -158,40 +164,39 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showDateTimeDialog(tv_datlich_time);
-                sttTime+=1;
+                sttTime += 1;
             }
         });
-
 
 
         btn_order_hoantat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String tokencus = token();
-                String note =  " ! ";
+                String note = " ! ";
                 String date = tv_datlich_time.getText().toString();
 
-           //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
-               Dateandhour = date+" "+hour;
-              SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+                Dateandhour = date + " " + hour;
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
                 dateOrder = calendar.getTime();
-                if(check(listidservice,sttTime)==true){
+                if (check(listidservice, sttTime) == true) {
 
 
                     try {
                         Date date2 = format.parse(Dateandhour);
                         JSONArray jsonArray = new JSONArray(Arrays.asList(listidservice));
-                        Log.d("array", "onClick: "+jsonArray);
+                        Log.d("array", "onClick: " + jsonArray);
                         List<ServiceIDs> stringList = new ArrayList<>();
-                        for(int i=0;i<listidservice.length;i++){
+                        for (int i = 0; i < listidservice.length; i++) {
                             stringList.add(new ServiceIDs(listidservice[i]));
                         }
                         Order(tokencus, jsonArray, idStylish, date2, note, sumprice);
-                        sttTime=0;
+                        sttTime = 0;
 
                     } catch (Exception e) {
-                      //    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                        //    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -202,16 +207,15 @@ public class DatlichActivity extends AppCompatActivity {
     }
 
 
-
-    private boolean check(String[] listidservice,int date){
+    private boolean check(String[] listidservice, int date) {
         boolean x = true;
-        if(listidservice==null){
-            Toast.makeText(getApplicationContext(),"Anh hãy chọn dịch vụ",Toast.LENGTH_SHORT).show();
-            x= false;
+        if (listidservice == null) {
+            Toast.makeText(getApplicationContext(), "Anh hãy chọn dịch vụ", Toast.LENGTH_SHORT).show();
+            x = false;
         }
-        if(date==0){
-            Toast.makeText(getApplicationContext(),"Anh hãy chọn thời gian",Toast.LENGTH_SHORT).show();
-            x= false;
+        if (date == 0) {
+            Toast.makeText(getApplicationContext(), "Anh hãy chọn thời gian", Toast.LENGTH_SHORT).show();
+            x = false;
         }
         return x;
 
@@ -223,26 +227,25 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
 
-              //  datePicker.setMinDate(System.currentTimeMillis()-1000);
-                calendar.set(Calendar.YEAR,i);
-                calendar.set(Calendar.MONTH,i1);
-                calendar.set(Calendar.DAY_OF_MONTH,i2);
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy-MM-dd");
+                //  datePicker.setMinDate(System.currentTimeMillis()-1000);
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
+                getFreeTimeHairStylishAPI(idStylish,simpleDateFormat.format(calendar.getTime()));
             }
-        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
         );
         final Calendar cMin = Calendar.getInstance();
         final Calendar cMax = Calendar.getInstance();
 
-        cMin.set(cMin.get(Calendar.YEAR),cMin.get(Calendar.MONTH),cMin.get(Calendar.DAY_OF_MONTH)); // for date 16/Aug/2022
-        cMax.set(cMax.get(Calendar.YEAR),cMax.get(Calendar.MONTH),cMax.get(Calendar.DAY_OF_MONTH)+2); // for date 16/Aug/2022
+        cMin.set(cMin.get(Calendar.YEAR), cMin.get(Calendar.MONTH), cMin.get(Calendar.DAY_OF_MONTH)); // for date 16/Aug/2022
+        cMax.set(cMax.get(Calendar.YEAR), cMax.get(Calendar.MONTH), cMax.get(Calendar.DAY_OF_MONTH) + 2); // for date 16/Aug/2022
 
         datePickerDialog.getDatePicker().setMinDate(cMin.getTimeInMillis());
         datePickerDialog.getDatePicker().setMaxDate(cMax.getTimeInMillis());
         datePickerDialog.show();
-
-
 
 
     }
@@ -278,9 +281,55 @@ public class DatlichActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<HairStylish>> call, Throwable t) {
-            //    Toast.makeText(getApplicationContext(), "lỗi rồi", Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(getApplicationContext(), "lỗi rồi", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void getFreeTimeHairStylishAPI(String idSL, String TimeSL) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://io.supermeo.com:8000/hairstylist/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiHairStylish apiHairStylish = retrofit.create(ApiHairStylish.class);
+        Call<List<Integer>> callhairstylish = apiHairStylish.getFreeTime(idSL, TimeSL);
+        callhairstylish.enqueue(new Callback<List<Integer>>() {
+            @Override
+            public void onResponse(Call<List<Integer>> call, Response<List<Integer>> response) {
+                List<Integer> listTimeButton = response.body();
+                List<TimePickerStylelish>  lstpicktime = new ArrayList<>();
+                Log.d("TAG", "onResponse: "+response.body());
+                for (int i =0 ;i < listTime.size();i++) {
+                    Boolean a = true;
+                    for (Integer ina : listTimeButton) {
+                        Log.d("TAG", "onResponse: "+listTime.get(i).getId()+"timebuttton"+ina);
+                        if (listTime.get(i).getId()==ina){
+                            Log.d("TAG", "onResponse: "+"false");
+                            a= false;
+                        }
+                    }
+                    lstpicktime.add(new TimePickerStylelish(listTime.get(i).getId(),listTime.get(i).getHours(),a));
+                }
+                adapter_rec_btnTime = new Adapter_rec_btnTime(lstpicktime, new ItemClickListener() {
+                    @Override
+                    public void onClickItemTime(String time) {
+                        hour = time;
+                        //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+                    }
+                });
+                RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DatlichActivity.this, 4);
+                recyclerView_btnTime.setLayoutManager(mLayoutManager);
+                recyclerView_btnTime.setAdapter(adapter_rec_btnTime);
+                adapter_rec_btnTime.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Integer>> call, Throwable t) {
+                //    Toast.makeText(getApplicationContext(), "lỗi rồi", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     void getdataService() {
@@ -318,18 +367,18 @@ public class DatlichActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiOrder apiOrder = retrofit.create(ApiOrder.class);
-        Call<OrderResponse> call = apiOrder.order(customerId, serviceIds, stylistId,  time, note, sumPrice);
+        Call<OrderResponse> call = apiOrder.order(customerId, serviceIds, stylistId, time, note, sumPrice);
         call.enqueue(new Callback<OrderResponse>() {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
-                    Log.e("TAGmess", "onResponse: "+response.message());
+                    Log.e("TAGmess", "onResponse: " + response.message());
                     finish();
-                    Intent intent = new Intent(DatlichActivity.this,DatlichActivity.class);
+                    Intent intent = new Intent(DatlichActivity.this, DatlichActivity.class);
                     startActivity(intent);
                 } else {
-                 //   Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    //   Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -341,33 +390,42 @@ public class DatlichActivity extends AppCompatActivity {
         });
     }
 
-    void add_timeBtn(){
+    void add_timeBtn() {
 
-        listTime.add("09:00");
-        listTime.add("09:30");
-        listTime.add("10:00");
-        listTime.add("10:30");
-        listTime.add("11:00");
-        listTime.add("11:30");
-        listTime.add("12:00");
-        listTime.add("12:30");
-        listTime.add("13:00");
-        listTime.add("13:30");
-        listTime.add("14:00");
-        listTime.add("14:30");
-        listTime.add("15:00");
-        listTime.add("15:30");
-        listTime.add("16:00");
-        listTime.add("16:30");
-        listTime.add("17:00");
-        listTime.add("17:30");
-        listTime.add("18:00");
-        listTime.add("18:30");
-        listTime.add("19:00");
-        listTime.add("19:30");
-        listTime.add("20:00");
-        listTime.add("20:30");
+        listTime.add(new TimePickerStylelish(18, "09:00", false));
+        listTime.add(new TimePickerStylelish(19, "09:30", false));
+        listTime.add(new TimePickerStylelish(20, "10:00", false));
+        listTime.add(new TimePickerStylelish(21, "10:30", false));
+        listTime.add(new TimePickerStylelish(22, "11:00", false));
+        listTime.add(new TimePickerStylelish(23, "11:30", false));
+        listTime.add(new TimePickerStylelish(24, "12:00", false));
+        listTime.add(new TimePickerStylelish(25, "12:30", false));
+        listTime.add(new TimePickerStylelish(26, "13:00", false));
+        listTime.add(new TimePickerStylelish(27, "13:30", false));
+        listTime.add(new TimePickerStylelish(28, "14:00", false));
+        listTime.add(new TimePickerStylelish(29, "14:30", false));
+        listTime.add(new TimePickerStylelish(30, "15:00", false));
+        listTime.add(new TimePickerStylelish(31, "15:30", false));
+        listTime.add(new TimePickerStylelish(32, "16:00", false));
+        listTime.add(new TimePickerStylelish(33, "16:30", false));
+        listTime.add(new TimePickerStylelish(34, "17:00", false));
+        listTime.add(new TimePickerStylelish(35, "17:30", false));
+        listTime.add(new TimePickerStylelish(36, "18:00", false));
+        listTime.add(new TimePickerStylelish(37, "18:30", false));
+        listTime.add(new TimePickerStylelish(38, "19:00", false));
+        listTime.add(new TimePickerStylelish(39, "19:30", false));
+        listTime.add(new TimePickerStylelish(40, "20:00", false));
+        listTime.add(new TimePickerStylelish(41, "20:30", false));
 
+    }
+
+    private  void  getTimenow(){
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = dateformat.format(c.getTime());
+        tv_datlich_time.setText(strDate);
+        getFreeTimeHairStylishAPI(idStylish,strDate);
+        sttTime += 1;
     }
 
 }
