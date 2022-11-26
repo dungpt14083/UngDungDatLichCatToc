@@ -64,6 +64,7 @@
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        android:textColorHint="#8A8A8A"
        >
         <com.google.android.material.textfield.TextInputEditText
             android:textSize="18sp"
@@ -87,6 +88,7 @@
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        android:textColorHint="#8A8A8A"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:textSize="18sp"

@@ -57,7 +57,7 @@ public class Adapter_lichsu extends BaseAdapter {
             viewHolderls.lsNamedichvu = view.findViewById(R.id.tv_lichsu_namedichvu);
             viewHolderls.lsTime = view.findViewById(R.id.tv_lichsu_thoigian) ;
             viewHolderls.lsdiachi = view.findViewById(R.id.tv_lichsu_diachi) ;
-            viewHolderls.imglichsu = view.findViewById(R.id.img_lichsu_avatar);
+            //viewHolderls.imglichsu = view.findViewById(R.id.img_lichsu_avatar);
             view.setTag(viewHolderls);
         }
         else{
