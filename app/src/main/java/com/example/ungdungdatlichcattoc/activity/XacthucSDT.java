@@ -3,7 +3,6 @@ package com.example.ungdungdatlichcattoc.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -41,11 +40,10 @@ public class XacthucSDT extends AppCompatActivity {
     Button btnsucsses;
     SharedPreferences prefs;
     String phone,pass;
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verifi);
+        setContentView(R.layout.activity_xacthuc_sdt);
         editText1 = findViewById(R.id.edt_verify_1);
         editText2 =findViewById(R.id.edt_verify_2);
         editText3 =findViewById(R.id.edt_verify_3);

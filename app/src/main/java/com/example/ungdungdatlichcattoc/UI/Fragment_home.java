@@ -1,6 +1,5 @@
 package com.example.ungdungdatlichcattoc.UI;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +45,6 @@ public class Fragment_home extends Fragment {
     ListView lv ;
 
     private List<Service> serviceList1;
-    @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
