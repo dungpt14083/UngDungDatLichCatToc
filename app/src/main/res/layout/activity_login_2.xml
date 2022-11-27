@@ -91,6 +91,7 @@
         android:textColorHint="#8A8A8A"
         >
         <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
             android:textSize="18sp"
             android:fontFamily="@font/robotolight"
             android:id="@+id/editTextPassword"

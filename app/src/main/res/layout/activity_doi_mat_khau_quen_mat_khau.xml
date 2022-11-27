@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F6F8"
+    tools:context=".activity.DoiMatKhauQuenMatKhauActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginTop="50dp"
+                android:layout_marginHorizontal="147dp"
+                android:id="@+id/img_logo"
+                android:layout_width="match_parent"
+                android:layout_height="109dp"
+                android:src="@drawable/ic_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_hair_salon"
+                android:layout_marginTop="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hair Salon"
+                android:textColor="#8D12B8"
+                android:textSize="20dp"
+                android:layout_marginHorizontal="147dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/robotoregular"
+                app:layout_constraintTop_toBottomOf="@id/img_logo" />
+
+            <TextView
+                android:id="@+id/tv_sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/robotoregular"
+                android:text="Đổi mật khẩu  "
+                android:textColor="#666C1C"
+                android:textSize="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_hair_salon" />
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardCornerRadius="10dp"
+                >
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/key"
+                        />
+                    <EditText
+                        android:inputType="textPassword"
+                        android:id="@+id/edt_fogot_repass_pass"
+                        android:layout_marginLeft="25dp"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mật kHẩu"
+                        android:background="#FFFFFF"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="29dp"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardCornerRadius="10dp"
+                >
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/key"
+                        />
+                    <EditText
+                        android:inputType="textPassword"
+                        android:id="@+id/edt_fogot_repass_repass"
+                        android:layout_marginLeft="25dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Xác nhận  mật kHẩu"
+                        android:background="#FFFFFF"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_fogot_repass"
+                android:layout_marginTop="80dp"
+                android:layout_width="215dp"
+                android:layout_height="55dp"
+                android:layout_marginHorizontal="78dp"
+                android:text="Thay đổi "
+                android:textSize="24dp"
+                android:fontFamily="@font/robotomedium"
+                android:textColor="#ffff"
+                android:background="@drawable/my_corner_button"
+
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
