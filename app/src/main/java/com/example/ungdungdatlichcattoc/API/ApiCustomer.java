@@ -4,6 +4,7 @@ import com.example.ungdungdatlichcattoc.model.CusstomerInfo;
 import com.example.ungdungdatlichcattoc.model.LoginResponse;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
+import com.example.ungdungdatlichcattoc.model.RepassRespone;
 import com.example.ungdungdatlichcattoc.model.Service;
 
 import org.json.JSONArray;
@@ -33,4 +34,17 @@ public interface ApiCustomer {
             @Field("token") String token
     );
 
+    @FormUrlEncoded
+    @POST("repass")
+    Call<RepassRespone> REPASS_RESPONE_CALL(
+            @Field("token") String token,
+            @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("forgot-pass")
+    Call<CusstomerInfo> FOR_RESPONE_CALL(
+            @Field("phone") String token,
+            @Field("password") String password
+    );
 }

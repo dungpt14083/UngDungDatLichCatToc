@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-mAuth =FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextCnfPassword = findViewById(R.id.editTextCnfPassword);
@@ -64,34 +64,35 @@ mAuth =FirebaseAuth.getInstance();
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone = editTextPhone.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
-                String passwordConf = editTextCnfPassword.getText().toString().trim();
-
-                List<EditText> list = new ArrayList<>();
-                list.add(editTextPhone);
-                list.add(editTextPassword);
-                list.add(editTextCnfPassword);
-                if (!Utils.checkValidate(list)) {
-                    return;
-                }
-
-                if (password.equals(passwordConf)) {
-                    SharedPreferences.Editor editor = getSharedPreferences("Register", MODE_PRIVATE).edit();
-                    editor.putString("phone", phone);
-                    editor.putString("password", password);
-                    editor.apply();
-                    otpsend(phone);
-                    Intent intent = new Intent(RegisterActivity.this,XacthucSDT.class);
-                    startActivity(intent);
-                   // register(phone, password);
-                } else {
-                    Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
-                }
+//                String phone = editTextPhone.getText().toString().trim();
+//                String password = editTextPassword.getText().toString().trim();
+//                String passwordConf = editTextCnfPassword.getText().toString().trim();
+//
+//                List<EditText> list = new ArrayList<>();
+//                list.add(editTextPhone);
+//                list.add(editTextPassword);
+//                list.add(editTextCnfPassword);
+//                if (!Utils.checkValidate(list)) {
+//                    return;
+//                }
+//
+//                if (password.equals(passwordConf)) {
+//                    SharedPreferences.Editor editor = getSharedPreferences("Register", MODE_PRIVATE).edit();
+//                    editor.putString("phone", phone);
+//                    editor.putString("password", password);
+//                    editor.apply();
+//                    otpsend(phone);
+//                    Intent intent = new Intent(RegisterActivity.this, XacthucSDT.class);
+//                    startActivity(intent);
+//                    // register(phone, password);
+//                } else {
+//                    Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }
-    void otpsend(String phone){
+
+    void otpsend(String phone) {
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
@@ -118,7 +119,7 @@ mAuth =FirebaseAuth.getInstance();
         };
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber("+84"+phone)       // Phone number to verify
+                        .setPhoneNumber("+84" + phone)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(RegisterActivity.this)                 // Activity (for callback binding)
                         .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
