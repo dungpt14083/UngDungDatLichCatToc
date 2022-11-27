@@ -58,13 +58,29 @@ public class RepassActivity extends AppCompatActivity {
                     return;
                 }
                 if (password.equals(passwordConf)) {
-                    Repass(token,password);
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"Mật khẩu Không Trùng Khớp",Toast.LENGTH_SHORT).show();
+                    try {
+                        if (check(password)) {
+                            Repass(token, password);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Mật khẩu Không Trùng Khớp", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+    }
+
+    private boolean check(String pass) {
+        Boolean x = true;
+        if (pass.trim().length() <= 6) {
+            Toast.makeText(getApplicationContext(), "Mật khẩu phải trên 6 kí tự,không tính dấu cách", Toast.LENGTH_SHORT).show();
+            x = false;
+        }
+        return x;
 
     }
 
@@ -86,7 +102,7 @@ public class RepassActivity extends AppCompatActivity {
             public void onResponse(Call<RepassRespone> call, Response<RepassRespone> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        Toast.makeText(getApplicationContext(),"Đổi Mật Khẩu Thành Công",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Đổi Mật Khẩu Thành Công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RepassActivity.this, MainActivity.class);
                         startActivity(intent);
 

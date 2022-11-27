@@ -65,6 +65,9 @@ public class QuenMatKhauActivity extends AppCompatActivity {
                         Intent intent = new Intent(QuenMatKhauActivity.this, XacThucSdtQuenMatKhauActivity.class);
                         startActivity(intent);
                     }
+                    else{
+                        editTextphone.setError("Vui Lòng Nhập Đúng Số Điện Thoại");
+                    }
                 } catch (Exception e) {
 
                 }
