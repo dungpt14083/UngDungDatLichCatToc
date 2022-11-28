@@ -2,27 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:gravity="center"
     >
     <com.google.android.material.card.MaterialCardView
         android:layout_height="296dp"
         android:layout_width="171dp"
         app:cardCornerRadius="10dp"
-        app:strokeColor="#ACA8A8"
-        app:strokeWidth="1.5dp">
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--       -->
-<!--        >-->
-
+        app:strokeColor="#8A8888"
+        app:strokeWidth="0.3dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
         >
-        
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="128dp"
@@ -86,71 +81,5 @@
                         android:id="@+id/item_chondichvu_btn_chon"
                        />
         </LinearLayout>
-<!--    </androidx.cardview.widget.CardView>-->
     </com.google.android.material.card.MaterialCardView>
-    <!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        >-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            android:gravity="center">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:background="#FFF"-->
-<!--                >-->
-<!--                <ImageView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/tocnamdep"-->
-<!--                    android:id="@+id/item_chondichvu_img"/>-->
-<!--                <TextView-->
-<!--                    android:gravity="left"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="ShineCombo cắt gội 10 bước"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:id="@+id/item_chondichvu_tvName"/>-->
-<!--                <TextView-->
-
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Đặc sắc nổi tiếng"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:id="@+id/item_chondichvu_tvDesc"/>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/item_chondichvu_tvPrice"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="100k"-->
-<!--                    android:textColor="#BD190D"-->
-<!--                    android:textSize="15dp"-->
-<!--                    android:textStyle="bold" />-->
-<!--            </LinearLayout>-->
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:backgroundTint="#FFFFFF"-->
-<!--                android:text="Chọn"-->
-<!--                android:gravity="center"-->
-<!--                android:textColor="@color/black"-->
-<!--                app:strokeColor="@color/black"-->
-<!--                app:strokeWidth="2dp"-->
-<!--                app:cornerRadius="50dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:id="@+id/item_chondichvu_btn_chon"/>-->
-<!--        </LinearLayout>-->
-
-
-
-<!--    </LinearLayout>-->
-
 </LinearLayout>
