@@ -45,7 +45,7 @@ public class Activity_newfeed extends AppCompatActivity {
             public void onResponse(Call<List<Newfeed>> call, Response<List<Newfeed>> response) {
                 if (response.isSuccessful() && response.body()!= null){
                     newfeedList.addAll(response.body());
-                    Log.e("TAG", "onResponse: "+newfeedList.size());
+                    Log.e("n", "onResponse: "+newfeedList.get(0).image[0]);
                     newFeedAdapter = new NewFeedAdapter(Activity_newfeed.this , newfeedList) ;
                     gridView.setAdapter(newFeedAdapter) ;
 //                    for (int i = 0; i<newfeedList.size() ; i++)

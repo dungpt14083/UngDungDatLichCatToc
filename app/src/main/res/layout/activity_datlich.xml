@@ -159,9 +159,11 @@
                 android:layout_height="49dp"
                 android:layout_marginRight="30dp"
                 android:layout_gravity="center"
-                app:cardBackgroundColor="#F1F0F0"
+                app:cardBackgroundColor="#FFFF"
                 app:cardCornerRadius="10dp">
+<!--                app:cardBackgroundColor="#F1F0F0"-->
 
+ww
                     <ImageView
                         android:layout_marginTop="13dp"
                         android:layout_marginLeft="10dp"
@@ -169,15 +171,15 @@
                         android:layout_height="24dp"
                         android:src="@drawable/iconprofile" />
 
-                <Spinner
-                    android:id="@+id/spinerstylish"
-                    android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:layout_marginLeft="50dp"
-                    android:drawSelectorOnTop="true"
-                    android:background="#F1F0F0"
-                    android:textStyle="bold"
-                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+<!--                <Spinner-->
+<!--                    android:id="@+id/spinerstylish"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="49dp"-->
+<!--                    android:layout_marginLeft="50dp"-->
+<!--                    android:background="#F1F0F0"-->
+<!--                    android:drawSelectorOnTop="true"-->
+<!--                    android:textStyle="bold"-->
+<!--                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />-->
 
             </androidx.cardview.widget.CardView>
 

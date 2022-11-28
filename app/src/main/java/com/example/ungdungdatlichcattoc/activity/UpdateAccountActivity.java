@@ -60,7 +60,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
         edt_update_account_birthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDateTimeDialog((TextInputEditText) edt_update_account_birthday);
+                showDateTimeDialog((EditText) edt_update_account_birthday);
             }
         });
         txtluuthongtin.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +128,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
     }
 
 
-    private void showDateTimeDialog(final TextInputEditText date_time_in) {
+    private void showDateTimeDialog(final EditText date_time_in) {
 
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override

@@ -19,6 +19,7 @@ import java.util.List;
 public class NewFeedAdapter extends BaseAdapter {
     private Context context ;
     private List<Newfeed> newFeedList ;
+    private String[] listimg;
 
     public NewFeedAdapter(Context context, List<Newfeed> newFeedList) {
         this.context = context;
@@ -60,9 +61,15 @@ public class NewFeedAdapter extends BaseAdapter {
         else{
             viewHolder = (ViewHolder) view.getTag();
         }
-        Newfeed newf = newFeedList.get(i);
-        Glide.with(viewHolder.avatar).load("http://io.supermeo.com:8000/"+newfeed.getImage()[0]).into(viewHolder.avatar);
-        viewHolder.title.setText(newf.getTitle());
+        try{
+            listimg = newfeed.getImage();;
+            Glide.with(viewHolder.avatar).load("http://io.supermeo.com:8000/"+listimg[0]).into(viewHolder.avatar);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        viewHolder.title.setText(newfeed.getTitle());
         return  view ;
     }
     class ViewHolder{

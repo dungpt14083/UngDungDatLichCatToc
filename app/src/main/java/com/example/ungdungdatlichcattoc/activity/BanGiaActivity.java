@@ -54,7 +54,7 @@ public class BanGiaActivity extends AppCompatActivity {
             public void onResponse(Call<List<Service>> call, Response<List<Service>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     serviceList.addAll(response.body());
-                    Toast.makeText(getApplicationContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), "Update Data Successfull", Toast.LENGTH_SHORT).show();
                     gridView.setAdapter(adapter_bangGia);
 
                 }
