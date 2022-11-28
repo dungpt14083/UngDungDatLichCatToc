@@ -4,429 +4,219 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FBFBFB"
+    android:orientation="vertical"
     tools:context=".activity.AccoutActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="20dp"
+            android:gravity="center"
+            android:text="Thông tin tài khoản"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="48dp"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/back"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="THÔNG TIN TÀI KHOẢN "
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:textSize="24dp"
-                    android:textColor="#000000"
-                    />
-            </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#595C5C"
-            >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:background="#595C5C"
-                android:layout_marginTop="22dp"
-                android:layout_height="220dp"
-                android:gravity="center_horizontal"
-                >
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/account"
-                    app:shapeAppearanceOverlay="@style/cilcle"
-                    />
-            </LinearLayout>
+            android:orientation="vertical">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/custom_account"
-                >
+                android:background="#595C5C"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginHorizontal="25dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <TextView
-                            android:layout_marginTop="40dp"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:backgroundTint="#A4A4A4 "
-                            android:textSize="16dp"
-                            android:text="Họ và tên "
-                            android:fontFamily="@font/robotolight"
+                    android:layout_height="220dp"
+                    android:background="#505050"
+                    android:gravity="center_horizontal">
 
-                            />
-                        <TextView
-                            android:layout_marginTop="16sp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="18dp"
-                            android:text="NAM PHƯƠNG BÙI "
-                            android:fontFamily="@font/robotomedium"
-                            android:textColor="#000000"
-                            android:id="@+id/tv_account_nameuser"
-                            />
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#F3EEEE"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="35dp"
-                        >
-                        <TextView
-
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:backgroundTint="#A4A4A4 "
-                            android:textSize="16dp"
-                            android:text="Số điện thoại "
-                            android:fontFamily="@font/robotolight"
-                            />
-                        <TextView
-                            android:layout_marginTop="16sp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="18dp"
-                            android:text="0388916736 "
-                            android:fontFamily="@font/robotomedium"
-                            android:textColor="#000000"
-                            android:id="@+id/tv_account_phone"
-                            />
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#F3EEEE"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="35dp"
-                        >
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:backgroundTint="#A4A4A4 "
-                            android:textSize="16dp"
-                            android:text="Ngày sinh  "
-                            android:fontFamily="@font/robotolight"
-                            />
-
-                        <TextView
-                            android:layout_marginTop="16sp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="18dp"
-                            android:text="22-01-2002 "
-                            android:fontFamily="@font/robotomedium"
-                            android:textColor="#000000"
-                            android:id="@+id/tv_account_birthday"
-                            />
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#F3EEEE"
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="25dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:backgroundTint="#A4A4A4 "
-                            android:textSize="16dp"
-                            android:text="Địa chỉ   "
-                            android:fontFamily="@font/robotolight"
-                            />
-
-                        <TextView
-                            android:id="@+id/tv_account_adress"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="@font/robotomedium"
-                            android:text=" Số nhà 27 ngõ 86 phú kiều "
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/account"
+                        app:shapeAppearanceOverlay="@style/cilcle" />
                 </LinearLayout>
-                <TextView
-                    android:textColor="#505050"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="80dp"
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_account_update"
-                    android:gravity="center_horizontal"
-                    android:text="@string/txtchinhsua"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_account"
+                    android:orientation="vertical">
 
-                    />
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="ĐĂNG XUẤT"-->
-<!--                    android:layout_margin="30dp"-->
-<!--                    android:gravity="center_horizontal"-->
-<!--                    android:id="@+id/tv_account_logout"/>-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="25dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#A4A4A4 "
+                                android:fontFamily="@font/robotolight"
+                                android:text="Họ và tên "
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_account_nameuser"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12sp"
+                                android:fontFamily="@font/robotomedium"
+                                android:text="NAM PHƯƠNG BÙI "
+                                android:textColor="#000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:layout_height="2dp"
+                                android:background="#F3EEEE" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#A4A4A4 "
+                                android:fontFamily="@font/robotolight"
+                                android:text="Số điện thoại "
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_account_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12sp"
+                                android:fontFamily="@font/robotomedium"
+                                android:text="0388916736 "
+                                android:textColor="#000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="10dp"
+                                android:background="#F3EEEE" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#A4A4A4 "
+                                android:fontFamily="@font/robotolight"
+                                android:text="Ngày sinh  "
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_account_birthday"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12sp"
+                                android:fontFamily="@font/robotomedium"
+                                android:text="22-01-2002 "
+                                android:textColor="#000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="10dp"
+                                android:background="#F3EEEE" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#A4A4A4 "
+                                android:fontFamily="@font/robotolight"
+                                android:text="Địa chỉ   "
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_account_adress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12sp"
+                                android:fontFamily="@font/robotomedium"
+                                android:text="Số nhà 27 ngõ 86 phú kiều "
+                                android:textColor="#000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_account_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="80dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/txtchinhsua"
+                        android:textColor="#505050"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+
+                        />
+                </LinearLayout>
+
             </LinearLayout>
-
-        </LinearLayout>
         </LinearLayout>
     </ScrollView>
-        <!--    <LinearLayout-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:orientation="horizontal"-->
-        <!--        android:gravity="center_horizontal"-->
-        <!--        >-->
-
-
-        <!--        <ImageView-->
-        <!--            android:layout_width="10dp"-->
-        <!--            android:layout_height="10dp"-->
-        <!--            android:layout_gravity="bottom"-->
-        <!--            android:src="@drawable/ic_launcher_background" />-->
-        <!--    </LinearLayout>-->
-
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="vertical"-->
-        <!--            android:background="#F8F8F8"-->
-        <!--            >-->
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:orientation="vertical"-->
-
-        <!--                >-->
-        <!--                <TextView-->
-        <!--                    android:layout_marginTop="22dp"-->
-        <!--                    android:layout_width="100dp"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:textStyle="bold"-->
-        <!--                    android:backgroundTint="#000000"-->
-        <!--                    android:textSize="15dp"-->
-        <!--                    android:text="HỌ VÀ TÊN"-->
-
-        <!--                    />-->
-        <!--                <TextView-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:textStyle="bold"-->
-        <!--                    android:textSize="15dp"-->
-        <!--                    android:text="NAM PHƯƠNG BÙI "-->
-        <!--                    android:id="@+id/tv_account_nameuser"-->
-        <!--                    />-->
-        <!--            </LinearLayout>-->
-        <!--            <View-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="1dp"-->
-        <!--                android:background="@android:color/black" />-->
-        <!--            <LinearLayout-->
-        <!--                android:layout_margin="5dp"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:orientation="horizontal"-->
-        <!--                >-->
-        <!--                <TextView-->
-        <!--                    android:layout_width="wrap_content"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:textStyle="bold"-->
-        <!--                    android:textSize="15dp"-->
-        <!--                    android:text="SỐ ĐIỆN THOẠI"-->
-        <!--                    />-->
-        <!--                <TextView-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:textStyle="bold"-->
-        <!--                    android:gravity="right"-->
-        <!--                    android:textSize="15dp"-->
-        <!--                    android:text="012345679 "-->
-        <!--                    android:id="@+id/tv_account_phone"-->
-        <!--                    />-->
-        <!--            </LinearLayout>-->
-        <!--            <View-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="1dp"-->
-        <!--                android:background="@android:color/black" />-->
-
-        <!--            <LinearLayout-->
-        <!--                android:layout_margin="5dp"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:orientation="horizontal"-->
-        <!--                >-->
-        <!--                <TextView-->
-        <!--                    android:layout_width="100dp"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:textStyle="bold"-->
-        <!--                    android:textSize="15dp"-->
-        <!--                    android:text="NGÀY SINH"-->
-        <!--                    />-->
-
-        <!--                <TextView-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:textStyle="bold"-->
-        <!--                    android:gravity="right"-->
-        <!--                    android:textSize="15dp"-->
-        <!--                    android:text="  "-->
-        <!--                    android:id="@+id/tv_account_birthday"-->
-        <!--                    />-->
-        <!--            </LinearLayout>-->
-        <!--        </LinearLayout>-->
-
-
-
-
-        <!--        <TextView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="ĐỊA CHỈ GIÚP ANH TÌM SALON NHANH NHẤT"-->
-        <!--            android:textStyle="bold"-->
-        <!--            android:textSize="15dp"-->
-        <!--            android:layout_margin="10dp"-->
-        <!--            />-->
-
-        <!--    <LinearLayout-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:orientation="vertical"-->
-        <!--        android:background="@drawable/custom_account"-->
-        <!--        >-->
-        <!--        <LinearLayout-->
-        <!--            android:layout_margin="5dp"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            >-->
-        <!--            <TextView-->
-        <!--                android:layout_width="100dp"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:textSize="15dp"-->
-        <!--                android:text="ĐỊA CHỈ NHÀ"-->
-        <!--                />-->
-        <!--            <TextView-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:gravity="right"-->
-        <!--                android:textSize="15dp"-->
-        <!--                android:text=""-->
-        <!--                android:id="@+id/tv_account_adress"-->
-        <!--                />-->
-        <!--        </LinearLayout>-->
-        <!--        <View-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="1dp"-->
-        <!--            android:background="@android:color/black" />-->
-        <!--        <LinearLayout-->
-        <!--            android:layout_margin="5dp"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            >-->
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:textSize="15dp"-->
-        <!--                android:text="ĐỊA CHỈ CƠ QUAN"-->
-        <!--                />-->
-        <!--            <TextView-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:gravity="right"-->
-        <!--                android:textSize="15dp"-->
-        <!--                android:text=""-->
-        <!--                />-->
-        <!--        </LinearLayout>-->
-        <!--        <View-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="1dp"-->
-        <!--            android:background="@android:color/black" />-->
-        <!--        <LinearLayout-->
-        <!--            android:layout_margin="5dp"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            >-->
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:textSize="15dp"-->
-        <!--                android:text="NƠI HAY ĐI LẠI "-->
-        <!--                />-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:gravity="right"-->
-        <!--                android:textSize="15dp"-->
-        <!--                android:text=" "-->
-        <!--                />-->
-        <!--        </LinearLayout>-->
-        <!--    </LinearLayout>-->
-        />
 
 </LinearLayout>

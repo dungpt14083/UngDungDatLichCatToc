@@ -6,174 +6,127 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.UpdateAccountActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Chỉnh sửa thông Tin"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-
-
-    <TextView
-        android:layout_marginTop="48dp"
-        android:textStyle="bold"
-        android:textSize="24dp"
-        android:textColor="#000000"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Chỉnh sửa thông Tin"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#505050"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-
-            >
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_launcher_round"
-                app:shapeAppearanceOverlay="@style/cilcle"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/custom_account"
             android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_marginTop="22dp"
+                android:background="#505050"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:src="@mipmap/ic_launcher_round"
+                    app:shapeAppearanceOverlay="@style/cilcle" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Họ và tên "
-                    android:layout_marginTop="36dp"
-                    android:layout_marginStart="25dp"
-                    android:backgroundTint="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nhập họ tên "
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="25dp"
-                    android:id="@+id/edt_update_account_username"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ngày sinh "
-                    android:layout_marginTop="36dp"
-                    android:layout_marginStart="25dp"
-                    android:backgroundTint="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    />
-                <!--    <com.google.android.material.textfield.TextInputLayout-->
-                <!--        android:layout_width="match_parent"-->
-                <!--        android:layout_height="wrap_content"-->
-                <!--        android:layout_gravity="center"-->
-                <!--        android:layout_margin="20dp">-->
-                <!--        <com.google.android.material.textfield.TextInputEditText-->
-                <!--            android:layout_width="match_parent"-->
-                <!--            android:layout_height="match_parent"-->
-                <!--            android:hint="BirthDay"-->
-                <!--            android:id="@+id/edt_update_account_birthday"/>-->
-                <!--    </com.google.android.material.textfield.TextInputLayout>-->
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nhập ngày sinh .... "
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="25dp"
-                    android:id="@+id/edt_update_account_birthday"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Địa chỉ  "
-                    android:layout_marginTop="36dp"
-                    android:layout_marginStart="25dp"
-                    android:backgroundTint="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    />
-                <!--    <com.google.android.material.textfield.TextInputLayout-->
-                <!--        android:layout_width="match_parent"-->
-                <!--        android:layout_height="wrap_content"-->
-                <!--        android:layout_gravity="center"-->
-                <!--        android:layout_margin="20dp">-->
-                <!--        <com.google.android.material.textfield.TextInputEditText-->
-                <!--            android:layout_width="match_parent"-->
-                <!--            android:layout_height="match_parent"-->
-                <!--            android:hint="Địa Chỉ"-->
-                <!--            android:id="@+id/edt_update_account_Adress"/>-->
-                <!--    </com.google.android.material.textfield.TextInputLayout>-->
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nhập địa chỉ  "
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="25dp"
-                    android:id="@+id/edt_update_account_Adress"
-                    />
-                <TextView
-                    android:id="@+id/tvLuuthongtin"
-                    android:layout_marginTop="100dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txtluuthongtin"
-                    android:gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textColor="#505050"
-                    android:textStyle="bold"
-                    />
-<!--                <com.google.android.material.button.MaterialButton-->
-<!--                    android:layout_width="150dp"-->
-<!--                    android:layout_height="70dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_margin="30dp"-->
-<!--                    android:backgroundTint="@color/white"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:text="Thay Đổi"-->
-<!--                    android:id="@+id/btn_updateaccount_Update"-->
-<!--                    app:cornerRadius="50dp"/>-->
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_account"
+                android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="36dp"
+                        android:backgroundTint="#000000"
+                        android:text="Họ và tên "
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edt_update_account_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginTop="5dp"
+                        android:hint="Nhập họ tên " />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="36dp"
+                        android:backgroundTint="#000000"
+                        android:text="Ngày sinh "
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edt_update_account_birthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginTop="5dp"
+                        android:hint="Nhập ngày sinh .... " />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="36dp"
+                        android:backgroundTint="#000000"
+                        android:text="Địa chỉ  "
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edt_update_account_Adress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginTop="5dp"
+                        android:hint="Nhập địa chỉ  " />
+
+                    <TextView
+                        android:id="@+id/tvLuuthongtin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="100dp"
+                        android:gravity="center_horizontal"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/txtluuthongtin"
+                        android:textColor="#505050"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_margin="20dp">-->
-<!--        <com.google.android.material.textfield.TextInputEditText-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:hint="Họ Và Tên"-->
-<!--            android:id="@+id/edt_update_account_username"/>-->
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
-        </LinearLayout>
     </ScrollView>
 </LinearLayout>
