@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.SharedElementCallback;
 import androidx.fragment.app.Fragment;
 
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_user;
@@ -80,7 +81,7 @@ public class Fragment_User extends Fragment {
                 editor.clear();
                 editor.commit();
                 //AppState.getSingleInstance().setLoggingOut(true);
-        getActivity().finishAndRemoveTask();
+                getActivity().finishAndRemoveTask();
                 Intent intent = new Intent(getContext(),
                         LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
