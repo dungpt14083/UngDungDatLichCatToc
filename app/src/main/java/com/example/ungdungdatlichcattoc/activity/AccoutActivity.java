@@ -30,56 +30,58 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AccoutActivity extends AppCompatActivity {
-  private   TextView tv_account_birthday,tv_account_phone,tv_account_nameuser,tv_account_update,tv_account_adress,tv_account_logout;
-  private   String nameUser,token,adress;
-  private  String birThday;
-  private String Phone;
+    private TextView tv_account_birthday, tv_account_phone, tv_account_nameuser, tv_account_update, tv_account_adress, tv_account_logout;
+    private String nameUser, token, adress;
+    private String birThday;
+    private String Phone;
     SharedPreferences prefs;
-     List<ProfileCus> cusstomerInfoList ;
+    List<ProfileCus> cusstomerInfoList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accout);
-        cusstomerInfoList =new ArrayList<>();
-        tv_account_nameuser =findViewById(R.id.tv_account_nameuser);
-        tv_account_birthday =findViewById(R.id.tv_account_birthday);
-        tv_account_phone =findViewById(R.id.tv_account_phone);
-        tv_account_update=findViewById(R.id.tv_account_update);
-        tv_account_adress=findViewById(R.id.tv_account_adress);
-        tv_account_logout =findViewById(R.id.tv_account_logout);
+        cusstomerInfoList = new ArrayList<>();
+        tv_account_nameuser = findViewById(R.id.tv_account_nameuser);
+        tv_account_birthday = findViewById(R.id.tv_account_birthday);
+        tv_account_phone = findViewById(R.id.tv_account_phone);
+        tv_account_update = findViewById(R.id.tv_account_update);
+        tv_account_adress = findViewById(R.id.tv_account_adress);
+//        tv_account_logout =findViewById(R.id.tv_account_logout);
         tv_account_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(AccoutActivity.this,UpdateAccountActivity.class);
+                Intent intent = new Intent(AccoutActivity.this, UpdateAccountActivity.class);
                 startActivity(intent);
             }
         });
-        tv_account_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences myPrefs = getSharedPreferences("HAIR",
-                        MODE_PRIVATE);
-                SharedPreferences.Editor editor = myPrefs.edit();
-                editor.clear();
-                editor.commit();
-                //AppState.getSingleInstance().setLoggingOut(true);
-                Intent intent = new Intent(AccoutActivity.this,
-                        LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-               // onDestroy();
-
-            }
-        });
+//        tv_account_logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SharedPreferences myPrefs = getSharedPreferences("HAIR",
+//                        MODE_PRIVATE);
+//                SharedPreferences.Editor editor = myPrefs.edit();
+//                editor.clear();
+//                editor.commit();
+//                //AppState.getSingleInstance().setLoggingOut(true);
+//                Intent intent = new Intent(AccoutActivity.this,
+//                        LoginActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+//                // onDestroy();
+//
+//            }
+//        });
         getUserinfo();
         Profile(token);
 
     }
 
-    void getUserinfo(){
+    void getUserinfo() {
         prefs = getSharedPreferences("HAIR", MODE_PRIVATE);
-        token = prefs.getString("token",toString());
+        token = prefs.getString("token", toString());
     }
+
     private void Profile(String customerId) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/customer/")
@@ -91,17 +93,17 @@ public class AccoutActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ProfileCus> call, Response<ProfileCus> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                 //   cusstomerInfoList.addAll(response.body());
-                   // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
+                    //   cusstomerInfoList.addAll(response.body());
+                    // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
-                    nameUser =profileCus.getNameUser();
+                    nameUser = profileCus.getNameUser();
                     birThday = profileCus.getBirthOfYear();
-                    Phone= profileCus.getPhone();
-                    adress =profileCus.getAddress();
+                    Phone = profileCus.getPhone();
+                    adress = profileCus.getAddress();
 
                     tv_account_nameuser.setText(nameUser);
                     tv_account_adress.setText(adress);
-                    tv_account_phone.setText(Phone.toString());
+                    tv_account_phone.setText("+84 " +Phone);
 
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
@@ -110,7 +112,7 @@ public class AccoutActivity extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-                //    getdatatv();
+                    //    getdatatv();
                 } else {
                     Log.e("loi", "onResponse: looix");
                 }
@@ -118,8 +120,8 @@ public class AccoutActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ProfileCus> call, Throwable t) {
-           //    Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
-                Log.e("loi", "onResponse: looix "+t.getMessage());
+                //    Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
+                Log.e("loi", "onResponse: looix " + t.getMessage());
             }
         });
     }

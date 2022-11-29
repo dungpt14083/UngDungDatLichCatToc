@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="17dp"
+    android:weightSum="10">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_vt_account_32"/>
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="9"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Thông tin tài khoản"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/icon1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:rotation="180"
+        android:layout_weight="1"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_vt_back_16"
+        android:layout_gravity="center"/>
+</LinearLayout>

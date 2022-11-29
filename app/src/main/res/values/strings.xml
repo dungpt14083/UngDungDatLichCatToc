@@ -2,21 +2,21 @@
     <string name="app_name">UngDungDatLichCatToc</string>
     <string name="phone">Phone</string>
     <string name="password">Password</string>
-    <string name="register_now"><u>Đăng kí  </u>.
-     </string>
+    <string name="register_now"><u>Đăng kí</u> </string>
+
     <string name="register_successfully">Register Successfully</string>
     <string name="not_a_member">Bạn chưa có tài khoản ?</string>
-    <string name="forgot_password"><u>Quên mật khẩu </u>.
-    </string>
-    <string name="txtchinhsua"><u>CẬP NHẬT</u> </string>
+    <string name="forgot_password"><u>Quên mật khẩu</u></string>>
+
+    <string name="txtchinhsua"><u>CHỈNH SỬA THÔNG TIN</u> </string>
     <string name="txtxemchitiet"><u>Xem chi tiết   </u> </string>
     <string name="txtname"><u>Bùi Phương Nam   </u>
     </string>
-    <string name="txtlogin"><u>Đăng nhập </u>
-    </string>
+    <string name="txtlogin"><u>Đăng nhập </u></string>
 
-    <string name="txtluuthongtin"><u>Lưu thông tin </u>
-    </string>
+
+    <string name="txtluuthongtin"><u>LƯU THÔNG TIN</u></string>
+
 
     <string name="login">LOGIN</string>
     <string name="registration_failed">Registration failed</string>
