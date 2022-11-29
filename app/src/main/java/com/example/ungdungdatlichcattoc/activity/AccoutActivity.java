@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.API.ApiCustomer;
 import com.example.ungdungdatlichcattoc.API.ApiOrder;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_lichsu;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,6 +38,7 @@ public class AccoutActivity extends AppCompatActivity {
     private String Phone;
     SharedPreferences prefs;
     List<ProfileCus> cusstomerInfoList;
+     CircleImageView img_account_avat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class AccoutActivity extends AppCompatActivity {
         tv_account_phone = findViewById(R.id.tv_account_phone);
         tv_account_update = findViewById(R.id.tv_account_update);
         tv_account_adress = findViewById(R.id.tv_account_adress);
+        img_account_avat =findViewById(R.id.img_account_avat);
 //        tv_account_logout =findViewById(R.id.tv_account_logout);
         tv_account_update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +108,7 @@ public class AccoutActivity extends AppCompatActivity {
                     tv_account_nameuser.setText(nameUser);
                     tv_account_adress.setText(adress);
                     tv_account_phone.setText("+84 " +Phone);
-
+                    Glide.with(AccoutActivity.this).load("http://io.supermeo.com:8000/"+profileCus.getImage()).into(img_account_avat);
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
 

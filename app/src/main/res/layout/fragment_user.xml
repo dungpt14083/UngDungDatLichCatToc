@@ -31,7 +31,7 @@
                     app:cardCornerRadius="250dp">
 
                     <ImageView
-                        android:id="@+id/home_img_avt_user"
+                        android:id="@+id/user_img_avt_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/thuy" />
