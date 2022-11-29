@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -50,11 +51,13 @@ public class Fragment_User extends Fragment {
     SharedPreferences prefs;
     String token;
     ImageView user_img_avt_user;
+    TextView user_tv_name_user;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
         listView = view.findViewById(R.id.lv_danhsach);
         user_img_avt_user =view.findViewById(R.id.user_img_avt_user);
+        user_tv_name_user = view.findViewById(R.id.user_tv_name_user);
         list = new ArrayList<>();
         list.add(new user(R.drawable.ic_vt_account_32, "Thông tin khách hàng", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_time_32, "Lịch sử cắt", R.drawable.ic_vt_back_16));
@@ -109,7 +112,11 @@ public class Fragment_User extends Fragment {
                     //   cusstomerInfoList.addAll(response.body());
                     // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
-
+                    try {
+                        user_tv_name_user.setText(profileCus.getNameUser());
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                     Glide.with(getActivity()).load("http://io.supermeo.com:8000/"+profileCus.getImage()).into(user_img_avt_user);
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {

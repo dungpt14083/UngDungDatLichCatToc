@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,7 @@ public class Fragment_home extends Fragment {
     String token;
     ImageView home_img_avt_user;
     private List<Service> serviceList1;
+    TextView home_tv_name_user;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -65,6 +67,7 @@ public class Fragment_home extends Fragment {
         btnBangGia = view.findViewById(R.id.home_cardview_banggia);
         home_img_avt_user = view.findViewById(R.id.home_img_avt_user);
         btnLichSuCut = view.findViewById(R.id.home_cardview_lichsucut);
+        home_tv_name_user = view.findViewById(R.id.home_tv_name_user);
         btnBangGia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,7 +163,12 @@ public class Fragment_home extends Fragment {
                     //   cusstomerInfoList.addAll(response.body());
                     // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
+                    try {
+                        home_tv_name_user.setText(profileCus.getNameUser().toString());
 
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
