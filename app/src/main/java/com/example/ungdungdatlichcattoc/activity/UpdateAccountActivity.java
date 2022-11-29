@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,7 +39,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     EditText edt_update_account_username, edt_update_account_birthday, edt_update_account_Adress;
     MaterialButton btn_updateaccount_Update;
-    Button btnluuthongtin ;
+    TextView txtluuthongtin ;
     private String nameUser, birThday, Phone, token, andress;
     SharedPreferences prefs;
     final Calendar calendar = Calendar.getInstance();
@@ -53,7 +52,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
         edt_update_account_username = findViewById(R.id.edt_update_account_username);
         edt_update_account_birthday = findViewById(R.id.edt_update_account_birthday);
         edt_update_account_Adress = findViewById(R.id.edt_update_account_Adress);
-        btnluuthongtin = findViewById(R.id.tvLuuthongtin);
+        txtluuthongtin = findViewById(R.id.tvLuuthongtin);
         //btn_updateaccount_Update = findViewById(R.id.btn_updateaccount_Update);
 
         getUserinfo();
@@ -64,7 +63,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                 showDateTimeDialog((EditText) edt_update_account_birthday);
             }
         });
-        btnluuthongtin.setOnClickListener(new View.OnClickListener() {
+        txtluuthongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");

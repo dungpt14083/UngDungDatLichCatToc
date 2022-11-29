@@ -1,5 +1,8 @@
 package com.example.ungdungdatlichcattoc.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class CusstomerInfo {
@@ -11,8 +14,11 @@ public class CusstomerInfo {
     private String created;
     private Date birthOfYear;
     private String phone;
+    @SerializedName("image")
+    @Expose
+   private String image;
 
-    public CusstomerInfo(String token, String nameUser, String address, String _id, String password, String created, Date birthOfYear, String phone) {
+    public CusstomerInfo(String token, String nameUser, String address, String _id, String password, String created, Date birthOfYear, String phone,String image) {
         this.token = token;
         this.nameUser = nameUser;
         this.address = address;
@@ -21,6 +27,15 @@ public class CusstomerInfo {
         this.created = created;
         this.birthOfYear = birthOfYear;
         this.phone = phone;
+        this.image=image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public CusstomerInfo() {

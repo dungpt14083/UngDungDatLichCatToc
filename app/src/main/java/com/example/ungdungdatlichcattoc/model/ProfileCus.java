@@ -29,6 +29,9 @@ public class ProfileCus {
     @SerializedName("nameUser")
     @Expose
     String nameUser;
+    @SerializedName("image")
+    @Expose
+    String image;
 
     public String get_id() {
         return _id;
@@ -70,7 +73,13 @@ public class ProfileCus {
         this.birthOfYear = birthOfYear;
     }
 
+    public String getImage() {
+        return image;
+    }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getAddress() {
         return address;
