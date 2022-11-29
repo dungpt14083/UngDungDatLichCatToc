@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     Button buttonLogin;
     TextView textViewRegister,forget_password;
     String token =null;
-
+    String phoneauto,passauto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +48,21 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin = findViewById(R.id.buttonLogin);
 
         textViewRegister = findViewById(R.id.textViewRegister);
+
+         try {
+             SharedPreferences sharedPreferences = getSharedPreferences("HAIR",MODE_PRIVATE);
+
+             phoneauto = sharedPreferences.getString("phone","");
+             passauto =sharedPreferences.getString("password","");
+             if(phoneauto.trim().length()>0&&passauto.trim().length()>0){
+                 loginUser(phoneauto,passauto);
+             }
+             else {
+                 Toast.makeText(getApplicationContext(),"Vui Lòng Đăng Nhập",Toast.LENGTH_SHORT).show();
+             }
+         }catch (Exception e){
+
+         }
 
 
         forget_password.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,8 @@
 package com.example.ungdungdatlichcattoc.UI;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import com.example.ungdungdatlichcattoc.Adapter.Adapter_user;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.activity.AccoutActivity;
 import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
+import com.example.ungdungdatlichcattoc.activity.LoginActivity;
 import com.example.ungdungdatlichcattoc.activity.RepassActivity;
 import com.example.ungdungdatlichcattoc.activity.ThongtTinHoTroKhActivity;
 import com.example.ungdungdatlichcattoc.model.user;
@@ -44,6 +47,7 @@ public class Fragment_User extends Fragment {
         adapterUser = new Adapter_user(getContext(), list);
         listView.setAdapter(adapterUser);
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -61,11 +65,25 @@ public class Fragment_User extends Fragment {
                         Toast.makeText(getContext(), i+"Vị trí Salon", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
+                        logout();
                         Toast.makeText(getContext(), i+"Đăng xuất", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
         });
         return view;
+    }
+    void logout(){
+        SharedPreferences myPrefs = getActivity().getSharedPreferences("HAIR", Context.MODE_PRIVATE
+                );
+                SharedPreferences.Editor editor = myPrefs.edit();
+                editor.clear();
+                editor.commit();
+                //AppState.getSingleInstance().setLoggingOut(true);
+        getActivity().finishAndRemoveTask();
+                Intent intent = new Intent(getContext(),
+                        LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
     }
 }
