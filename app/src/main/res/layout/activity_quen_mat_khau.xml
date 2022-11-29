@@ -10,9 +10,9 @@
         android:id="@+id/Img_regerterphone_homback"
         android:layout_marginTop="20dp"
         android:layout_marginStart="12dp"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_vt_back"
         android:layout_gravity="center_vertical"
         />
     <TextView
@@ -22,6 +22,7 @@
         android:textColor="@color/black"
         android:gravity="center_horizontal"
         android:textSize="28dp"
+        android:layout_marginTop="16dp"
         android:textStyle="bold"
         android:fontFamily="@font/robotomedium"
         />
@@ -61,6 +62,7 @@
         <LinearLayout
             android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
@@ -68,24 +70,26 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/phone_android"
+                android:src="@drawable/ic_vt_phone"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto_medium"
                 android:text="84+"
-                android:textSize="20dp"
-                android:fontFamily="@font/robotoregular"
+                android:gravity="center"
                 android:textColor="#000000"
-                />
+                android:textSize="20sp" />
             <EditText
                 android:inputType="number"
                 android:id="@+id/edt_fogot_sdt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="nhập số điện thoại "
+                android:textSize="20sp"
                 android:background="#FFFFFF"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -93,11 +97,12 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_fogot_continue"
         android:layout_marginTop="38dp"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="27dp"
+        android:textAllCaps="false"
         android:text="Tiếp tục  "
-        android:textSize="24dp"
+        android:textSize="18dp"
         android:fontFamily="@font/robotomedium"
         android:textColor="#ffff"
         android:background="@drawable/my_corner_button"
