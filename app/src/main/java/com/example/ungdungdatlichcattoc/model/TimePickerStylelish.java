@@ -1,24 +1,23 @@
 package com.example.ungdungdatlichcattoc.model;
 
 import java.sql.Time;
+import java.util.Date;
 
 public class TimePickerStylelish {
-    Integer id ;
+    Integer id;
     String hours;
     Boolean block;
-   // Time time;
+    Date time;
 
     public TimePickerStylelish() {
     }
 
-    public TimePickerStylelish(Integer id, String hours, Boolean block) {
+    public TimePickerStylelish(Integer id, String hours, Boolean block, Date time) {
         this.id = id;
         this.hours = hours;
         this.block = block;
-
+        this.time = time;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -42,5 +41,13 @@ public class TimePickerStylelish {
 
     public void setBlock(Boolean block) {
         this.block = block;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
