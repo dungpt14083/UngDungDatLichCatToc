@@ -50,7 +50,7 @@ public class AccoutActivity extends AppCompatActivity {
         tv_account_phone = findViewById(R.id.tv_account_phone);
         tv_account_update = findViewById(R.id.tv_account_update);
         tv_account_adress = findViewById(R.id.tv_account_adress);
-        img_account_avat =findViewById(R.id.img_account_avat);
+//        img_account_avat =findViewById(R.id.img_account_avat);
 //        tv_account_logout =findViewById(R.id.tv_account_logout);
         tv_account_update.setOnClickListener(new View.OnClickListener() {
             @Override

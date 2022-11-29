@@ -49,10 +49,10 @@ public class UpdateAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_account);
-        edt_update_account_username = findViewById(R.id.edt_update_account_username);
-        edt_update_account_birthday = findViewById(R.id.edt_update_account_birthday);
-        edt_update_account_Adress = findViewById(R.id.edt_update_account_Adress);
-        txtluuthongtin = findViewById(R.id.tvLuuthongtin);
+//        edt_update_account_username = findViewById(R.id.edt_update_account_username);
+//        edt_update_account_birthday = findViewById(R.id.edt_update_account_birthday);
+//        edt_update_account_Adress = findViewById(R.id.edt_update_account_Adress);
+//        txtluuthongtin = findViewById(R.id.tvLuuthongtin);
         //btn_updateaccount_Update = findViewById(R.id.btn_updateaccount_Update);
 
         getUserinfo();
