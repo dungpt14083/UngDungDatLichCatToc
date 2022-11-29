@@ -69,6 +69,7 @@ public class BanGiaActivity extends AppCompatActivity {
         btnhomeback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finishAndRemoveTask();
                 Intent intentHOme =new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intentHOme);
             }

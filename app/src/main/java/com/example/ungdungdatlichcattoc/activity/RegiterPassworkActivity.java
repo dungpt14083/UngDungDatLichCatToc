@@ -86,7 +86,7 @@ public class RegiterPassworkActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         Toast.makeText(RegiterPassworkActivity.this, getString(R.string.register_successfully), Toast.LENGTH_SHORT).show();
-                        finish();
+                        finishAndRemoveTask();
                         Intent intent = new Intent(RegiterPassworkActivity.this, LoginActivity.class);
                         startActivity(intent);
                     } else {

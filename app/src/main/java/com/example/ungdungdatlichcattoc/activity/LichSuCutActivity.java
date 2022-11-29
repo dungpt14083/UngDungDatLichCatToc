@@ -49,6 +49,7 @@ public class LichSuCutActivity extends AppCompatActivity {
         btnhomebhack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finishAndRemoveTask();
                 Intent intentHome =new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intentHome);
             }
