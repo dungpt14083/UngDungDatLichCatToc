@@ -2,7 +2,6 @@
     <string name="app_name">UngDungDatLichCatToc</string>
     <string name="phone">Phone</string>
     <string name="password">Password</string>
-    <string name="thongtin">THÔNG TIN TÀI KHOẢN</string>
     <string name="register_now"><u>Đăng kí</u> </string>
 
     <string name="register_successfully">Register Successfully</string>
