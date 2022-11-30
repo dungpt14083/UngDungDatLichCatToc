@@ -130,6 +130,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     Date date1 = format.parse(edt_update_account_birthday.getText().toString());
+                    date1 = calendar.getTime();
                     System.out.println(date1);
                     Update(token, edt_update_account_username.getText().toString(), date1, edt_update_account_Adress.getText().toString());
                 } catch (Exception e) {
