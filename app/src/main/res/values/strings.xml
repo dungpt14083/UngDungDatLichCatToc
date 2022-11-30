@@ -15,7 +15,9 @@
     </string>
     <string name="txtlogin"><u>Đăng nhập </u></string>
 
-
+    <string name="titlehistory">ANH CHƯA CÓ LỊCH SỬ DÙNG DỊCH VỤ</string>
+    <string name="contenthistory">Anh đặt lịch ngay để trải nghiệm dịch vụ của chúng em nhé!</string>
+    <string name="textbtnthistory">ĐẶT LỊCH NGAY</string>
     <string name="txtluuthongtin"><u>LƯU THÔNG TIN</u></string>
 
 

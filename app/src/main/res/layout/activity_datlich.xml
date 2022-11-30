@@ -8,35 +8,33 @@
     tools:context=".activity.DatlichActivity">
 
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:paddingVertical="7dp">
 
         <ImageView
-            android:layout_marginLeft="-70dp"
             android:id="@+id/btnhomeDatLich"
-            android:layout_width="32dp"
-            android:layout_height="30dp"
-            android:src="@drawable/home1" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_vt_home_32" />
 
         <TextView
-            android:fontFamily="@font/robotomedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="60dp"
-            android:text="ĐẶT LỊCH GIỮ CHỖ"
+            android:layout_marginLeft="85dp"
+            android:fontFamily="@font/robotomedium"
+            android:text="Đặt lịch giữ chỗ"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <View
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/black" />
+        android:background="#F1F1F1" />
     <!--    -->
     <ScrollView
         android:id="@+id/scrollview_Datlich"
@@ -48,42 +46,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FFFFFF"
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/robotocondensed_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:text="1.Chọn Dịch Vụ"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="1.Chọn dịch vụ"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="24dp"
-                android:background="@drawable/cardview_shadow"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/cardview_shadow"
                 android:backgroundTint="#D4F2F4"
                 app:cardCornerRadius="20dp">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_marginLeft="14dp"
                     android:layout_width="56.23dp"
                     android:layout_height="57.81dp"
+                    android:layout_marginLeft="14dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
                     android:backgroundTint="#D4F2F4"
                     app:cardCornerRadius="20dp">
 
                     <ImageView
-                        android:layout_marginLeft="-20dp"
-                        android:layout_marginTop="-12dp"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
+                        android:layout_marginLeft="-20dp"
+                        android:layout_marginTop="-12dp"
                         android:src="@drawable/tuvan"
                         app:shapeAppearanceOverlay="@style/cilcle" />
 
@@ -94,148 +92,197 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="68dp"
+                    android:layout_marginLeft="63dp"
                     android:layout_marginRight="25dp"
                     android:fontFamily="@font/robotoregular"
-                    android:textSize="15sp"
-                    android:text=" Lâu rồi không thấy anh ghé chúng em,\n anh chọn dịch vụ mà mình cần ở phía\n dưới nhé ! " />
+                    android:text=" Lâu rồi không thấy anh ghé chúng em,\n anh chọn dịch vụ mà mình cần ở phía\n dưới nhé ! "
+                    android:textSize="14sp" />
 
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/datlich_crv_chondichvu"
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:id="@+id/datlich_crv_chondichvu"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_marginLeft="30dp"-->
+            <!--                android:layout_marginRight="30dp"-->
+            <!--                android:layout_height="49dp"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:layout_marginTop="24dp"-->
+            <!--                app:cardBackgroundColor="#F5F6F8"-->
+            <!--                app:cardCornerRadius="5dp">-->
+
+            <!--                <ImageView-->
+            <!--                    android:layout_marginTop="13dp"-->
+            <!--                    android:layout_marginBottom="14dp"-->
+            <!--                    android:layout_marginLeft="10dp"-->
+            <!--                    android:layout_width="24dp"-->
+            <!--                    android:layout_height="24dp"-->
+            <!--                    android:src="@drawable/content_cut" />-->
+
+
+            <!--                <TextView-->
+            <!--                    android:background="#F5F6F8"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:layout_marginBottom="16dp"-->
+            <!--                    android:layout_marginLeft="50dp"-->
+            <!--                    android:id="@+id/tv_datlich_service"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="49dp"-->
+            <!--                    android:drawSelectorOnTop="true"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />-->
+
+
+            <!--            </androidx.cardview.widget.CardView>-->
+            <LinearLayout
+                android:id="@+id/linear_chondichvu"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_height="49dp"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="24dp"
-                app:cardBackgroundColor="#F1F0F0"
-                app:cardCornerRadius="10dp">
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/custom_corner_input"
+                android:orientation="horizontal"
+                android:paddingVertical="13dp"
+                android:weightSum="10">
 
                 <ImageView
-                    android:layout_marginTop="13dp"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/content_cut" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:rotation="-90"
+                    android:src="@drawable/ic_vt_cut_24" />
 
 
                 <TextView
-                    android:background="#F1F0F0"
-                    android:gravity="center"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginLeft="50dp"
                     android:id="@+id/tv_datlich_service"
-                    android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:drawSelectorOnTop="true"
-                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="8"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Bạn chọn 1 dịch vụ . Tổng tiền là 1000000"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-
-            </androidx.cardview.widget.CardView>
-
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_vt_arrow_24" />
+            </LinearLayout>
             <!--     CHON STYLIST           -->
 
             <TextView
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/robotocondensed_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.Chọn Stylist"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="2.Chọn stylist"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
 
-            <androidx.cardview.widget.CardView
-                android:layout_marginTop="24dp"
+            <LinearLayout
+
                 android:id="@+id/crv_selectstylish"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="13dp"
                 android:layout_marginLeft="30dp"
-                android:layout_height="49dp"
-                android:layout_marginRight="30dp"
-                android:layout_gravity="center"
-                app:cardBackgroundColor="#FFFF"
-                app:cardCornerRadius="10dp">
-<!--                app:cardBackgroundColor="#F1F0F0"-->
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/custom_corner_input"
+                android:weightSum="10">
 
-ww
-                    <ImageView
-                        android:layout_marginTop="13dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/iconprofile" />
 
-<!--                <Spinner-->
-<!--                    android:id="@+id/spinerstylish"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="49dp"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    android:background="#F1F0F0"-->
-<!--                    android:drawSelectorOnTop="true"-->
-<!--                    android:textStyle="bold"-->
-<!--                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_vt_person_24" />
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/tv_namestylist"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="8"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Nguyễn Văn Nam"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_vt_arrow_24" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rec_stylist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp" />
+                android:layout_marginRight="24dp" />
 
 
             <!--     CHON NGAY VA GIO            -->
 
 
-
             <TextView
-                android:layout_marginLeft="16dp"
-                android:fontFamily="@font/robotocondensed_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/robotomedium"
                 android:text="3.Chọn ngày, giờ"
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="18sp" />
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="24dp"
-                android:layout_marginRight="30dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="13dp"
                 android:layout_marginLeft="30dp"
-                app:cardBackgroundColor="#F1F0F0"
-                app:cardCornerRadius="10dp">
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
+                android:weightSum="10"
+                android:background="@drawable/custom_corner_input">
 
-                    <ImageView
-                        android:layout_marginTop="13dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/calenda"
-                        android:id="@+id/btn_datlich_calendar" />
+                <ImageView
+                    android:id="@+id/btn_datlich_calendar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_vt_date__24" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/tv_datlich_time"
-                        android:hint="Chọn ngày sử dụng dịch vụ"
-                        android:textSize="14sp"
-                        android:gravity="center"
-                        android:layout_marginLeft="48dp"
-                        android:layout_marginRight="14dp"
-                        android:textStyle="bold" />
-
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/tv_datlich_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:layout_weight="8"
+                    android:hint="Chọn ngày sử dụng dịch vụ"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/roboto_light"
+                    android:textColor="@color/black"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_vt_arrow_24" />
+            </LinearLayout>
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -247,42 +294,55 @@ ww
                 android:layout_marginRight="30dp" />
 
 
-            <androidx.cardview.widget.CardView
-                android:layout_marginTop="50dp"
-                android:layout_width="369dp"
-                android:layout_height="49dp"
-                app:cardCornerRadius="10dp"
-                android:layout_gravity="center"
-                android:backgroundTint="#939292">
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="369dp"-->
+<!--                android:layout_height="49dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:backgroundTint="#939292"-->
+<!--                app:cardCornerRadius="10dp">-->
 
-                <Button
-                    android:id="@+id/btn_order_hoantat"
-                    android:layout_marginTop="-10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:textStyle="bold"
-                    android:text="Hoàn Tất"
-                    android:textSize="24dp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/robotomedium"
-                    android:backgroundTint="#939292"/>
+<!--                <Button-->
+<!--                    -->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:backgroundTint="#939292"-->
+<!--                    android:background="@drawable/custom_corner_input"-->
+<!--                    android:fontFamily="@font/robotomedium"-->
+<!--                    android:text="Hoàn Tất"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="24dp"-->
+<!--                    android:textStyle="bold" />-->
+<!--               -->
 
+<!--            </androidx.cardview.widget.CardView>-->
 
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:textColor="@color/black"
-                android:fontFamily="@font/robotolight"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Cắt xog trả tiền, hủy lịch không sao"
-                android:textSize="14dp" />
 
         </LinearLayout>
 
     </ScrollView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_order_hoantat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/my_corner_button_gray"
+        android:fontFamily="@font/barlowcondensedsemibold"
+        android:text="HOÀN TẤT"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/robotolight"
+        android:gravity="center"
+        android:text="Cắt xong trả tiền, hủy lịch không sao"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
 </LinearLayout>

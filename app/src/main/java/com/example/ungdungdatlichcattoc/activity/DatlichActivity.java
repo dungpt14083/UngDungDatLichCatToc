@@ -72,9 +72,8 @@ public class DatlichActivity extends AppCompatActivity {
     Spinner spinnerStylish, spnfake;
     HairStylishSpinerAdapter hairStylishSpinerAdapter;
     public TextView tvNameStylish;
-    CardView crv_chonService, crv_selectstylish;
     TextView tvservice;
-
+    LinearLayout crv_chonService,crv_selectstylish;
     RecyclerView recyclerView_btnTime;
     List<TimePickerStylelish> listTime = new ArrayList<>();
     Adapter_rec_btnTime adapter_rec_btnTime;
@@ -106,7 +105,7 @@ public class DatlichActivity extends AppCompatActivity {
         btnHomeBack = findViewById(R.id.btnhomeDatLich);
         hairStylishList = new ArrayList<>();
      //   spinnerStylish = findViewById(R.id.spinerstylish);
-        crv_chonService = findViewById(R.id.datlich_crv_chondichvu);
+        crv_chonService = findViewById(R.id.linear_chondichvu);
         crv_selectstylish = findViewById(R.id.crv_selectstylish);
         tvservice = findViewById(R.id.tv_datlich_service);
         calenda = findViewById(R.id.btn_datlich_calendar);
