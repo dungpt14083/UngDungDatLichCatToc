@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
+        android:paddingVertical="10dp"
         >
         <ImageView
-            android:layout_margin="10dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/home1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vt_home_32"
+            android:layout_marginStart="12dp"
             android:id="@+id/btnhomeBangGia"
             />
 
@@ -25,10 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:paddingEnd="40dp"
             android:text="Bảng Giá Dịch Vụ"
             android:textColor="@color/black"
-            android:layout_marginTop="1dp"
-            android:textSize="32dp" />
+            android:textSize="24dp" />
     </LinearLayout>
     <androidx.cardview.widget.CardView
         android:layout_weight="0.5"

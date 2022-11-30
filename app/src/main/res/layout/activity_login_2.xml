@@ -16,7 +16,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_logo"
                 android:layout_width="130dp"
@@ -38,7 +37,6 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="40sp" />
-
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
