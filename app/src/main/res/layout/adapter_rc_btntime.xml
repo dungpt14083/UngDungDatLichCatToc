@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTime"
         android:layout_width="66dp"
@@ -14,7 +11,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_btntime"
+        android:background="@drawable/my_corner_button_gray"
         android:fontFamily="@font/barlowcondensedregular"
         android:text="8h"
         android:textSize="16dp"
