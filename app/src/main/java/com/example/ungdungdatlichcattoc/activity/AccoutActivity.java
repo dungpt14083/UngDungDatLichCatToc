@@ -8,16 +8,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.API.ApiCustomer;
-import com.example.ungdungdatlichcattoc.API.ApiOrder;
-import com.example.ungdungdatlichcattoc.Adapter.Adapter_lichsu;
 import com.example.ungdungdatlichcattoc.R;
-import com.example.ungdungdatlichcattoc.model.CusstomerInfo;
-import com.example.ungdungdatlichcattoc.model.Order;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,7 +34,7 @@ public class AccoutActivity extends AppCompatActivity {
     private String Phone;
     SharedPreferences prefs;
     List<ProfileCus> cusstomerInfoList;
-     CircleImageView img_account_avat;
+    ShapeableImageView img_account_avat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +100,7 @@ public class AccoutActivity extends AppCompatActivity {
                     birThday = profileCus.getBirthOfYear();
                     Phone = profileCus.getPhone();
                     adress = profileCus.getAddress();
+                    Log.e("loidate", "onResponse: "+birThday );
 
                     tv_account_nameuser.setText(nameUser);
                     tv_account_adress.setText(adress);
@@ -111,8 +108,9 @@ public class AccoutActivity extends AppCompatActivity {
                     Glide.with(AccoutActivity.this).load("http://io.supermeo.com:8000/"+profileCus.getImage()).into(img_account_avat);
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
+                        Date datebirth = format.parse(birThday);
 
-                        tv_account_birthday.setText(format.format(birThday));
+                        tv_account_birthday.setText(format.format(datebirth));
                     } catch (Exception e) {
 
                     }
