@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.API.ApiCustomer;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class AccoutActivity extends AppCompatActivity {
     private String Phone;
     SharedPreferences prefs;
     List<ProfileCus> cusstomerInfoList;
-     CircleImageView img_account_avat;
+    ShapeableImageView img_account_avat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

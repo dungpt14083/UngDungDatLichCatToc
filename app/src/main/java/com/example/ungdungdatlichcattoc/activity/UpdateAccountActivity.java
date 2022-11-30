@@ -67,7 +67,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
     private String nameUser, birThday, Phone, token, andress;
     SharedPreferences prefs;
     final Calendar calendar = Calendar.getInstance();
-    CircleImageView img_update_avt;
+    ShapeableImageView img_update_avt;
     private Uri mUri;
     private ProgressDialog mprogressDialog;
 
