@@ -57,6 +57,7 @@
                 android:textSize="24dp"
                 android:gravity="center_horizontal"
                 />
+
             <TextView
                 android:gravity="center"
                 android:layout_marginTop="20dp"
@@ -72,6 +73,16 @@
                 android:textSize="20sp"
 
                 />
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpage2_discover"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"/>
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/cicler_indicator3"
+                android:layout_width="wrap_content"
+                app:ci_drawable="@drawable/bt_indicator"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
@@ -95,13 +106,13 @@
                 android:text="chung"
                 android:textSize="18sp" />
 
-            <ListView
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/imgDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+<!--            <ListView-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:id="@+id/imgDetail"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
 
         </LinearLayout>
     </ScrollView>
