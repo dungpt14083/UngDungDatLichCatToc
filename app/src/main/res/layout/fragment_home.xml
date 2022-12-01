@@ -52,14 +52,6 @@
                 android:text="NAM PHƯƠNG BÙI"
                 android:textColor="#FFFFFF"
                 android:textSize="22dp" />
-            <!--            <TextView-->
-            <!--                android:textSize="25dp"-->
-            <!--                android:layout_marginRight="5dp"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="ĐĂNG KÝ NGAY"-->
-            <!--                android:textColor="@color/black"-->
-            <!--                android:id="@+id/home_tv_Dangky_user"/>-->
         </LinearLayout>
 
         <LinearLayout
@@ -93,130 +85,48 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4F8FB"
+                android:background="#F5F6F8"
                 android:orientation="vertical">
 
                 <GridView
                     android:id="@+id/grid_item"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:numColumns="3"/>
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginVertical="20dp"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    android:weightSum="3">-->
+                    android:numColumns="3"
+                    android:verticalSpacing="20dp" />
 
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:gravity="center_horizontal"-->
-                <!--                        android:orientation="vertical">-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <!--                        <androidx.cardview.widget.CardView-->
-                <!--                            android:id="@+id/home_cardview_datlich"-->
-                <!--                            android:layout_width="65dp"-->
-                <!--                            android:layout_height="65dp"-->
-                <!--                            android:backgroundTint="#E7E7E8"-->
-                <!--                            app:cardCornerRadius="250dp"-->
-                <!--                            app:cardElevation="5dp">-->
-
-                <!--                            <ImageView-->
-                <!--                                android:layout_width="36dp"-->
-                <!--                                android:layout_height="36dp"-->
-                <!--                                android:layout_gravity="center"-->
-                <!--                                android:src="@drawable/dat_lich" />-->
-                <!--                        </androidx.cardview.widget.CardView>-->
-
-                <!--                        <TextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="5dp"-->
-                <!--                            android:fontFamily="@font/robotocondensed_regular"-->
-                <!--                            android:text="Đặt lịch"-->
-                <!--                            android:textColor="#000000"-->
-                <!--                            android:textSize="18dp" />-->
-                <!--                    </LinearLayout>-->
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:gravity="center_horizontal"-->
-                <!--                        android:orientation="vertical">-->
-
-                <!--                        <androidx.cardview.widget.CardView-->
-                <!--                            android:id="@+id/home_cardview_lichsucut"-->
-                <!--                            android:layout_width="65dp"-->
-                <!--                            android:layout_height="65dp"-->
-                <!--                            android:backgroundTint="#E7E7E8"-->
-                <!--                            app:cardCornerRadius="250dp"-->
-                <!--                            app:cardElevation="5dp">-->
-
-                <!--                            <ImageView-->
-                <!--                                android:layout_width="36dp"-->
-                <!--                                android:layout_height="36dp"-->
-                <!--                                android:layout_gravity="center"-->
-                <!--                                android:src="@drawable/lich_su_cat" />-->
-
-                <!--                        </androidx.cardview.widget.CardView>-->
-
-                <!--                        <TextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="5dp"-->
-                <!--                            android:fontFamily="@font/robotocondensed_regular"-->
-                <!--                            android:text="lịch sử cắt"-->
-                <!--                            android:textColor="#000000"-->
-                <!--                            android:textSize="18dp" />-->
-                <!--                    </LinearLayout>-->
-
-                <!--                    <LinearLayout-->
-
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:gravity="center_horizontal"-->
-                <!--                        android:orientation="vertical">-->
-
-                <!--                        <androidx.cardview.widget.CardView-->
-                <!--                            android:id="@+id/home_cardview_banggia"-->
-                <!--                            android:layout_width="65dp"-->
-                <!--                            android:layout_height="65dp"-->
-                <!--                            android:backgroundTint="#E7E7E8"-->
-                <!--                            app:cardCornerRadius="250dp"-->
-                <!--                            app:cardElevation="5dp">-->
-
-                <!--                            <ImageView-->
-                <!--                                android:layout_width="36dp"-->
-                <!--                                android:layout_height="36dp"-->
-                <!--                                android:layout_gravity="center"-->
-                <!--                                android:src="@drawable/bang_tin" />-->
-                <!--                        </androidx.cardview.widget.CardView>-->
-
-                <!--                        <TextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="5dp"-->
-                <!--                            android:fontFamily="@font/robotocondensed_regular"-->
-                <!--                            android:text="Bảng tin "-->
-                <!--                            android:textColor="#000000"-->
-                <!--                            android:textSize="18dp" />-->
-                <!--                    </LinearLayout>-->
-                <!--                </LinearLayout>-->
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewPager"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_height="130dp" />
+                    <me.relex.circleindicator.CircleIndicator
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:id="@+id/circleIndicator"
+                        android:layout_marginTop="-35dp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
 
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:fontFamily="@font/robotomedium"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:fontFamily="@font/barlowcondensedsemibold"
                     android:gravity="center"
-                    android:text="Trải Nghiệm dịch vụ"
+                    android:text="TRẢI NGHIỆM DỊCH VỤ"
                     android:textColor="@color/black"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -225,10 +135,10 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="407dp"
+                        android:layout_height="340dp"
                         android:layout_marginStart="7dp"
                         android:layout_marginEnd="10dp"
-                        app:cardCornerRadius="20dp"
+                        app:cardCornerRadius="10dp"
                         app:cardElevation="1dp"
                         app:cardUseCompatPadding="true">
 
@@ -243,12 +153,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="28dp"
-                    android:fontFamily="@font/robotomedium"
+                    android:layout_marginVertical="10dp"
+                    android:fontFamily="@font/barlowcondensedsemibold"
                     android:gravity="center_horizontal"
-                    android:text="CAM KẾT STUDIO SALON"
+                    android:text="CAM KẾT SALON"
                     android:textColor="#000000"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
 
                 <LinearLayout
 
@@ -258,177 +168,19 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="155dp"
-                        app:cardCornerRadius="20dp">
+                        android:layout_height="wrap_content"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="1dp"
+                        app:cardCornerRadius="10dp">
+                    <GridView
+                        android:id="@+id/grv_camket"
+                        android:layout_width="match_parent"
+                        android:numColumns="2"
+                        android:layout_marginTop="20dp"
+                        android:verticalSpacing="20dp"
+                        android:gravity="center"
+                        android:layout_height="170dp"/>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="2">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="2">
-
-                                <LinearLayout
-
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="18dp"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-
-                                        android:layout_width="31dp"
-                                        android:layout_height="31dp"
-                                        android:layout_gravity="center_vertical"
-                                        android:src="@drawable/icon_cam_ket" />
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotocondensed_regular"
-                                            android:text="7 ngày "
-                                            android:textColor="#000000"
-                                            android:textSize="16dp" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotomedium"
-                                            android:text="Chỉnh sửa tóc miễn phí"
-                                            android:textColor="#9B9B9B"
-                                            android:textSize="14dp" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-                                        android:layout_width="31dp"
-                                        android:layout_height="31dp"
-                                        android:layout_gravity="center_vertical"
-                                        android:src="@drawable/icon_cam_ket" />
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotocondensed_regular"
-                                            android:text="30 ngày "
-                                            android:textColor="#000000"
-                                            android:textSize="16dp" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:text="Tư vấn / chăm sóc khách hàng" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:weightSum="2">
-
-                                <LinearLayout
-
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="18dp"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-                                        android:layout_width="31dp"
-                                        android:layout_height="31dp"
-                                        android:layout_gravity="center_vertical"
-                                        android:src="@drawable/icon_cam_ket" />
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotocondensed_regular"
-                                            android:text="15 ngày "
-                                            android:textColor="#000000"
-                                            android:textSize="16dp" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotomedium"
-                                            android:text="Chỉnh sửa tóc miễn phí"
-                                            android:textColor="#9B9B9B"
-                                            android:textSize="14dp" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-                                        android:layout_width="31dp"
-                                        android:layout_height="31dp"
-                                        android:layout_gravity="center_vertical"
-                                        android:src="@drawable/icon_cam_ket" />
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotocondensed_regular"
-                                            android:text="Giảm 20% "
-                                            android:textColor="#000000"
-                                            android:textSize="16dp" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:text="Nếu chờ đợi quá lâu " />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-                        </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 

@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
 
-        android:src="@drawable/dat_lich"
+        android:src="@drawable/ic_vt_date_48"
         app:layout_anchor="@id/bottomappbar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
