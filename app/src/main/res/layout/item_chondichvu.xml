@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="5dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,28 +15,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="9.3"
+            android:layout_weight="8.9"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:cardCornerRadius="7dp">
+                >
                 <ImageView
                     android:id="@+id/item_chondichvu_img"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="128dp"
-                    android:minWidth="171dp"
-                    android:minHeight="128dp"
+                    android:background="@drawable/custom_border_image"
+                    android:layout_marginTop="-7dp"
                     android:src="@drawable/tocnamdep" />
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/item_chondichvu_tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/robotomedium"
                 android:text="Shine Combo cắt gội 10 bước "
@@ -49,33 +49,36 @@
                 android:id="@+id/item_chondichvu_tvDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/robotoregular"
                 android:text="Đặc sắc nổi tiếng  "
                 android:textColor="#757575"
-                android:textSize="14dp" />
+                android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/item_chondichvu_tvPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/robotomedium"
-                android:text="100k  "
-                android:textColor="#000000"
-                android:textSize="14dp" />
+
         </LinearLayout>
+        <TextView
+            android:id="@+id/item_chondichvu_tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/robotomedium"
+            android:text="100k  "
+            android:layout_weight=".4"
+            android:textColor="#000000"
+            android:textSize="14dp" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/item_chondichvu_btn_chon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".7"
-            android:layout_marginHorizontal="7dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="3dp"
             android:backgroundTint="#FFFFFF"
             android:text="Chọn"
-            android:fontFamily="@font/robotoregular"
+            android:fontFamily="@font/robotomedium"
             android:textAllCaps="false"
             android:textSize="14sp"
             android:textColor="@color/black"
