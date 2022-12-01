@@ -7,7 +7,8 @@
 
     <string name="register_successfully">Register Successfully</string>
     <string name="not_a_member">Bạn chưa có tài khoản ?</string>
-    <string name="forgot_password"><u>Quên mật khẩu</u></string>>
+    <string name="forgot_password"><u>Quên mật khẩu</u></string>
+    >
 
     <string name="txtchinhsua"><u>CHỈNH SỬA THÔNG TIN</u> </string>
     <string name="txtxemchitiet"><u>Xem chi tiết   </u> </string>
@@ -24,6 +25,17 @@
     <string name="login">LOGIN</string>
     <string name="registration_failed">Registration failed</string>
     <string name="repeat_password">Repeat password</string>
-    <string name="txtdiscover">DISCOVER</string>
 
+    <!--    KHAM PHA    -->
+    <string name="txtdiscover">DISCOVER</string>
+    <string name="KHAMPHA_txtChinhSachBaoMat">Chính Sách Bảo Mật Thông Tin App Hair Salon</string>
+    <string name="KHAMPHA_txtTitle1">1. Mục đích và phạm vi thu thập thông tin</string>
+    <string name="KHAMPHA_content1">* Hair Salon thu thập thông tin của người dùng qua việc khách hàng đặt lịch cắt tóc , đặt mua hàng trên App Hair Salon . * Các thông tin của khách hàng mà hair salon thu thập gồm : Họ tên , số điện thoại , địa chỉ email , địa chỉ nhận hàng * Mục đích sử dụng thông tin - Xác nhận danh tính khách hàng - Xác nhận lịch cắt tóc cho khách hàng - Xác định địa điểm của khách hàng - Nâng cao chất lượng dịch vụ chăm sóc khách hàng , liên lạc giải quyết vấn đề khi khách hàng có trải nghiệm chưa tốt , gửi tới khách hàng thông tin về các chương trình khuyến mãi mà khách hàng quan tâm</string>
+    <string name="KHAMPHA_txtTitle2">2. Phạm vi sử dụng thông tin và bảo mật thông tin</string>
+    <string name="KHAMPHA_content2">* Thông tin các nhân thu thập được sẽ chỉ được sử dụng trong nội bộ công ty nhằm mục đích : xác nhận lịch cắt tóc cho khách hàng , xác nhận đơn đặt hàng , theo dõi đơn đặt hàng , chăm sóc khách hàng. * Hair Salon không cung cấp cho bất cứ bên thứ 3 nào các thông tin của khách hàng (trừ trường hợp được khách hàng đồng ý )</string>
+    <string name="KHAMPHA_txtTitle3">3.Thông tin đơn vị thu thập và quản lý thông tin cá nhân khách hàng</string>
+    <string name="KHAMPHA_content3">Công ty Cp thương mại dịch vụ 30shine Địa chỉ : số 82 Trần Đại Nghĩa , P.Đồng Tâm, Q. Hai Bà Trưng, Hà Nội Mã số Thuế : 0107467693</string>
+    <string name="KHAMPHA_txtTitle4">4.Phương tiện và công cụ để người dùng tiếp cận và chỉnh sửa dữ liệu cá nhân của mình</string>
+    <string name="KHAMPHA_content4">Khách hàng muốn chỉnh sửa thông tin cá nhân của mình vui lòng liên hệ SĐT công ty: 0888682346</string>
+    <!---->
 </resources>

@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.API.ApiCustomer;
+import com.example.ungdungdatlichcattoc.Adapter.Adapter_InforUserSupport;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_user;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.activity.AccoutActivity;
@@ -30,6 +31,7 @@ import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
 import com.example.ungdungdatlichcattoc.activity.LoginActivity;
 import com.example.ungdungdatlichcattoc.activity.RepassActivity;
 import com.example.ungdungdatlichcattoc.activity.ThongtTinHoTroKhActivity;
+import com.example.ungdungdatlichcattoc.model.InforUserSupport;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
 import com.example.ungdungdatlichcattoc.model.user;
 
@@ -56,7 +58,7 @@ public class Fragment_User extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
         listView = view.findViewById(R.id.lv_danhsach);
-        user_img_avt_user =view.findViewById(R.id.user_img_avt_user);
+        user_img_avt_user = view.findViewById(R.id.user_img_avt_user);
         user_tv_name_user = view.findViewById(R.id.user_tv_name_user);
         list = new ArrayList<>();
         list.add(new user(R.drawable.ic_vt_account_32, "Thông tin khách hàng", R.drawable.ic_vt_back_16));
@@ -66,6 +68,8 @@ public class Fragment_User extends Fragment {
         list.add(new user(R.drawable.ic_vt_logout_32, "Đăng xuất", R.drawable.ic_vt_back_16));
         adapterUser = new Adapter_user(getContext(), list);
         listView.setAdapter(adapterUser);
+        //---------------------
+
         getUserinfo();
         Profile(token);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,19 +84,21 @@ public class Fragment_User extends Fragment {
                         break;
                     case 2:
                         startActivity(new Intent(getContext(), ThongtTinHoTroKhActivity.class));
+
                         break;
                     case 3:
-                        Toast.makeText(getContext(), i+"Vị trí Salon", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), i + "Vị trí Salon", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
                         logout();
-                        Toast.makeText(getContext(), i+"Đăng xuất", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), i + "Đăng xuất", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
         });
         return view;
     }
+
     void getUserinfo() {
         prefs = getActivity().getSharedPreferences("HAIR", getActivity().MODE_PRIVATE);
         token = prefs.getString("token", toString());
@@ -114,10 +120,10 @@ public class Fragment_User extends Fragment {
                     ProfileCus profileCus = response.body();
                     try {
                         user_tv_name_user.setText(profileCus.getNameUser());
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Glide.with(getActivity()).load("http://io.supermeo.com:8000/"+profileCus.getImage()).into(user_img_avt_user);
+                    Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(user_img_avt_user);
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
 
@@ -138,17 +144,18 @@ public class Fragment_User extends Fragment {
             }
         });
     }
-    void logout(){
+
+    void logout() {
         SharedPreferences myPrefs = getActivity().getSharedPreferences("HAIR", Context.MODE_PRIVATE
-                );
-                SharedPreferences.Editor editor = myPrefs.edit();
-                editor.clear();
-                editor.commit();
-                //AppState.getSingleInstance().setLoggingOut(true);
-                getActivity().finishAndRemoveTask();
-                Intent intent = new Intent(getContext(),
-                        LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+        );
+        SharedPreferences.Editor editor = myPrefs.edit();
+        editor.clear();
+        editor.commit();
+        //AppState.getSingleInstance().setLoggingOut(true);
+        getActivity().finishAndRemoveTask();
+        Intent intent = new Intent(getContext(),
+                LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

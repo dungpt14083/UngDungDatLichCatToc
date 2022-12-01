@@ -54,13 +54,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity.ThongtTinHoTroKhActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activity.UpdateAccountActivity"
             android:exported="true" />
         <activity
@@ -102,6 +95,12 @@
             android:exported="true" />
         <activity
             android:name=".activity.Activity_newfeed"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ThongtTinHoTroKhActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ChinhSachBaoMat"
             android:exported="true" />
         <activity
             android:name=".activity.ActivityDetail"

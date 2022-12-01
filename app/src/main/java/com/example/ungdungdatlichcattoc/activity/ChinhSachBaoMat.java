@@ -11,6 +11,6 @@ public class ChinhSachBaoMat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chinh_sach_bao_mat);
+        setContentView(R.layout.activity_chinhsachbaomat);
     }
 }
