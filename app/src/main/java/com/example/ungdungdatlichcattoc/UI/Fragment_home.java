@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,10 +26,13 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.API.ApiCustomer;
 import com.example.ungdungdatlichcattoc.API.ApiService;
+import com.example.ungdungdatlichcattoc.Adapter.Adapter_camket;
+import com.example.ungdungdatlichcattoc.Adapter.Adapter_image_slide;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_item_menu;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_traiNhiem;
 import com.example.ungdungdatlichcattoc.R;
@@ -37,12 +42,17 @@ import com.example.ungdungdatlichcattoc.activity.DatlichActivity;
 import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
 import com.example.ungdungdatlichcattoc.model.Service;
+import com.example.ungdungdatlichcattoc.model.camket;
+import com.example.ungdungdatlichcattoc.model.image;
 import com.example.ungdungdatlichcattoc.model.itemmenu;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import me.relex.circleindicator.CircleIndicator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,9 +68,16 @@ public class Fragment_home extends Fragment {
     ImageView home_img_avt_user;
     private List<Service> serviceList1;
     TextView home_tv_name_user;
-    GridView grv_item;
+    GridView grv_item,grv_camket;
     List<itemmenu> listItem;
     Adapter_item_menu adapter_item_menu;
+    ViewPager viewPager;
+    List<image> listImg;
+    Timer timer;
+    CircleIndicator circleIndicator;
+    Adapter_image_slide image_slide;
+    List<camket> listCamket;
+    Adapter_camket camket;
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -68,21 +85,13 @@ public class Fragment_home extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         getUserinfo();
         Profile(token);
-//        btnDatLich = view.findViewById(R.id.home_cardview_datlich);
-//        btnBangGia = view.findViewById(R.id.home_cardview_banggia);
         home_img_avt_user = view.findViewById(R.id.home_img_avt_user);
-//        btnLichSuCut = view.findViewById(R.id.home_cardview_lichsucut);
         grv_item = view.findViewById(R.id.grid_item);
+        grv_camket = view.findViewById(R.id.grv_camket);
         home_tv_name_user = view.findViewById(R.id.home_tv_name_user);
-//        btnBangGia.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getContext(), BanGiaActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
+        viewPager = view.findViewById(R.id.viewPager);
         imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
+        circleIndicator = view.findViewById(R.id.circleIndicator);
         imgNewFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,42 +134,94 @@ public class Fragment_home extends Fragment {
                 startActivity(intent);
             }
         });
-        //
-//        btnDatLich.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentDatLich = new Intent(getActivity(), DatlichActivity.class);
-//                startActivity(intentDatLich);
-//            }
-//        });
-//        btnBangGia.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentBangGia = new Intent(getActivity(), BanGiaActivity.class);
-//                startActivity(intentBangGia);
-//            }
-//        });
-//        btnLichSuCut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intenLichSuCut = new Intent(getActivity(), LichSuCutActivity.class);
-//                startActivity(intenLichSuCut);
-//            }
-//        });
         getGridViewItemMenu();
         clickItem();
+        setDataSlide();
+        circleIndicator.setViewPager(viewPager);
+        image_slide.registerDataSetObserver(circleIndicator.getDataSetObserver());
+        AutoSlideImage();
+        setDataCamket();
         return view;
     }
+    void setDataCamket(){
+        addDataCamKet();
+        camket = new Adapter_camket(getContext(),listCamket);
+        grv_camket.setAdapter(camket);
+    }
+    void addDataCamKet(){
+        listCamket = new ArrayList<>();
+        listCamket.add(new camket(R.drawable.ic_vt_check__32,"7 ngày","Chỉnh sửa tóc miễn phí"));
+        listCamket.add(new camket(R.drawable.ic_vt_check__32,"30 ngày","Tư vấn / chăm sóc khách hàng"));
+        listCamket.add(new camket(R.drawable.ic_vt_check__32,"15 ngày","Bảo hành uốn nhuộm"));
+        listCamket.add(new camket(R.drawable.ic_vt_check__32,"Giảm 20%","Nếu chờ quá lâu"));
+
+    }
+    void setDataSlide(){
+        addDataSlide();
+        image_slide = new Adapter_image_slide(getContext(),listImg);
+        viewPager.setAdapter(image_slide);
+    }
+    void addDataSlide(){
+        listImg = new ArrayList<>();
+        listImg.add(new image(R.drawable.slide0));
+        listImg.add(new image(R.drawable.slide1));
+        listImg.add(new image(R.drawable.slide2));
+        listImg.add(new image(R.drawable.slide3));
+    }
+    private void AutoSlideImage() {
+        if (listImg == null || listImg.isEmpty() || viewPager == null) {
+            return;
+        }
+        // Init timer
+        if (timer == null) {
+            timer = new Timer();
+        }
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        int currentItem = viewPager.getCurrentItem();
+                        int totalItem = listImg.size() - 1;
+                        if (currentItem < totalItem) {
+                            currentItem++;
+                            viewPager.setCurrentItem(currentItem);
+                        }else {
+                            viewPager.setCurrentItem(0);
+                        }
+                    }
+                });
+            }
+        }, 500, 3000);
+    }
+
     void clickItem(){
         grv_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getContext(), "abc" + i, Toast.LENGTH_SHORT).show();
+                switch (i){
+                    case 0:
+                        startActivity(new Intent(getContext(), DatlichActivity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(getContext(), LichSuCutActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(getContext(), Activity_newfeed.class));
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                }
             }
         });
     }
     void getUserinfo() {
-        prefs = getActivity().getSharedPreferences("HAIR", getActivity().MODE_PRIVATE);
+        prefs = getContext().getSharedPreferences("HAIR", getContext().MODE_PRIVATE);
         token = prefs.getString("token", toString());
     }
     void getGridViewItemMenu(){
@@ -171,10 +232,10 @@ public class Fragment_home extends Fragment {
     }
     void addDataItem(){
         listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Đặt lịch"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Lịch sử cắt"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Bảng tin"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Vị trí Salon"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Vị trí Salon"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_time_32,"Lịch sử cắt"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_newr_32,"Bảng tin"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_location_32,"Vị trí Salon"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_cut_32,"Bí kíp chăm sóc tóc"));
         listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Vị trí Salon"));
     }
     private void Profile(String customerId) {
@@ -197,7 +258,7 @@ public class Fragment_home extends Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
+                    Glide.with(getContext()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
 
