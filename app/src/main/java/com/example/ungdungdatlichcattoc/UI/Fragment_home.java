@@ -36,6 +36,7 @@ import com.example.ungdungdatlichcattoc.Adapter.Adapter_image_slide;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_item_menu;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_traiNhiem;
 import com.example.ungdungdatlichcattoc.R;
+import com.example.ungdungdatlichcattoc.activity.Activity_map;
 import com.example.ungdungdatlichcattoc.activity.Activity_newfeed;
 import com.example.ungdungdatlichcattoc.activity.BanGiaActivity;
 import com.example.ungdungdatlichcattoc.activity.DatlichActivity;
@@ -211,6 +212,7 @@ public class Fragment_home extends Fragment {
                         startActivity(new Intent(getContext(), Activity_newfeed.class));
                         break;
                     case 3:
+                        startActivity(new Intent(getContext(), Activity_map.class));
                         break;
                     case 4:
                         break;

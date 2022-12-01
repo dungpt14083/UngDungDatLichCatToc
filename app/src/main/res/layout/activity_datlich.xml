@@ -175,6 +175,13 @@
                     android:layout_weight="1"
                     android:src="@drawable/ic_vt_arrow_24" />
             </LinearLayout>
+            <ListView
+                android:layout_marginTop="15dp"
+                android:id="@+id/lv_nameSV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="24dp"/>
             <!--     CHON STYLIST           -->
 
             <TextView
@@ -249,6 +256,7 @@
                 android:textSize="18sp" />
 
             <LinearLayout
+                android:id="@+id/btn_datlich_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="13dp"
@@ -259,7 +267,7 @@
                 android:background="@drawable/custom_corner_input">
 
                 <ImageView
-                    android:id="@+id/btn_datlich_calendar"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"

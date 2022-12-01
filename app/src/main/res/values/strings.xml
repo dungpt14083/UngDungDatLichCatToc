@@ -37,5 +37,7 @@
     <string name="KHAMPHA_content3">Công ty Cp thương mại dịch vụ 30shine Địa chỉ : số 82 Trần Đại Nghĩa , P.Đồng Tâm, Q. Hai Bà Trưng, Hà Nội Mã số Thuế : 0107467693</string>
     <string name="KHAMPHA_txtTitle4">4.Phương tiện và công cụ để người dùng tiếp cận và chỉnh sửa dữ liệu cá nhân của mình</string>
     <string name="KHAMPHA_content4">Khách hàng muốn chỉnh sửa thông tin cá nhân của mình vui lòng liên hệ SĐT công ty: 0888682346</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_map">Activity_map</string>
     <!---->
 </resources>
