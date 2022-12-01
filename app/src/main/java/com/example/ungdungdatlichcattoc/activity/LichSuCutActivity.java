@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.cardview.widget.CardView;
 
 import com.example.ungdungdatlichcattoc.API.ApiOrder;
 import com.example.ungdungdatlichcattoc.API.ApiService;
@@ -38,6 +40,9 @@ public class LichSuCutActivity extends AppCompatActivity {
     List<Order> orderList = new ArrayList<>();
     Adapter_lichsu adapterLichsu;
     ListView listView ;
+    AppCompatButton btn_lichsucut_order;
+    CardView btn_lichsucut_null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,18 @@ public class LichSuCutActivity extends AppCompatActivity {
         btnhomebhack = findViewById(R.id.btnhomeLichSuCut);
         adapterLichsu = new Adapter_lichsu(orderList,getApplicationContext());
         listView = findViewById(R.id.lv_lichsucut);
+        btn_lichsucut_order =findViewById(R.id.btn_lichsucut_order);
+        btn_lichsucut_null =findViewById(R.id.crv_lichsucut_null);
+        if(orderList.size()>0){
+            btn_lichsucut_null.setVisibility(View.GONE);
+        }
+        btn_lichsucut_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(),DatlichActivity.class);
+                startActivity(intent);
+            }
+        });
         btnhomebhack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,9 +86,13 @@ public class LichSuCutActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Order>>() {
             @Override
             public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
+
                 orderList.addAll(response.body());
                 adapterLichsu = new Adapter_lichsu(orderList,getApplicationContext());
                 listView.setAdapter(adapterLichsu);
+                if(orderList.size()>0){
+                    btn_lichsucut_null.setVisibility(View.GONE);
+                }
             }
 
             @Override
