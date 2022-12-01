@@ -45,6 +45,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
         gridView.setAdapter(serviceAdapter);
         getAPIService();
+
         btnselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,4 +96,5 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         });
 
     }
+
 }

@@ -33,6 +33,7 @@ import com.example.ungdungdatlichcattoc.Adapter.Adapter_rec_btnTime;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_ryc_Stylist;
 import com.example.ungdungdatlichcattoc.Adapter.HairStylishSpinerAdapter;
 import com.example.ungdungdatlichcattoc.Interface.ItemClickListener;
+import com.example.ungdungdatlichcattoc.Interface.ItemClickListenerRcv;
 import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.HairStylish;
@@ -82,7 +83,7 @@ public class DatlichActivity extends AppCompatActivity {
     RecyclerView rcy_Stylist;
     List<HairStylish> stylishList = new ArrayList<>();
     Adapter_ryc_Stylist adapter_ryc_stylist;
-
+TextView tv_namestylist;
 
     String[] listidservice;
     int sumprice;
@@ -106,6 +107,7 @@ public class DatlichActivity extends AppCompatActivity {
         hairStylishList = new ArrayList<>();
      //   spinnerStylish = findViewById(R.id.spinerstylish);
         crv_chonService = findViewById(R.id.linear_chondichvu);
+        tv_namestylist = findViewById(R.id.tv_namestylist);
         crv_selectstylish = findViewById(R.id.crv_selectstylish);
         tvservice = findViewById(R.id.tv_datlich_service);
         calenda = findViewById(R.id.btn_datlich_calendar);
@@ -114,6 +116,7 @@ public class DatlichActivity extends AppCompatActivity {
         btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
         hour = "";
         getTimenow();
+        tv_namestylist.setText("");
         recyclerView_btnTime = findViewById(R.id.rec_btnTime);
         add_timeBtn();
         adapter_rec_btnTime = new Adapter_rec_btnTime(listTime, new ItemClickListener() {
@@ -138,10 +141,11 @@ public class DatlichActivity extends AppCompatActivity {
         token();
 
 
-        adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList, new ItemClickListener() {
+        adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList, new ItemClickListenerRcv() {
             @Override
-            public void onClickItemTime(String time) {
+            public void onClickItemTime(String time, String name) {
                 idStylish = time;
+                tv_namestylist.setText(name);
                 if (!tv_datlich_time.getText().toString().isEmpty()) {
                     getFreeTimeHairStylishAPI(idStylish, tv_datlich_time.getText().toString());
                 }
@@ -286,10 +290,11 @@ public class DatlichActivity extends AppCompatActivity {
                 hairStylishSpinerAdapter = new HairStylishSpinerAdapter(getApplicationContext(), R.layout.layout_item_stylish_spiner_selected, hairStylishList);
                // spinnerStylish.setAdapter(hairStylishSpinerAdapter);
                 //rcv
-                adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList, new ItemClickListener() {
+                adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList, new ItemClickListenerRcv() {
                     @Override
-                    public void onClickItemTime(String time) {
+                    public void onClickItemTime(String time, String name) {
                         idStylish = time;
+                        tv_namestylist.setText(name);
                         if (!tv_datlich_time.getText().toString().isEmpty()) {
                             getFreeTimeHairStylishAPI(idStylish, tv_datlich_time.getText().toString());
                         }

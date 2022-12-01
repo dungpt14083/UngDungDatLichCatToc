@@ -130,7 +130,7 @@ public class Fragment_home extends Fragment {
         btnBangGia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentBangGia = new Intent(getActivity(), BanGiaActivity.class);
+                Intent intentBangGia = new Intent(getActivity(), Activity_newfeed.class);
                 startActivity(intentBangGia);
             }
         });

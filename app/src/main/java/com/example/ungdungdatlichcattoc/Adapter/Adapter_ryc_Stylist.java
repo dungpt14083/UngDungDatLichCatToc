@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.Interface.ItemClickListener;
+import com.example.ungdungdatlichcattoc.Interface.ItemClickListenerRcv;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.HairStylish;
 
@@ -25,10 +26,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Adapter_ryc_Stylist extends RecyclerView.Adapter<Adapter_ryc_Stylist.ViewHolder>{
     private int selectedItemPosition =-1 ;
     private List<HairStylish> listdata;
-    private ItemClickListener itemClickListener;
+    private ItemClickListenerRcv itemClickListener;
 
     // RecyclerView recyclerView;
-    public Adapter_ryc_Stylist(List<HairStylish> listdata,ItemClickListener listener) {
+    public Adapter_ryc_Stylist(List<HairStylish> listdata,ItemClickListenerRcv listener) {
         this.listdata = listdata;
         this.itemClickListener = listener;
     }
@@ -49,7 +50,7 @@ public class Adapter_ryc_Stylist extends RecyclerView.Adapter<Adapter_ryc_Stylis
             @Override
             public void onClick(View view) {
                 selectedItemPosition = holder.getAdapterPosition();
-                itemClickListener.onClickItemTime(myListData.get_id());
+                itemClickListener.onClickItemTime(myListData.get_id(),myListData.getNameStylist());
                 holder.select.setImageResource(R.drawable.ic_done_stylish2);
                 holder.select.setCircleBackgroundColor(Color.parseColor("#2ECC71"));
                 notifyDataSetChanged();
