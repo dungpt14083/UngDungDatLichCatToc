@@ -24,5 +24,6 @@
     <string name="login">LOGIN</string>
     <string name="registration_failed">Registration failed</string>
     <string name="repeat_password">Repeat password</string>
+    <string name="txtdiscover">DISCOVER</string>
 
 </resources>
