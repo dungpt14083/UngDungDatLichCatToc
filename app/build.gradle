@@ -26,6 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
@@ -49,10 +50,10 @@ dependencies {
     //
     // dependency sor slider view
 
-  //  implementation 'com.github.smarteist:autoimageslider:1.4.0'
+    //  implementation 'com.github.smarteist:autoimageslider:1.4.0'
     //mplementation 'com.github.smarteist:autoimageslider:1.4.0'
 
-
+    implementation 'me.relex:circleindicator:2.1.6'
 // dependency for loading image from url
 
 //    implementation "com.github.bumptech.glide:glide:4.11.0"
