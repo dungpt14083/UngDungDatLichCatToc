@@ -26,6 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
@@ -46,13 +47,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.1.0'
     implementation platform('com.google.firebase:firebase-bom:31.1.0')
     implementation 'com.google.firebase:firebase-messaging'
+    implementation 'me.relex:circleindicator:2.1.6'
     //
     // dependency sor slider view
 
-  //  implementation 'com.github.smarteist:autoimageslider:1.4.0'
+    //  implementation 'com.github.smarteist:autoimageslider:1.4.0'
     //mplementation 'com.github.smarteist:autoimageslider:1.4.0'
 
-
+    implementation 'me.relex:circleindicator:2.1.6'
 // dependency for loading image from url
 
 //    implementation "com.github.bumptech.glide:glide:4.11.0"

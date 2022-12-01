@@ -55,7 +55,8 @@
         </activity>
         <activity
             android:name=".activity.UpdateAccountActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".ActivityDetail"
             android:exported="false">
@@ -65,7 +66,8 @@
         </activity>
         <activity
             android:name=".activity.XacthucSDT"
-            android:exported="false" />
+            android:exported="false"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".CreateAccountActivity"
             android:exported="false" />
@@ -75,15 +77,26 @@
         <activity
             android:name=".TaiKhoan"
             android:exported="false" />
+        <activity android:name=".activity.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.DatlichActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".activity.AccoutActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".activity.BanGiaActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".activity.LichSuCutActivity"
             android:exported="true" />
@@ -92,7 +105,8 @@
             android:exported="true" />
         <activity
             android:name=".activity.RegisterActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".activity.Activity_newfeed"
             android:exported="true" />
@@ -104,15 +118,13 @@
             android:exported="true" />
         <activity
             android:name=".activity.ActivityDetail"
-            android:exported="true" />
+            android:exported="true"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".activity.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"
+            android:autoRemoveFromRecents="true">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"

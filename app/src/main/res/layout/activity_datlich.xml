@@ -164,7 +164,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="8"
                     android:fontFamily="@font/roboto_light"
-                    android:text="Bạn chọn 1 dịch vụ . Tổng tiền là 1000000"
+                    android:text="Bạn hãy chọn dịch vụ"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />

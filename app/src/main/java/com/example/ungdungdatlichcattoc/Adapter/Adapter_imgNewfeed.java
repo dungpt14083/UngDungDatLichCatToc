@@ -50,9 +50,9 @@ public class Adapter_imgNewfeed extends BaseAdapter {
             viewHolder.img = view.findViewById(R.id.imgnewfeed) ;
             for (int a =0;a< listImg.size();a++)
             {
-
+                Glide.with(viewHolder.img).load("http://io.supermeo.com:8000/"+listImg.get(i)).into(viewHolder.img);
             }
-            Glide.with(viewHolder.img).load("http://io.supermeo.com:8000/"+listImg.get(i)).into(viewHolder.img);
+
         }
         return  view;
     }

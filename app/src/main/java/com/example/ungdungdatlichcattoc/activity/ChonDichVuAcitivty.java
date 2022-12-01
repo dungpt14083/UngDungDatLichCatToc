@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
     public ArrayList<String> listidService;
     public  ArrayList<Integer> listpriceservice;
     public int sumprice;
-    MaterialButton btnselect;
+    Button btnselect;
     ServiceAdapter serviceAdapter;
 
     @Override
@@ -44,6 +45,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
         gridView.setAdapter(serviceAdapter);
         getAPIService();
+
         btnselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,4 +96,5 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         });
 
     }
+
 }
