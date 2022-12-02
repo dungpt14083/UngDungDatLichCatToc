@@ -31,6 +31,7 @@ import com.example.ungdungdatlichcattoc.API.ApiHairStylish;
 import com.example.ungdungdatlichcattoc.API.ApiOrder;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_rec_btnTime;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_ryc_Stylist;
+import com.example.ungdungdatlichcattoc.Adapter.Adapter_text;
 import com.example.ungdungdatlichcattoc.Adapter.HairStylishSpinerAdapter;
 import com.example.ungdungdatlichcattoc.Interface.ItemClickListener;
 import com.example.ungdungdatlichcattoc.Interface.ItemClickListenerRcv;
@@ -41,6 +42,7 @@ import com.example.ungdungdatlichcattoc.model.LoginResponse;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
 import com.example.ungdungdatlichcattoc.model.ServiceIDs;
 import com.example.ungdungdatlichcattoc.model.TimePickerStylelish;
+import com.example.ungdungdatlichcattoc.model.text;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
@@ -74,7 +76,7 @@ public class DatlichActivity extends AppCompatActivity {
     HairStylishSpinerAdapter hairStylishSpinerAdapter;
     public TextView tvNameStylish;
     TextView tvservice;
-    LinearLayout crv_chonService,crv_selectstylish;
+    LinearLayout crv_chonService, crv_selectstylish;
     RecyclerView recyclerView_btnTime;
     List<TimePickerStylelish> listTime = new ArrayList<>();
     Adapter_rec_btnTime adapter_rec_btnTime;
@@ -83,12 +85,11 @@ public class DatlichActivity extends AppCompatActivity {
     RecyclerView rcy_Stylist;
     List<HairStylish> stylishList = new ArrayList<>();
     Adapter_ryc_Stylist adapter_ryc_stylist;
-TextView tv_namestylist;
-
+    TextView tv_namestylist;
     String[] listidservice;
     int sumprice;
     String idStylish = null;
-    ImageView calenda;
+    LinearLayout calenda;
     TextView tv_datlich_time;
     Date dateOrder;
     EditText edtycthem;
@@ -96,8 +97,10 @@ TextView tv_namestylist;
     int sttTime;
     final Calendar calendar = Calendar.getInstance();
     //validate time
-    private String s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29,s30,s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,s41,s42;
-    private Date t18,t19,t20,t21,t22,t23,t24,t25,t26,t27,t28,t29,t30,t31,t32,t33,t34,t35,t36,t37,t38,t39,t40,t41,t42;
+    private String s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s28, s29, s30, s31, s32, s33, s34, s35, s36, s37, s38, s39, s40, s41, s42;
+    private Date t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, t33, t34, t35, t36, t37, t38, t39, t40, t41, t42;
+    Adapter_text adapter_text;
+    List<text> listText;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,14 +108,12 @@ TextView tv_namestylist;
         setContentView(R.layout.activity_datlich);
         btnHomeBack = findViewById(R.id.btnhomeDatLich);
         hairStylishList = new ArrayList<>();
-     //   spinnerStylish = findViewById(R.id.spinerstylish);
         crv_chonService = findViewById(R.id.linear_chondichvu);
         tv_namestylist = findViewById(R.id.tv_namestylist);
         crv_selectstylish = findViewById(R.id.crv_selectstylish);
         tvservice = findViewById(R.id.tv_datlich_service);
         calenda = findViewById(R.id.btn_datlich_calendar);
         tv_datlich_time = findViewById(R.id.tv_datlich_time);
-        //   edtycthem = findViewById(R.id.datlich_edt_yeucauthem);
         btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
         hour = "";
         getTimenow();
@@ -156,7 +157,7 @@ TextView tv_namestylist;
         rcy_Stylist.setLayoutManager(mLayoutStylist);
         rcy_Stylist.setAdapter(adapter_ryc_stylist);
         sttTime = 0;
-       getTimenow();
+        getTimenow();
 
         Log.e("Token", "mytoken: " + token());
 //        spinnerStylish.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -247,7 +248,7 @@ TextView tv_namestylist;
                 calendar.set(Calendar.DAY_OF_MONTH, i2);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
-                getFreeTimeHairStylishAPI(idStylish,simpleDateFormat.format(calendar.getTime()));
+                getFreeTimeHairStylishAPI(idStylish, simpleDateFormat.format(calendar.getTime()));
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
         );
@@ -288,7 +289,7 @@ TextView tv_namestylist;
                 stylishList.addAll(response.body());
 
                 hairStylishSpinerAdapter = new HairStylishSpinerAdapter(getApplicationContext(), R.layout.layout_item_stylish_spiner_selected, hairStylishList);
-               // spinnerStylish.setAdapter(hairStylishSpinerAdapter);
+                // spinnerStylish.setAdapter(hairStylishSpinerAdapter);
                 //rcv
                 adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList, new ItemClickListenerRcv() {
                     @Override
@@ -328,18 +329,18 @@ TextView tv_namestylist;
 
                 add_timeBtn();
                 List<Integer> listTimeButton = response.body();
-                List<TimePickerStylelish>  lstpicktime = new ArrayList<>();
-                Log.d("TAG", "onResponse: "+response.body());
-                for (int i =0 ;i < listTime.size();i++) {
+                List<TimePickerStylelish> lstpicktime = new ArrayList<>();
+                Log.d("TAG", "onResponse: " + response.body());
+                for (int i = 0; i < listTime.size(); i++) {
                     Boolean a = true;
                     for (Integer ina : listTimeButton) {
-                        Log.d("TAG", "onResponse: "+listTime.get(i).getId()+"timebuttton"+ina);
-                        if (listTime.get(i).getId()==ina){
-                            Log.d("TAG", "onResponse: "+"false");
-                            a= false;
+                        Log.d("TAG", "onResponse: " + listTime.get(i).getId() + "timebuttton" + ina);
+                        if (listTime.get(i).getId() == ina) {
+                            Log.d("TAG", "onResponse: " + "false");
+                            a = false;
                         }
                     }
-                    lstpicktime.add(new TimePickerStylelish(listTime.get(i).getId(),listTime.get(i).getHours(),a,listTime.get(i).getTime()));
+                    lstpicktime.add(new TimePickerStylelish(listTime.get(i).getId(), listTime.get(i).getHours(), a, listTime.get(i).getTime()));
                 }
                 adapter_rec_btnTime = new Adapter_rec_btnTime(lstpicktime, new ItemClickListener() {
                     @Override
@@ -424,212 +425,213 @@ TextView tv_namestylist;
     void add_timeBtn() {
         listTime.clear();
         time();
-        listTime.add(new TimePickerStylelish(18, "09:00", false,t18));
-        listTime.add(new TimePickerStylelish(19, "09:30", false,t19));
-        listTime.add(new TimePickerStylelish(20, "10:00", false,t20));
-        listTime.add(new TimePickerStylelish(21, "10:30", false,t21));
-        listTime.add(new TimePickerStylelish(22, "11:00", false,t22));
-        listTime.add(new TimePickerStylelish(23, "11:30", false,t23));
-        listTime.add(new TimePickerStylelish(24, "12:00", false,t24));
-        listTime.add(new TimePickerStylelish(25, "12:30", false,t25));
-        listTime.add(new TimePickerStylelish(26, "13:00", false,t25));
-        listTime.add(new TimePickerStylelish(27, "13:30", false,t27));
-        listTime.add(new TimePickerStylelish(28, "14:00", false,t28));
-        listTime.add(new TimePickerStylelish(29, "14:30", false,t29));
-        listTime.add(new TimePickerStylelish(30, "15:00", false,t30));
-        listTime.add(new TimePickerStylelish(31, "15:30", false,t31));
-        listTime.add(new TimePickerStylelish(32, "16:00", false,t32));
-        listTime.add(new TimePickerStylelish(33, "16:30", false,t33));
-        listTime.add(new TimePickerStylelish(34, "17:00", false,t34));
-        listTime.add(new TimePickerStylelish(35, "17:30", false,t35));
-        listTime.add(new TimePickerStylelish(36, "18:00", false,t36));
-        listTime.add(new TimePickerStylelish(37, "18:30", false,t37));
-        listTime.add(new TimePickerStylelish(38, "19:00", false,t38));
-        listTime.add(new TimePickerStylelish(39, "19:30", false,t39));
-        listTime.add(new TimePickerStylelish(40, "20:00", false,t40));
-        listTime.add(new TimePickerStylelish(41, "20:30", false,t41));
+        listTime.add(new TimePickerStylelish(18, "09:00", false, t18));
+        listTime.add(new TimePickerStylelish(19, "09:30", false, t19));
+        listTime.add(new TimePickerStylelish(20, "10:00", false, t20));
+        listTime.add(new TimePickerStylelish(21, "10:30", false, t21));
+        listTime.add(new TimePickerStylelish(22, "11:00", false, t22));
+        listTime.add(new TimePickerStylelish(23, "11:30", false, t23));
+        listTime.add(new TimePickerStylelish(24, "12:00", false, t24));
+        listTime.add(new TimePickerStylelish(25, "12:30", false, t25));
+        listTime.add(new TimePickerStylelish(26, "13:00", false, t25));
+        listTime.add(new TimePickerStylelish(27, "13:30", false, t27));
+        listTime.add(new TimePickerStylelish(28, "14:00", false, t28));
+        listTime.add(new TimePickerStylelish(29, "14:30", false, t29));
+        listTime.add(new TimePickerStylelish(30, "15:00", false, t30));
+        listTime.add(new TimePickerStylelish(31, "15:30", false, t31));
+        listTime.add(new TimePickerStylelish(32, "16:00", false, t32));
+        listTime.add(new TimePickerStylelish(33, "16:30", false, t33));
+        listTime.add(new TimePickerStylelish(34, "17:00", false, t34));
+        listTime.add(new TimePickerStylelish(35, "17:30", false, t35));
+        listTime.add(new TimePickerStylelish(36, "18:00", false, t36));
+        listTime.add(new TimePickerStylelish(37, "18:30", false, t37));
+        listTime.add(new TimePickerStylelish(38, "19:00", false, t38));
+        listTime.add(new TimePickerStylelish(39, "19:30", false, t39));
+        listTime.add(new TimePickerStylelish(40, "20:00", false, t40));
+        listTime.add(new TimePickerStylelish(41, "20:30", false, t41));
 
     }
-void time(){
-    DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    String thisDate = tv_datlich_time.getText().toString();
-    s18 ="09:00";
-    try {
-        String d18 = thisDate+" "+s18;
-         t18 = formatter.parse(d18);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s19 = "09:30";
-    try {
-        String d19 = thisDate+" "+s19;
-        t19 = formatter.parse(d19);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s20 = "10:00";
-    try {
-        String d20 = thisDate+" "+s20;
-        t20 = formatter.parse(d20);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s21="10:30";
-    try {
-        String d21 = thisDate+" "+s21;
-        t21 = formatter.parse(d21);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s22="11:00";
-    try {
-        String d22 = thisDate+" "+s22;
-        t22 = formatter.parse(d22);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s23="11:30";
-    try {
-        String d23 = thisDate+" "+s23;
-        t23 = formatter.parse(d23);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s24="12:00";
-    try {
-        String d24 = thisDate+" "+s24;
-        t24 = formatter.parse(d24);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s25="12:30";
-    try {
-        String d25 = thisDate+" "+s25;
-        t25 = formatter.parse(d25);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s26="13:00";
-    try {
-        String d26 = thisDate+" "+s26;
-        t26 = formatter.parse(d26);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s27="13:30";
-    try {
-        String d27 = thisDate+" "+s27;
-        t27 = formatter.parse(d27);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s28="14:00";
-    try {
-        String d28 = thisDate+" "+s28;
-        t28 = formatter.parse(d28);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s29="14:30";
-    try {
-        String d29 = thisDate+" "+s29;
-        t29 = formatter.parse(d29);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s30="15:00";
-    try {
-        String d30 = thisDate+" "+s30;
-        t30 = formatter.parse(d30);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s31="15:30";
-    try {
-        String d31 = thisDate+" "+s31;
-        t31 = formatter.parse(d31);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s32="16:00";
-    try {
-        String d32 = thisDate+" "+s32;
-        t32 = formatter.parse(d32);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s33="16:30";
-    try {
-        String d33 = thisDate+" "+s33;
-        t33 = formatter.parse(d33);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s34="17:00";
-    try {
-        String d34 = thisDate+" "+s34;
-        t34 = formatter.parse(d34);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s35="17:30";
-    try {
-        String d35 = thisDate+" "+s35;
-        t35 = formatter.parse(d35);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s36="18:00";
-    try {
-        String d36 = thisDate+" "+s36;
-        t36 = formatter.parse(d36);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s37="18:30";
-    try {
-        String d37 = thisDate+" "+s37;
-        t37 = formatter.parse(d37);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s38="19:00";
-    try {
-        String d38 = thisDate+" "+s38;
-        t38 = formatter.parse(d38);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s39="19:30";
-    try {
-        String d39 = thisDate+" "+s39;
-        t39 = formatter.parse(d39);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s40="20:00";
-    try {
-        String d40 = thisDate+" "+s40;
-        t40 = formatter.parse(d40);
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
-    s41="20:30";
-    try {
-        String d41 = thisDate+" "+s41;
-        t41 = formatter.parse(d41);
-    } catch (ParseException e) {
-        e.printStackTrace();
+
+    void time() {
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String thisDate = tv_datlich_time.getText().toString();
+        s18 = "09:00";
+        try {
+            String d18 = thisDate + " " + s18;
+            t18 = formatter.parse(d18);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s19 = "09:30";
+        try {
+            String d19 = thisDate + " " + s19;
+            t19 = formatter.parse(d19);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s20 = "10:00";
+        try {
+            String d20 = thisDate + " " + s20;
+            t20 = formatter.parse(d20);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s21 = "10:30";
+        try {
+            String d21 = thisDate + " " + s21;
+            t21 = formatter.parse(d21);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s22 = "11:00";
+        try {
+            String d22 = thisDate + " " + s22;
+            t22 = formatter.parse(d22);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s23 = "11:30";
+        try {
+            String d23 = thisDate + " " + s23;
+            t23 = formatter.parse(d23);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s24 = "12:00";
+        try {
+            String d24 = thisDate + " " + s24;
+            t24 = formatter.parse(d24);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s25 = "12:30";
+        try {
+            String d25 = thisDate + " " + s25;
+            t25 = formatter.parse(d25);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s26 = "13:00";
+        try {
+            String d26 = thisDate + " " + s26;
+            t26 = formatter.parse(d26);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s27 = "13:30";
+        try {
+            String d27 = thisDate + " " + s27;
+            t27 = formatter.parse(d27);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s28 = "14:00";
+        try {
+            String d28 = thisDate + " " + s28;
+            t28 = formatter.parse(d28);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s29 = "14:30";
+        try {
+            String d29 = thisDate + " " + s29;
+            t29 = formatter.parse(d29);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s30 = "15:00";
+        try {
+            String d30 = thisDate + " " + s30;
+            t30 = formatter.parse(d30);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s31 = "15:30";
+        try {
+            String d31 = thisDate + " " + s31;
+            t31 = formatter.parse(d31);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s32 = "16:00";
+        try {
+            String d32 = thisDate + " " + s32;
+            t32 = formatter.parse(d32);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s33 = "16:30";
+        try {
+            String d33 = thisDate + " " + s33;
+            t33 = formatter.parse(d33);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s34 = "17:00";
+        try {
+            String d34 = thisDate + " " + s34;
+            t34 = formatter.parse(d34);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s35 = "17:30";
+        try {
+            String d35 = thisDate + " " + s35;
+            t35 = formatter.parse(d35);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s36 = "18:00";
+        try {
+            String d36 = thisDate + " " + s36;
+            t36 = formatter.parse(d36);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s37 = "18:30";
+        try {
+            String d37 = thisDate + " " + s37;
+            t37 = formatter.parse(d37);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s38 = "19:00";
+        try {
+            String d38 = thisDate + " " + s38;
+            t38 = formatter.parse(d38);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s39 = "19:30";
+        try {
+            String d39 = thisDate + " " + s39;
+            t39 = formatter.parse(d39);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s40 = "20:00";
+        try {
+            String d40 = thisDate + " " + s40;
+            t40 = formatter.parse(d40);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        s41 = "20:30";
+        try {
+            String d41 = thisDate + " " + s41;
+            t41 = formatter.parse(d41);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
-}
-
-    private  void  getTimenow(){
+    private void getTimenow() {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
         String strDate = dateformat.format(c.getTime());
         tv_datlich_time.setText(strDate);
-        getFreeTimeHairStylishAPI(idStylish,strDate);
+        getFreeTimeHairStylishAPI(idStylish, strDate);
         sttTime += 1;
     }
 
