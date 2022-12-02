@@ -118,18 +118,18 @@ TextView tv_namestylist;
         getTimenow();
         tv_namestylist.setText("");
         recyclerView_btnTime = findViewById(R.id.rec_btnTime);
-        add_timeBtn();
-        adapter_rec_btnTime = new Adapter_rec_btnTime(listTime, new ItemClickListener() {
-            @Override
-            public void onClickItemTime(String time) {
-                hour = time;
-                //Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DatlichActivity.this, 4);
-        recyclerView_btnTime.setLayoutManager(mLayoutManager);
-        recyclerView_btnTime.setAdapter(adapter_rec_btnTime);
+//        add_timeBtn();
+//        adapter_rec_btnTime = new Adapter_rec_btnTime(listTime, new ItemClickListener() {
+//            @Override
+//            public void onClickItemTime(String time) {
+//                hour = time;
+//                //Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DatlichActivity.this, 4);
+//        recyclerView_btnTime.setLayoutManager(mLayoutManager);
+//        recyclerView_btnTime.setAdapter(adapter_rec_btnTime);
 
 
         rcy_Stylist = findViewById(R.id.rec_stylist);
