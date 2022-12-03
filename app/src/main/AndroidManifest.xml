@@ -117,6 +117,9 @@
             android:name=".activity.ChinhSachBaoMat"
             android:exported="true" />
         <activity
+            android:name=".activity.Activity_DieuKienGiaoDichChung"
+            android:exported="true" />
+        <activity
             android:name=".activity.ActivityDetail"
             android:exported="true"
             android:autoRemoveFromRecents="true"/>

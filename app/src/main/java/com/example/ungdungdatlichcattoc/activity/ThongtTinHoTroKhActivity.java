@@ -45,7 +45,7 @@ public class ThongtTinHoTroKhActivity extends AppCompatActivity {
                         Toast.makeText(ThongtTinHoTroKhActivity.this, i + "Về chúng tôi", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(ThongtTinHoTroKhActivity.this, i + "Điều kiện giao dịch chung", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ThongtTinHoTroKhActivity.this, Activity_DieuKienGiaoDichChung.class));
                         break;
                     case 3:
                         startActivity(new Intent(ThongtTinHoTroKhActivity.this, ChinhSachBaoMat.class));
