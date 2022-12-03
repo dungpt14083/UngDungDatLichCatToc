@@ -6,7 +6,7 @@
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="730dp"
+        android:layout_height="match_parent"
         android:id="@+id/viewPage2_splash"/>
 
     <androidx.appcompat.widget.AppCompatButton
