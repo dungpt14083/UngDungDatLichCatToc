@@ -36,6 +36,7 @@ import com.example.ungdungdatlichcattoc.Adapter.Adapter_image_slide;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_item_menu;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_traiNhiem;
 import com.example.ungdungdatlichcattoc.R;
+import com.example.ungdungdatlichcattoc.activity.AccoutActivity;
 import com.example.ungdungdatlichcattoc.activity.Activity_newfeed;
 import com.example.ungdungdatlichcattoc.activity.BanGiaActivity;
 import com.example.ungdungdatlichcattoc.activity.DatlichActivity;
@@ -52,6 +53,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import me.relex.circleindicator.CircleIndicator;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,7 +67,7 @@ public class Fragment_home extends Fragment {
     ListView lv;
     SharedPreferences prefs;
     String token;
-    ImageView home_img_avt_user;
+    CircleImageView home_img_avt_user;
     private List<Service> serviceList1;
     TextView home_tv_name_user;
     GridView grv_item,grv_camket;
@@ -92,6 +94,13 @@ public class Fragment_home extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
         imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
         circleIndicator = view.findViewById(R.id.circleIndicator);
+        home_img_avt_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AccoutActivity.class);
+                startActivity(intent);
+            }
+        });
         imgNewFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

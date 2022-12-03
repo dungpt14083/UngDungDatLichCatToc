@@ -39,6 +39,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,7 +53,7 @@ public class Fragment_User extends Fragment {
     Adapter_user adapterUser;
     SharedPreferences prefs;
     String token;
-    ImageView user_img_avt_user;
+    CircleImageView user_img_avt_user;
     TextView user_tv_name_user;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
