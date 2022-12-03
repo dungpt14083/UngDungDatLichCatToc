@@ -15,27 +15,15 @@
         android:paddingBottom="100dp"
         android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
+
             android:layout_marginLeft="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="250dp">
+            android:id="@+id/home_img_avt_user"
+            />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center"
-                app:cardCornerRadius="250dp">
-
-                <ImageView
-                    android:id="@+id/home_img_avt_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/thuy" />
-            </androidx.cardview.widget.CardView>
-        </androidx.cardview.widget.CardView>
 
         <LinearLayout
 
@@ -50,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/robotomedium"
-                android:text="NAM PHƯƠNG BÙI"
+
                 android:textColor="#FFFFFF"
                 android:textSize="22dp" />
         </LinearLayout>

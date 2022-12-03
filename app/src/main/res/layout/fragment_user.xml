@@ -16,27 +16,16 @@
             android:background="#ffff"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="30dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="250dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:cardCornerRadius="250dp">
+                android:layout_marginLeft="10dp"
+                android:id="@+id/user_img_avt_user"
+                />
 
-                    <ImageView
-                        android:id="@+id/user_img_avt_user"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/thuy" />
-                </androidx.cardview.widget.CardView>
-            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:id="@+id/user_tv_name_user"
@@ -46,7 +35,7 @@
                 android:layout_marginLeft="13dp"
                 android:fontFamily="@font/roboto"
                 android:gravity="center_vertical"
-                android:text="@string/txtname"
+
                 android:textColor="#FFCC33"
                 android:textSize="18dp"
                 android:textStyle="bold" />

@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -71,6 +72,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
     private Uri mUri;
     private ProgressDialog mprogressDialog;
 
+    ImageView img_update_back;
     //opengallary
     ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -107,6 +109,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
         txtluuthongtin = findViewById(R.id.tvLuuthongtin);
         img_update_avt = findViewById(R.id.img_update_avt);
         mprogressDialog = new ProgressDialog(this);
+        img_update_back= findViewById(R.id.img_update_back);
         mprogressDialog.setMessage("Vui Lòng Chờ");
         img_update_avt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +119,14 @@ public class UpdateAccountActivity extends AppCompatActivity {
         });
         //btn_updateaccount_Update = findViewById(R.id.btn_updateaccount_Update);
 
+        img_update_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UpdateAccountActivity.this,AccoutActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         getUserinfo();
         Profile(token);
         edt_update_account_birthday.setOnClickListener(new View.OnClickListener() {
