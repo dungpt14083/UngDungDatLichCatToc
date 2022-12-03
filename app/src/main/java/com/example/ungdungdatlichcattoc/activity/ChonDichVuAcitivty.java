@@ -30,6 +30,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
     private List<Service> serviceList;
     public ArrayList<String> listidService;
     public  ArrayList<Integer> listpriceservice;
+   public ArrayList<String> listnamesevice ;
     public int sumprice;
     Button btnselect;
     ServiceAdapter serviceAdapter;
@@ -42,6 +43,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         btnselect = findViewById(R.id.chondichvu_btn_chondichvu);
         listidService = new ArrayList<>();
         serviceList = new ArrayList<>();
+        listnamesevice = new ArrayList<>();
         serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
         gridView.setAdapter(serviceAdapter);
         getAPIService();
@@ -57,14 +59,17 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
                 for(int element : listpriceservice){
                     sumprice+=element;
                 }
+                listnamesevice = serviceAdapter.listNameSevice;
 
               //  String[] idsv = (String[]) listidService.toArray();
                 String[] idsv = new String[listidService.size()];
+
                 idsv = listidService.toArray(idsv);
                 Intent intent = new Intent(getApplicationContext(), DatlichActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("sumprice",sumprice);
                 bundle.putStringArray("listidservice",idsv);
+                bundle.putStringArrayList("listnameservice",listnamesevice);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
