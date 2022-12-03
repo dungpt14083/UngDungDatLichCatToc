@@ -11,6 +11,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -100,6 +101,7 @@ public class DatlichActivity extends AppCompatActivity {
     final Calendar calendar = Calendar.getInstance();
     ListView lv_nameSV;
     //validate time
+    int steporder;
     private String s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s28, s29, s30, s31, s32, s33, s34, s35, s36, s37, s38, s39, s40, s41, s42;
     private Date t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, t33, t34, t35, t36, t37, t38, t39, t40, t41, t42;
     Adapter_text adapter_text;
@@ -122,6 +124,7 @@ public class DatlichActivity extends AppCompatActivity {
         btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
         listnamesv = new ArrayList<>();
         hour = "";
+        steporder=0;
         getTimenow();
         listText = new ArrayList<>();
         tv_namestylist.setText("");
@@ -148,7 +151,9 @@ public class DatlichActivity extends AppCompatActivity {
         getAdapterHairStylish();
         token();
 
-
+        if(steporder<2){
+            btn_order_hoantat.setEnabled(false);
+        }
         adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList, new ItemClickListenerRcv() {
             @Override
             public void onClickItemTime(String time, String name) {
@@ -165,6 +170,7 @@ public class DatlichActivity extends AppCompatActivity {
         rcy_Stylist.setAdapter(adapter_ryc_stylist);
         sttTime = 0;
         getTimenow();
+
 
         Log.e("Token", "mytoken: " + token());
 //        spinnerStylish.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -353,7 +359,15 @@ public class DatlichActivity extends AppCompatActivity {
                     @Override
                     public void onClickItemTime(String time) {
                         hour = time;
-                        //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+                        if(steporder==1){
+                            steporder =2;
+                            if(steporder==2){
+                                btn_order_hoantat.setBackgroundColor(Color.parseColor("#FFCA39"));
+                                btn_order_hoantat.setEnabled(true);
+                            }
+                        }
+
+                            // Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
                     }
                 });
                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DatlichActivity.this, 4);
@@ -380,9 +394,13 @@ public class DatlichActivity extends AppCompatActivity {
             listnamesv = bundle.getStringArrayList("listnameservice");
             tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
 
+
+            steporder=1;
+
             listText =listnamesv;
             Adapter_text adapter_text = new Adapter_text(this, listText);
             lv_nameSV.setAdapter(adapter_text);
+
         }
     }
 
