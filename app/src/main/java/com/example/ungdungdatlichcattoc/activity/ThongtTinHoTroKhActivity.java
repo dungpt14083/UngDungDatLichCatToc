@@ -28,7 +28,7 @@ public class ThongtTinHoTroKhActivity extends AppCompatActivity {
         setContentView(R.layout.activity_thongt_tin_ho_tro_kh);
         lv_danhsach_UserSupport = findViewById(R.id.lv_danhsach_UserSupport);
         userSupportList = new ArrayList<>();
-        userSupportList.add(new InforUserSupport(R.drawable.ic_vt_round_24, "Cam kết về 30 shine care", R.drawable.ic_vt_back_16));
+        userSupportList.add(new InforUserSupport(R.drawable.ic_vt_round_24, "Cam kết về hair salon care", R.drawable.ic_vt_back_16));
         userSupportList.add(new InforUserSupport(R.drawable.ic_vt_people24, "Về chúng tôi", R.drawable.ic_vt_back_16));
         userSupportList.add(new InforUserSupport(R.drawable.ic_vt_sync_24, "Điều kiện giao dịch chung", R.drawable.ic_vt_back_16));
         userSupportList.add(new InforUserSupport(R.drawable.ic_vt_admin_24, "Chính sách bảo mật thông tin", R.drawable.ic_vt_back_16));
@@ -39,7 +39,7 @@ public class ThongtTinHoTroKhActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Toast.makeText(ThongtTinHoTroKhActivity.this, i + "Cam kết về 30 shine care", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ThongtTinHoTroKhActivity.this, i + "Cam kết về hair salon care", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
                         Toast.makeText(ThongtTinHoTroKhActivity.this, i + "Về chúng tôi", Toast.LENGTH_SHORT).show();
