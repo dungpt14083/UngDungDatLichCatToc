@@ -217,7 +217,7 @@ public class Fragment_home extends Fragment {
                         startActivity(new Intent(getContext(), LichSuCutActivity.class));
                         break;
                     case 2:
-                        startActivity(new Intent(getContext(), Activity_newfeed.class));
+                        startActivity(new Intent(getContext(), BanGiaActivity.class));
                         break;
                     case 3:
                         break;
@@ -242,7 +242,7 @@ public class Fragment_home extends Fragment {
     void addDataItem(){
         listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Đặt lịch"));
         listItem.add(new itemmenu(R.drawable.ic_vt_time_32,"Lịch sử cắt"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_newr_32,"Bảng tin"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_newr_32,"Bảng giá"));
         listItem.add(new itemmenu(R.drawable.ic_vt_location_32,"Vị trí Salon"));
         listItem.add(new itemmenu(R.drawable.ic_vt_cut_32,"Bí kíp chăm sóc tóc"));
         listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Vị trí Salon"));
