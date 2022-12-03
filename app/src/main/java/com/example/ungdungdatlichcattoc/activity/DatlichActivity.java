@@ -392,10 +392,15 @@ public class DatlichActivity extends AppCompatActivity {
             listidservice = bundle.getStringArray("listidservice");
             sumprice = bundle.getInt("sumprice");
             listnamesv = bundle.getStringArrayList("listnameservice");
-            tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
 
 
-            steporder=1;
+
+            if(sumprice>=1){
+
+                steporder=1;
+                tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
+            }
+
 
             listText =listnamesv;
             Adapter_text adapter_text = new Adapter_text(this, listText);
