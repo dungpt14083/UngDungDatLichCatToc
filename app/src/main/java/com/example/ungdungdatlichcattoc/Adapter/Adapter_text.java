@@ -14,10 +14,10 @@ import java.util.List;
 
 public class Adapter_text extends BaseAdapter {
     Context context;
-    List<text> listText;
+    List<String> listText;
     LayoutInflater inflater;
 
-    public Adapter_text(Context context, List<text> listText) {
+    public Adapter_text(Context context, List<String> listText) {
         this.context = context;
         this.listText = listText;
         this.inflater = LayoutInflater.from(context);
@@ -49,8 +49,8 @@ public class Adapter_text extends BaseAdapter {
         }else {
             holderText=(ViewHolderText) view.getTag();
         }
-        text text = this.listText.get(i);
-        holderText.tv_text.setText(text.getText());
+        String text = this.listText.get(i);
+        holderText.tv_text.setText(text);
         return view;
     }
     static class ViewHolderText{

@@ -26,8 +26,8 @@ public class ServiceAdapter extends BaseAdapter {
     private int idLayout;
     public List<Service> serviceList;
     public ArrayList<String> idservice = new ArrayList<>();
-    public ArrayList<Integer> priceservice= new ArrayList<>();
-
+    public ArrayList<Integer> priceservice = new ArrayList<>();
+    public ArrayList<String> listNameSevice = new ArrayList<>();
 
     public ServiceAdapter(Context context, int idLayout, List<Service> serviceList) {
         this.context = context;
@@ -77,7 +77,7 @@ public class ServiceAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
 
-
+                    listNameSevice.add(service.getNameService());
                     idservice.add(service.get_id());
                     priceservice.add(service.getPrice());
                     item_chondichvu_btn_chon.setText("Đã Chọn");
