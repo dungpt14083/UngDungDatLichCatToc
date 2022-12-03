@@ -21,6 +21,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -87,6 +88,7 @@ public class DatlichActivity extends AppCompatActivity {
     Adapter_ryc_Stylist adapter_ryc_stylist;
     TextView tv_namestylist;
     String[] listidservice;
+    ArrayList<String> listnamesv ;
     int sumprice;
     String idStylish = null;
     LinearLayout calenda;
@@ -96,11 +98,13 @@ public class DatlichActivity extends AppCompatActivity {
     Button btn_order_hoantat;
     int sttTime;
     final Calendar calendar = Calendar.getInstance();
+    ListView lv_nameSV;
     //validate time
     private String s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s28, s29, s30, s31, s32, s33, s34, s35, s36, s37, s38, s39, s40, s41, s42;
     private Date t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, t33, t34, t35, t36, t37, t38, t39, t40, t41, t42;
     Adapter_text adapter_text;
-    List<text> listText;
+    List<String> listText;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,10 +117,13 @@ public class DatlichActivity extends AppCompatActivity {
         crv_selectstylish = findViewById(R.id.crv_selectstylish);
         tvservice = findViewById(R.id.tv_datlich_service);
         calenda = findViewById(R.id.btn_datlich_calendar);
+        lv_nameSV = findViewById(R.id.lv_nameSV);
         tv_datlich_time = findViewById(R.id.tv_datlich_time);
         btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
+        listnamesv = new ArrayList<>();
         hour = "";
         getTimenow();
+        listText = new ArrayList<>();
         tv_namestylist.setText("");
         recyclerView_btnTime = findViewById(R.id.rec_btnTime);
 //        add_timeBtn();
@@ -370,7 +377,12 @@ public class DatlichActivity extends AppCompatActivity {
         if (bundle != null) {
             listidservice = bundle.getStringArray("listidservice");
             sumprice = bundle.getInt("sumprice");
+            listnamesv = bundle.getStringArrayList("listnameservice");
             tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
+
+            listText =listnamesv;
+            Adapter_text adapter_text = new Adapter_text(this, listText);
+            lv_nameSV.setAdapter(adapter_text);
         }
     }
 

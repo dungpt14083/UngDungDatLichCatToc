@@ -38,9 +38,9 @@ public class ActivityDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
-        title = findViewById(R.id.tile_detail_newfeed);
-        contentTitle = findViewById(R.id.tile_contentTitle_newfeed);
+        setContentView(R.layout.activity_detail_discover);
+        title = findViewById(R.id.tile_detail_discover_newfeed);
+        contentTitle = findViewById(R.id.tile_contentTitle_discover_newfeed);
         description = findViewById(R.id.title_description_newfeed);
         img_back_detail= findViewById(R.id.img_back_detail);
         viewpage2_discover =findViewById(R.id.viewpage2_discover);
