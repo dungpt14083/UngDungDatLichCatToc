@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
     public int sumprice;
     Button btnselect;
     ServiceAdapter serviceAdapter;
+    ImageView btnhomeDatLich;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,15 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         listnamesevice = new ArrayList<>();
         serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
         gridView.setAdapter(serviceAdapter);
+        btnhomeDatLich =findViewById(R.id.btnhomeDatLich);
+        btnhomeDatLich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChonDichVuAcitivty.this,DatlichActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         getAPIService();
 
         btnselect.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,6 +36,7 @@ public class AccoutActivity extends AppCompatActivity {
     SharedPreferences prefs;
     List<ProfileCus> cusstomerInfoList;
     ShapeableImageView img_account_avat;
+    ImageView btn_back_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +49,20 @@ public class AccoutActivity extends AppCompatActivity {
         tv_account_update = findViewById(R.id.tv_account_update);
         tv_account_adress = findViewById(R.id.tv_account_adress);
         img_account_avat =findViewById(R.id.img_account_avat);
+        btn_back_user = findViewById(R.id.btn_back_user);
 //        tv_account_logout =findViewById(R.id.tv_account_logout);
         tv_account_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AccoutActivity.this, UpdateAccountActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+        btn_back_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 //        tv_account_logout.setOnClickListener(new View.OnClickListener() {
@@ -128,5 +138,8 @@ public class AccoutActivity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

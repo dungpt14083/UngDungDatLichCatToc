@@ -17,15 +17,13 @@
         android:textColor="@color/black"
         android:textSize="18dp"/>
 
-
-    <ImageView
-        android:fontFamily="@font/robotoregular"
-        android:layout_marginTop="-24dp"
-        android:layout_marginLeft="-170dp"
+    <ImageButton
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/back"
-        />
+        android:id="@+id/backprivate"
+        android:layout_marginLeft="-170dp"
+        android:layout_marginTop="-24dp"
+        android:src="@drawable/back"/>
 
     <TextView
         android:fontFamily="@font/robotoregular"

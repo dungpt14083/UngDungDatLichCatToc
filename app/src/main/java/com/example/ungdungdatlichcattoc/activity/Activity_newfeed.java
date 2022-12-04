@@ -65,6 +65,7 @@ public class Activity_newfeed extends AppCompatActivity {
                             bundle.putStringArray("img",newfeedList.get(i).getImage());
                             intent.putExtras(bundle);
                             startActivity(intent);
+                            finish();
                         }
                     });
                 }

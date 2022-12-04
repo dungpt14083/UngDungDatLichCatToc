@@ -30,7 +30,7 @@
 
 
             <ImageView
-                android:id="@+id/img_back_detail"
+                android:id="@+id/img_back_dk"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="-170dp"
