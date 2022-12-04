@@ -11,16 +11,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_imgNewfeed;
 import com.example.ungdungdatlichcattoc.Adapter.SliderAdapter;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.PhotoDes;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
@@ -42,7 +38,7 @@ public class ActivityDetail extends AppCompatActivity {
         title = findViewById(R.id.tile_detail_discover_newfeed);
         contentTitle = findViewById(R.id.tile_contentTitle_discover_newfeed);
         description = findViewById(R.id.title_description_newfeed);
-        img_back_detail= findViewById(R.id.img_back_detail);
+        img_back_detail= findViewById(R.id.img_back_dk);
         viewpage2_discover =findViewById(R.id.viewpage2_discover);
         circleIndicator3 =findViewById(R.id.cicler_indicator3);
         photoDesList= new ArrayList<>();
