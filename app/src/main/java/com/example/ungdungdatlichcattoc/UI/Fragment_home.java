@@ -13,19 +13,12 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.os.Handler;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
@@ -38,7 +31,7 @@ import com.example.ungdungdatlichcattoc.Adapter.Adapter_traiNhiem;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.activity.AccoutActivity;
 import com.example.ungdungdatlichcattoc.activity.Activity_newfeed;
-import com.example.ungdungdatlichcattoc.activity.BanGiaActivity;
+import com.example.ungdungdatlichcattoc.activity.BangGiaActivity;
 import com.example.ungdungdatlichcattoc.activity.DatlichActivity;
 import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
@@ -139,7 +132,7 @@ public class Fragment_home extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(), BanGiaActivity.class);
+                Intent intent = new Intent(getContext(), BangGiaActivity.class);
                 startActivity(intent);
             }
         });
@@ -217,7 +210,7 @@ public class Fragment_home extends Fragment {
                         startActivity(new Intent(getContext(), LichSuCutActivity.class));
                         break;
                     case 2:
-                        startActivity(new Intent(getContext(), BanGiaActivity.class));
+                        startActivity(new Intent(getContext(), BangGiaActivity.class));
                         break;
                     case 3:
                         break;

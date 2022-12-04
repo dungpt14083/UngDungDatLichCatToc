@@ -1,12 +1,12 @@
 package com.example.ungdungdatlichcattoc.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,7 +16,6 @@ import com.example.ungdungdatlichcattoc.Adapter.Adapter_BangGia;
 import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.Service;
-import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +26,16 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class BanGiaActivity extends AppCompatActivity {
+public class BangGiaActivity extends AppCompatActivity {
     private GridView gridView;
     private List<Service> serviceList;
-    MaterialButton banggia_btn_datlich;
+    Button banggia_btn_datlich;
     ImageView btnhomeback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ban_gia);
+        setContentView(R.layout.activity_bang_gia);
         gridView =findViewById(R.id.banggia_gridview);
         banggia_btn_datlich=findViewById(R.id.banggia_btn_datlich);
         serviceList = new ArrayList<>();
@@ -72,6 +71,12 @@ public class BanGiaActivity extends AppCompatActivity {
                 finishAndRemoveTask();
                 Intent intentHOme =new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intentHOme);
+            }
+        });
+        banggia_btn_datlich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),DatlichActivity.class));
             }
         });
     }

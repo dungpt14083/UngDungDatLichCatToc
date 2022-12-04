@@ -95,7 +95,7 @@
             android:exported="false"
             android:autoRemoveFromRecents="true"/>
         <activity
-            android:name=".activity.BanGiaActivity"
+            android:name=".activity.BangGiaActivity"
             android:exported="true"
             android:autoRemoveFromRecents="true"/>
         <activity
