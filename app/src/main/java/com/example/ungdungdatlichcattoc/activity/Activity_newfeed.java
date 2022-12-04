@@ -6,12 +6,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ungdungdatlichcattoc.API.ApiNewFeed;
 import com.example.ungdungdatlichcattoc.Adapter.NewFeedAdapter;
+import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.Newfeed;
 
@@ -28,11 +30,22 @@ public class Activity_newfeed extends AppCompatActivity {
     GridView gridView ;
     NewFeedAdapter newFeedAdapter ;
     List<Newfeed> newfeedList = new ArrayList<>();
+    ImageView btnhomeBangGia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_khampha);
+        setContentView(R.layout.activity_newfeed);
         gridView = findViewById(R.id.khampha_grid) ;
+        btnhomeBangGia = findViewById(R.id.btnhomeBangGia) ;
+
+        btnhomeBangGia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finishAndRemoveTask();
+                Intent intentHOme =new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intentHOme);
+            }
+        });
         //
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/newfeed/")
