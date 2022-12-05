@@ -30,12 +30,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="24dp"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/bevietnampro_medium"
                 android:gravity="center"
                 android:shadowColor="@color/black"
                 android:text="Phá cách kiểu..."
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 </LinearLayout>

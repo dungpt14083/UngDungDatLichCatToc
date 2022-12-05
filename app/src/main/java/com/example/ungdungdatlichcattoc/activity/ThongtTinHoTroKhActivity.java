@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_InforUserSupport;
+import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.InforUserSupport;
 
@@ -21,12 +23,21 @@ public class ThongtTinHoTroKhActivity extends AppCompatActivity {
     List<InforUserSupport> userSupportList;
     Adapter_InforUserSupport adapter_inforUserSupport;
     ListView lv_danhsach_UserSupport;
+    ImageView btnhomeThongTinHoTroKhachHang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thongt_tin_ho_tro_kh);
         lv_danhsach_UserSupport = findViewById(R.id.lv_danhsach_UserSupport);
+        btnhomeThongTinHoTroKhachHang = findViewById(R.id.btnhomeThongTinHoTroKhachHang);
+        btnhomeThongTinHoTroKhachHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finishAndRemoveTask();
+            }
+        });
+
         userSupportList = new ArrayList<>();
         userSupportList.add(new InforUserSupport(R.drawable.ic_vt_round_24, "Cam kết về hair salon care", R.drawable.ic_vt_back_16));
         userSupportList.add(new InforUserSupport(R.drawable.ic_vt_people24, "Về chúng tôi", R.drawable.ic_vt_back_16));
