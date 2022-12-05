@@ -56,15 +56,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Fragment_home extends Fragment {
-//    CardView btnDatLich, btnBangGia, btnLichSuCut;
-    ImageView imgNewFeed;
+    //    CardView btnDatLich, btnBangGia, btnLichSuCut;
+    ImageView imgNewFeed, home_img_btn_discorver;
     ListView lv;
     SharedPreferences prefs;
     String token;
     CircleImageView home_img_avt_user;
     private List<Service> serviceList1;
     TextView home_tv_name_user;
-    GridView grv_item,grv_camket;
+    GridView grv_item, grv_camket;
     List<itemmenu> listItem;
     Adapter_item_menu adapter_item_menu;
     ViewPager viewPager;
@@ -74,6 +74,7 @@ public class Fragment_home extends Fragment {
     Adapter_image_slide image_slide;
     List<camket> listCamket;
     Adapter_camket camket;
+
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -87,7 +88,15 @@ public class Fragment_home extends Fragment {
         home_tv_name_user = view.findViewById(R.id.home_tv_name_user);
         viewPager = view.findViewById(R.id.viewPager);
         imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
+        home_img_btn_discorver = view.findViewById(R.id.home_img_btn_discorver);
         circleIndicator = view.findViewById(R.id.circleIndicator);
+        home_img_btn_discorver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Activity_newfeed.class);
+                startActivity(intent);
+            }
+        });
         home_img_avt_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,8 +107,6 @@ public class Fragment_home extends Fragment {
         imgNewFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), Activity_newfeed.class);
-                startActivity(intent);
             }
         });
         lv = view.findViewById(R.id.home_rcv_dichvu);
@@ -146,31 +153,36 @@ public class Fragment_home extends Fragment {
         setDataCamket();
         return view;
     }
-    void setDataCamket(){
+
+    void setDataCamket() {
         addDataCamKet();
-        camket = new Adapter_camket(getContext(),listCamket);
+        camket = new Adapter_camket(getContext(), listCamket);
         grv_camket.setAdapter(camket);
     }
-    void addDataCamKet(){
+
+    void addDataCamKet() {
         listCamket = new ArrayList<>();
-        listCamket.add(new camket(R.drawable.ic_vt_check__32,"7 ngày","Chỉnh sửa tóc miễn phí"));
-        listCamket.add(new camket(R.drawable.ic_vt_check__32,"30 ngày","Tư vấn / chăm sóc khách hàng"));
-        listCamket.add(new camket(R.drawable.ic_vt_check__32,"15 ngày","Bảo hành uốn nhuộm"));
-        listCamket.add(new camket(R.drawable.ic_vt_check__32,"Giảm 20%","Nếu chờ quá lâu"));
+        listCamket.add(new camket(R.drawable.ic_vt_check__32, "7 ngày", "Chỉnh sửa tóc miễn phí"));
+        listCamket.add(new camket(R.drawable.ic_vt_check__32, "30 ngày", "Tư vấn / chăm sóc khách hàng"));
+        listCamket.add(new camket(R.drawable.ic_vt_check__32, "15 ngày", "Bảo hành uốn nhuộm"));
+        listCamket.add(new camket(R.drawable.ic_vt_check__32, "Giảm 20%", "Nếu chờ quá lâu"));
 
     }
-    void setDataSlide(){
+
+    void setDataSlide() {
         addDataSlide();
-        image_slide = new Adapter_image_slide(getContext(),listImg);
+        image_slide = new Adapter_image_slide(getContext(), listImg);
         viewPager.setAdapter(image_slide);
     }
-    void addDataSlide(){
+
+    void addDataSlide() {
         listImg = new ArrayList<>();
         listImg.add(new image(R.drawable.slide0));
         listImg.add(new image(R.drawable.slide1));
         listImg.add(new image(R.drawable.slide2));
         listImg.add(new image(R.drawable.slide3));
     }
+
     private void AutoSlideImage() {
         if (listImg == null || listImg.isEmpty() || viewPager == null) {
             return;
@@ -190,7 +202,7 @@ public class Fragment_home extends Fragment {
                         if (currentItem < totalItem) {
                             currentItem++;
                             viewPager.setCurrentItem(currentItem);
-                        }else {
+                        } else {
                             viewPager.setCurrentItem(0);
                         }
                     }
@@ -199,11 +211,11 @@ public class Fragment_home extends Fragment {
         }, 500, 3000);
     }
 
-    void clickItem(){
+    void clickItem() {
         grv_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
+                switch (i) {
                     case 0:
                         startActivity(new Intent(getContext(), DatlichActivity.class));
                         break;
@@ -224,24 +236,28 @@ public class Fragment_home extends Fragment {
             }
         });
     }
+
     void getUserinfo() {
         prefs = getContext().getSharedPreferences("HAIR", getContext().MODE_PRIVATE);
         token = prefs.getString("token", toString());
     }
-    void getGridViewItemMenu(){
+
+    void getGridViewItemMenu() {
         listItem = new ArrayList<>();
         addDataItem();
-        adapter_item_menu = new Adapter_item_menu(getContext(),listItem);
+        adapter_item_menu = new Adapter_item_menu(getContext(), listItem);
         grv_item.setAdapter(adapter_item_menu);
     }
-    void addDataItem(){
-        listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Đặt lịch"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_time_32,"Lịch sử cắt"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_newr_32,"Bảng giá"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_location_32,"Vị trí Salon"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_cut_32,"Bí kíp chăm sóc tóc"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_date_32,"Vị trí Salon"));
+
+    void addDataItem() {
+        listItem.add(new itemmenu(R.drawable.ic_vt_date_32, "Đặt lịch"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_time_32, "Lịch sử cắt"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_newr_32, "Bảng giá"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_location_32, "Vị trí Salon"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_cut_32, "Bí kíp chăm sóc tóc"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_date_32, "Vị trí Salon"));
     }
+
     private void Profile(String customerId) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/customer/")

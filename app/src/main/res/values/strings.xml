@@ -12,8 +12,7 @@
 
     <string name="txtchinhsua"><u>CHỈNH SỬA THÔNG TIN</u> </string>
     <string name="txtxemchitiet"><u>Xem chi tiết   </u> </string>
-    <string name="txtname"><u>Bùi Phương Nam   </u>
-    </string>
+    <string name="txtname">Bùi Phương Nam</string>
     <string name="txtlogin"><u>Đăng nhập </u></string>
 
     <string name="titlehistory">ANH CHƯA CÓ LỊCH SỬ DÙNG DỊCH VỤ</string>
