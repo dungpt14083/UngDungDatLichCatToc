@@ -34,6 +34,7 @@ import com.example.ungdungdatlichcattoc.activity.Activity_newfeed;
 import com.example.ungdungdatlichcattoc.activity.BangGiaActivity;
 import com.example.ungdungdatlichcattoc.activity.DatlichActivity;
 import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
+import com.example.ungdungdatlichcattoc.activity.MapGGActivity;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
 import com.example.ungdungdatlichcattoc.model.Service;
 import com.example.ungdungdatlichcattoc.model.camket;
@@ -213,6 +214,7 @@ public class Fragment_home extends Fragment {
                         startActivity(new Intent(getContext(), BangGiaActivity.class));
                         break;
                     case 3:
+                        startActivity(new Intent(getContext(), MapGGActivity.class));
                         break;
                     case 4:
                         break;

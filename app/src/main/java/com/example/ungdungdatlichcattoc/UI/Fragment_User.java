@@ -29,6 +29,7 @@ import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.activity.AccoutActivity;
 import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
 import com.example.ungdungdatlichcattoc.activity.LoginActivity;
+import com.example.ungdungdatlichcattoc.activity.MapGGActivity;
 import com.example.ungdungdatlichcattoc.activity.RepassActivity;
 import com.example.ungdungdatlichcattoc.activity.ThongtTinHoTroKhActivity;
 import com.example.ungdungdatlichcattoc.model.InforUserSupport;
@@ -88,7 +89,7 @@ public class Fragment_User extends Fragment {
 
                         break;
                     case 3:
-                        Toast.makeText(getContext(), i + "Vị trí Salon", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getContext(), MapGGActivity.class));
                         break;
                     case 4:
                         logout();
