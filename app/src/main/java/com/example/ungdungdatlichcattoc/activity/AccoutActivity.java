@@ -35,7 +35,7 @@ public class AccoutActivity extends AppCompatActivity {
     SharedPreferences prefs;
     List<ProfileCus> cusstomerInfoList;
     ShapeableImageView img_account_avat;
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
