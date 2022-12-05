@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.Adapter.ServiceAdapter;
 import com.example.ungdungdatlichcattoc.R;
+import com.example.ungdungdatlichcattoc.model.CartService;
 import com.example.ungdungdatlichcattoc.model.Service;
 import com.google.android.material.button.MaterialButton;
 
@@ -30,8 +31,9 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
     private GridView gridView;
     private List<Service> serviceList;
     public ArrayList<String> listidService;
-    public  ArrayList<Integer> listpriceservice;
-   public ArrayList<String> listnamesevice ;
+    public ArrayList<Integer> listpriceservice;
+    public ArrayList<String> listnamesevice;
+    private ArrayList<CartService> cartServiceArrayList;
     public int sumprice;
     Button btnselect;
     ServiceAdapter serviceAdapter;
@@ -46,13 +48,15 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         listidService = new ArrayList<>();
         serviceList = new ArrayList<>();
         listnamesevice = new ArrayList<>();
+        listpriceservice= new ArrayList<>();
+        cartServiceArrayList = new ArrayList<>();
         serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
         gridView.setAdapter(serviceAdapter);
-        btnhomeDatLich =findViewById(R.id.btnhomeDatLich);
+        btnhomeDatLich = findViewById(R.id.btnhomeDatLich);
         btnhomeDatLich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChonDichVuAcitivty.this,DatlichActivity.class);
+                Intent intent = new Intent(ChonDichVuAcitivty.this, DatlichActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -62,25 +66,32 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         btnselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   btnselect.setText("v");
+                //   btnselect.setText("v");
 
-                sumprice =0;
-                listidService =serviceAdapter.idservice;
-                listpriceservice=serviceAdapter.priceservice;
-                for(int element : listpriceservice){
-                    sumprice+=element;
+                sumprice = 0;
+                cartServiceArrayList = serviceAdapter.cartServices;
+                for (CartService cartService : cartServiceArrayList) {
+
+                    listidService.add(cartService.getIdservice());
+                    listnamesevice.add(cartService.getNameservice());
+                    listpriceservice.add(cartService.getPriceservice());
                 }
-                listnamesevice = serviceAdapter.listNameSevice;
+//                listidService =serviceAdapter.idservice;
+//                listpriceservice=serviceAdapter.priceservice;
+                for (int element : listpriceservice) {
+                    sumprice += element;
+                }
+//                listnamesevice = serviceAdapter.listNameSevice;
 
-              //  String[] idsv = (String[]) listidService.toArray();
+                //  String[] idsv = (String[]) listidService.toArray();
                 String[] idsv = new String[listidService.size()];
 
                 idsv = listidService.toArray(idsv);
                 Intent intent = new Intent(getApplicationContext(), DatlichActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("sumprice",sumprice);
-                bundle.putStringArray("listidservice",idsv);
-                bundle.putStringArrayList("listnameservice",listnamesevice);
+                bundle.putInt("sumprice", sumprice);
+                bundle.putStringArray("listidservice", idsv);
+                bundle.putStringArrayList("listnameservice", listnamesevice);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
