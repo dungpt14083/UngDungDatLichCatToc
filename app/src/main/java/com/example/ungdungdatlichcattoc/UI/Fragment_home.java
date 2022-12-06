@@ -1,6 +1,7 @@
 package com.example.ungdungdatlichcattoc.UI;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -74,6 +75,7 @@ public class Fragment_home extends Fragment {
     Adapter_image_slide image_slide;
     List<camket> listCamket;
     Adapter_camket camket;
+    ProgressDialog SplashmprogressDialog;
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -88,6 +90,10 @@ public class Fragment_home extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
         imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
         circleIndicator = view.findViewById(R.id.circleIndicator);
+        SplashmprogressDialog = new ProgressDialog(getContext());
+
+        SplashmprogressDialog.setMessage("...");
+        SplashmprogressDialog.show();
         home_img_avt_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -262,11 +268,12 @@ public class Fragment_home extends Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Glide.with(getContext()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
+
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    SplashmprogressDialog.dismiss();
                     try {
 
-
+                        Glide.with(getContext()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
                     } catch (Exception e) {
 
                     }

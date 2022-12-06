@@ -1,5 +1,6 @@
 package com.example.ungdungdatlichcattoc.UI;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -56,6 +57,7 @@ public class Fragment_User extends Fragment {
     String token;
     CircleImageView user_img_avt_user;
     TextView user_tv_name_user;
+    ProgressDialog SplashmprogressDialog;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
@@ -69,6 +71,9 @@ public class Fragment_User extends Fragment {
         list.add(new user(R.drawable.ic_vt_map_32, "Vị trí Salon", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_logout_32, "Đăng xuất", R.drawable.ic_vt_back_16));
         adapterUser = new Adapter_user(getContext(), list);
+        SplashmprogressDialog = new ProgressDialog(getContext());
+        SplashmprogressDialog.setMessage("...");
+        SplashmprogressDialog.show();
         listView.setAdapter(adapterUser);
         //---------------------
 
@@ -125,10 +130,11 @@ public class Fragment_User extends Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(user_img_avt_user);
+
+                    SplashmprogressDialog.dismiss();
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
-
+                        Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(user_img_avt_user);
 
                     } catch (Exception e) {
 
