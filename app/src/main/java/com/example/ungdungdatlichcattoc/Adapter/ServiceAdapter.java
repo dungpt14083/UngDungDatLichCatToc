@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ungdungdatlichcattoc.Interface.ItemClickSelectListener;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.activity.ChonDichVuAcitivty;
 import com.example.ungdungdatlichcattoc.model.CartService;
@@ -31,11 +32,15 @@ public class ServiceAdapter extends BaseAdapter {
     public ArrayList<Integer> priceservice = new ArrayList<>();
     public ArrayList<String> listNameSevice = new ArrayList<>();
     public ArrayList<CartService> cartServices = new ArrayList<>();
+    private ItemClickSelectListener itemClickSelectListener;
+    int count=0;
 
-    public ServiceAdapter(Context context, int idLayout, List<Service> serviceList) {
+
+    public ServiceAdapter(Context context, int idLayout, List<Service> serviceList, ItemClickSelectListener itemClickSelectListener1) {
         this.context = context;
         this.idLayout = idLayout;
         this.serviceList = serviceList;
+        this.itemClickSelectListener = itemClickSelectListener1;
     }
 
     @Override
@@ -81,29 +86,32 @@ public class ServiceAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
 
-                    if(step[0] ==0){
-                        cartServices.add(new CartService(service.get_id(),service.getNameService(),service.getPrice()));
+                    if (step[0] == 0) {
+                        count+=1;
+                        itemClickSelectListener.clickselectserviceListener(count);
+                        cartServices.add(new CartService(service.get_id(), service.getNameService(), service.getPrice()));
 //                        listNameSevice.add(service.getNameService());
 //                        idservice.add(service.get_id());
 //                        priceservice.add(service.getPrice());
 
                         item_chondichvu_btn_chon.setText("Đã Chọn");
-                        step[0] =1;
-                    }
-                    else if(step[0] ==1){
+                        step[0] = 1;
+                    } else if (step[0] == 1) {
+                        count-=1;
+                        itemClickSelectListener.clickselectserviceListener(count);
                         item_chondichvu_btn_chon.setText("Chọn");
                         Iterator<CartService> Cartsv = cartServices.iterator();
-                        while (Cartsv.hasNext()){
+                        while (Cartsv.hasNext()) {
                             CartService id = Cartsv.next();
-                            if(id.getIdservice().equals(service.get_id())){
+                            if (id.getIdservice().equals(service.get_id())) {
                                 Cartsv.remove();
                             }
                         }
 
-                        step[0] =0;
+                        step[0] = 0;
                     }
 
-                   // item_chondichvu_btn_chon.setEnabled(false);
+                    // item_chondichvu_btn_chon.setEnabled(false);
 
                 }
             });

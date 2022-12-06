@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:divider="@null"
+        android:weightSum="10"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_gravity="left"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            app:cardCornerRadius="5dp"
+            android:layout_weight="2"
+            app:cardUseCompatPadding="true">
+
+            <ImageView
+
+                android:id="@+id/img_stylishtop"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@mipmap/ic_launcher_round" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="7.3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_nameStylist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bevietnampro_regular"
+                android:text="Đỗ Thị Hiền"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/item_stylishtop_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="10 năm kinh nghiệm" />
+            <TextView
+                android:id="@+id/item_stylishtop_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="số lượt order" />
+        </LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vt_back"
+            android:rotation="180"/>
+    </LinearLayout>
+</LinearLayout>

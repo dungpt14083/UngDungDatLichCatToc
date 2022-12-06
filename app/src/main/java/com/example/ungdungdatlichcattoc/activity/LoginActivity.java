@@ -146,10 +146,10 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
                     } else {
-                        Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Hãy Thử Đăng Nhập Lại", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Hãy Thử Đăng Nhập Lại", Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -1,6 +1,7 @@
 package com.example.ungdungdatlichcattoc.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.Adapter.ServiceAdapter;
+import com.example.ungdungdatlichcattoc.Interface.ItemClickSelectListener;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.CartService;
 import com.example.ungdungdatlichcattoc.model.Service;
@@ -50,7 +52,29 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
         listnamesevice = new ArrayList<>();
         listpriceservice= new ArrayList<>();
         cartServiceArrayList = new ArrayList<>();
-        serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList);
+        serviceAdapter = new ServiceAdapter(this, R.layout.item_chondichvu, serviceList, new ItemClickSelectListener() {
+            @Override
+            public void clickselectserviceListener(int count) {
+                btnselect.setBackgroundColor(Color.parseColor("#FFCA39"));
+                btnselect.setText(count+" Dịch Vụ");
+            }
+
+            @Override
+            public void clickunselecttserviceListener(int count) {
+                if(count>0)
+                {
+
+                    btnselect.setText(count+" Dịch Vụ");
+                }
+                else if(count<=0)
+                {
+                    btnselect.setBackgroundColor(Color.parseColor("#E7E7E7"));
+                    btnselect.setText("Hoàn Tất");
+                }
+
+
+            }
+        });
         gridView.setAdapter(serviceAdapter);
         btnhomeDatLich = findViewById(R.id.btnhomeDatLich);
         btnhomeDatLich.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +86,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
             }
         });
         getAPIService();
+
 
         btnselect.setOnClickListener(new View.OnClickListener() {
             @Override

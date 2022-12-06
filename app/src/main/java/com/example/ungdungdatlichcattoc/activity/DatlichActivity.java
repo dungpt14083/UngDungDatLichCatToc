@@ -439,7 +439,7 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(DatlichActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DatlichActivity.this, "Đặt Lịch Thành Công!", Toast.LENGTH_SHORT).show();
                     Log.e("TAGmess", "onResponse: " + response.message());
                     finish();
                     Intent intent = new Intent(DatlichActivity.this, DatlichActivity.class);

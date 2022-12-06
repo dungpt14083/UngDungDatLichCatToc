@@ -2,6 +2,7 @@ package com.example.ungdungdatlichcattoc.API;
 
 import com.example.ungdungdatlichcattoc.model.Order;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
+import com.example.ungdungdatlichcattoc.model.TopStylish;
 
 import org.json.JSONArray;
 
@@ -34,4 +35,6 @@ public interface ApiOrder {
     @POST("history")
     Call<List<Order>> getOder(@Field("token") String customerId) ;
 
+    @GET("topStylist")
+    Call<List<TopStylish>> getTopHairStylish();
 }
