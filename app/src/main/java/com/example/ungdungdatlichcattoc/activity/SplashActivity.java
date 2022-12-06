@@ -103,10 +103,17 @@ public class SplashActivity extends AppCompatActivity {
                         startActivity(new Intent(SplashActivity.this, MainActivity.class));
                         finish();
                     } else {
+
                         Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 } else {
                     Toast.makeText(SplashActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
 

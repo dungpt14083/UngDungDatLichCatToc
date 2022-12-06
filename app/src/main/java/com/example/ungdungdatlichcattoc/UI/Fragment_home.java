@@ -23,10 +23,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.API.ApiCustomer;
+import com.example.ungdungdatlichcattoc.API.ApiOrder;
 import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_camket;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_image_slide;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_item_menu;
+import com.example.ungdungdatlichcattoc.Adapter.Adapter_topstylish;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_traiNhiem;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.activity.AccoutActivity;
@@ -37,6 +39,7 @@ import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
 import com.example.ungdungdatlichcattoc.activity.MapGGActivity;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
 import com.example.ungdungdatlichcattoc.model.Service;
+import com.example.ungdungdatlichcattoc.model.TopStylish;
 import com.example.ungdungdatlichcattoc.model.camket;
 import com.example.ungdungdatlichcattoc.model.image;
 import com.example.ungdungdatlichcattoc.model.itemmenu;
@@ -58,9 +61,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Fragment_home extends Fragment {
     //    CardView btnDatLich, btnBangGia, btnLichSuCut;
     ImageView imgNewFeed, home_img_btn_discorver;
-    ListView lv;
+    ListView lv,home_rcv_hotstylish;
     SharedPreferences prefs;
-    String token;
+    String token,userName,Imageavt;
     CircleImageView home_img_avt_user;
     private List<Service> serviceList1;
     TextView home_tv_name_user;
@@ -74,6 +77,7 @@ public class Fragment_home extends Fragment {
     Adapter_image_slide image_slide;
     List<camket> listCamket;
     Adapter_camket camket;
+    List<TopStylish> topStylishList ;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -90,6 +94,8 @@ public class Fragment_home extends Fragment {
         imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
         home_img_btn_discorver = view.findViewById(R.id.home_img_btn_discorver);
         circleIndicator = view.findViewById(R.id.circleIndicator);
+        home_rcv_hotstylish=view.findViewById(R.id.home_rcv_hotstylish);
+        topStylishList= new ArrayList<>();
         home_img_btn_discorver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,6 +115,8 @@ public class Fragment_home extends Fragment {
             public void onClick(View view) {
             }
         });
+        Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),R.layout.item_hotstylish,topStylishList);
+        home_rcv_hotstylish.setAdapter(adapter_topstylish);
         lv = view.findViewById(R.id.home_rcv_dichvu);
         serviceList1 = new ArrayList<>();
         Adapter_traiNhiem adapter_traiNhiem = new Adapter_traiNhiem(getContext(), R.layout.item_trai_nhiem, serviceList1);
@@ -144,6 +152,7 @@ public class Fragment_home extends Fragment {
                 startActivity(intent);
             }
         });
+
         getGridViewItemMenu();
         clickItem();
         setDataSlide();
@@ -151,7 +160,33 @@ public class Fragment_home extends Fragment {
         image_slide.registerDataSetObserver(circleIndicator.getDataSetObserver());
         AutoSlideImage();
         setDataCamket();
+        gettopstylish();
+
         return view;
+    }
+    void gettopstylish(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://io.supermeo.com:8000/order/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiOrder apiOrder = retrofit.create(ApiOrder.class);
+        Call<List<TopStylish>> callservice = apiOrder.getTopHairStylish();
+        callservice.enqueue(new Callback<List<TopStylish>>() {
+            @Override
+            public void onResponse(Call<List<TopStylish>> call, Response<List<TopStylish>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    topStylishList.addAll(response.body());
+                    Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),R.layout.item_hotstylish,topStylishList);
+                    home_rcv_hotstylish.setAdapter(adapter_topstylish);
+                    adapter_topstylish.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TopStylish>> call, Throwable t) {
+                Log.e("LoiGETDATA", "onFailure: " + t);
+            }
+        });
     }
 
     void setDataCamket() {
@@ -240,6 +275,8 @@ public class Fragment_home extends Fragment {
     void getUserinfo() {
         prefs = getContext().getSharedPreferences("HAIR", getContext().MODE_PRIVATE);
         token = prefs.getString("token", toString());
+        userName=prefs.getString("nameUser",toString());
+        Imageavt =prefs.getString("image",toString());
     }
 
     void getGridViewItemMenu() {
@@ -273,7 +310,7 @@ public class Fragment_home extends Fragment {
                     // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
                     try {
-                        home_tv_name_user.setText(profileCus.getNameUser().toString());
+                        home_tv_name_user.setText(profileCus.getNameUser());
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -281,7 +318,7 @@ public class Fragment_home extends Fragment {
 
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
-                        Glide.with(getContext()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
+                        Glide.with(getContext()).load("http://io.supermeo.com:8000/" +profileCus.getImage()).into(home_img_avt_user);
 
                     } catch (Exception e) {
 

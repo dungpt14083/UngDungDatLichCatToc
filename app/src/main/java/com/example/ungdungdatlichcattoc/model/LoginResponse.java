@@ -33,7 +33,17 @@ public class LoginResponse {
     @SerializedName("address")
     @Expose
     private String address;
+    @SerializedName("image")
+    @Expose
+    private String image;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getId() {
         return id;
