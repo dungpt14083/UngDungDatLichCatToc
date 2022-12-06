@@ -125,10 +125,10 @@ public class Fragment_User extends Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(user_img_avt_user);
+
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
-
+                        Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(user_img_avt_user);
 
                     } catch (Exception e) {
 

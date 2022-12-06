@@ -278,10 +278,10 @@ public class Fragment_home extends Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Glide.with(getContext()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
+
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
-
+                        Glide.with(getContext()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(home_img_avt_user);
 
                     } catch (Exception e) {
 
