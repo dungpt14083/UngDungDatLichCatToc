@@ -57,6 +57,12 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
             public void clickselectserviceListener(int count) {
                 btnselect.setBackgroundColor(Color.parseColor("#FFCA39"));
                 btnselect.setText(count+" Dịch Vụ");
+                if(count<=0)
+                {
+
+                    btnselect.setBackgroundColor(Color.parseColor("#E7E7E7"));
+                    btnselect.setText("Hoàn Tất");
+                }
             }
 
             @Override
@@ -68,6 +74,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
                 }
                 else if(count<=0)
                 {
+
                     btnselect.setBackgroundColor(Color.parseColor("#E7E7E7"));
                     btnselect.setText("Hoàn Tất");
                 }
