@@ -29,7 +29,10 @@ public interface ApiOrder {
 
             @Field("time") Date time,
             @Field("note") String note,
-            @Field("sumPrice") int sumPrice
+            @Field("sumPrice") int sumPrice,
+            @Field("topicId") String topicId,
+            @Field("body") String body,
+            @Field("title") String title
     );
     @FormUrlEncoded
     @POST("history")
