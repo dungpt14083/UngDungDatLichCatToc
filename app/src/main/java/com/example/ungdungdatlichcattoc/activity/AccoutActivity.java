@@ -137,7 +137,7 @@ public class AccoutActivity extends AppCompatActivity {
             }
         });
     }
-// fixbug
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
