@@ -1,5 +1,6 @@
 package com.example.ungdungdatlichcattoc.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -8,11 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,6 +50,9 @@ import com.example.ungdungdatlichcattoc.model.OrderResponse;
 import com.example.ungdungdatlichcattoc.model.ServiceIDs;
 import com.example.ungdungdatlichcattoc.model.TimePickerStylelish;
 import com.example.ungdungdatlichcattoc.model.text;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
@@ -69,6 +77,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
 
 public class DatlichActivity extends AppCompatActivity {
+    private static final int NOTIFILYCATIONAPP_ID=16;
     ImageView btnHomeBack;
     private List<HairStylish> hairStylishList;
     LinearLayout layouthairstylish;
@@ -100,6 +109,7 @@ public class DatlichActivity extends AppCompatActivity {
     int sttTime;
     final Calendar calendar = Calendar.getInstance();
     ListView lv_nameSV;
+    String mtopicId;
     //validate time
     int steporder;
     private String s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s28, s29, s30, s31, s32, s33, s34, s35, s36, s37, s38, s39, s40, s41, s42;
@@ -124,6 +134,7 @@ public class DatlichActivity extends AppCompatActivity {
         btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
         listnamesv = new ArrayList<>();
         hour = "";
+        mtopicId="";
         steporder=0;
         getTimenow();
         listText = new ArrayList<>();
@@ -144,7 +155,8 @@ public class DatlichActivity extends AppCompatActivity {
 
 
         rcy_Stylist = findViewById(R.id.rec_stylist);
-
+        regiterTopic(getUniqueId());
+        mtopicId=getUniqueId();
         getdataService();
         intentControl();
         getHairStylishAPI();
@@ -220,7 +232,7 @@ public class DatlichActivity extends AppCompatActivity {
                         for (int i = 0; i < listidservice.length; i++) {
                             stringList.add(new ServiceIDs(listidservice[i]));
                         }
-                        Order(tokencus, jsonArray, idStylish, date2, note, sumprice);
+                        Order(tokencus, jsonArray, idStylish, date2, note, sumprice,mtopicId,"Ứng Dụng Đặt Lịch Cắt Tóc","Chúc Mừng Bạn Đặt Lịch Thành Công");
                         sttTime = 0;
 
                     } catch (Exception e) {
@@ -428,18 +440,22 @@ public class DatlichActivity extends AppCompatActivity {
 
     }
 
-    private void Order(String customerId, JSONArray serviceIds, String stylistId, Date time, String note, int sumPrice) {
+    private void Order(String customerId, JSONArray serviceIds, String stylistId, Date time, String note, int sumPrice,String topicId,String body,String title) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/order/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiOrder apiOrder = retrofit.create(ApiOrder.class);
-        Call<OrderResponse> call = apiOrder.order(customerId, serviceIds, stylistId, time, note, sumPrice);
+        Call<OrderResponse> call = apiOrder.order(customerId, serviceIds, stylistId, time, note, sumPrice,topicId,body,title);
         call.enqueue(new Callback<OrderResponse>() {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if (response.isSuccessful()) {
+//                    OrderResponse orderResponse =response.body();
+//                    regiterTopic(orderResponse.get_id());
+//                    mtopicId = orderResponse.get_id();
                     Toast.makeText(DatlichActivity.this, "Đặt Lịch Thành Công!", Toast.LENGTH_SHORT).show();
+                  //  sendNotifilycation();
                     Log.e("TAGmess", "onResponse: " + response.message());
                     finish();
                     Intent intent = new Intent(DatlichActivity.this, DatlichActivity.class);
@@ -669,5 +685,32 @@ public class DatlichActivity extends AppCompatActivity {
         getFreeTimeHairStylishAPI(idStylish, strDate);
         sttTime += 1;
     }
+    private void sendNotifilycation(){
+      Notification notificationApp = new Notification.Builder(this)
+              .setContentTitle("Ứng Dụng Đặt Lịch Cắt Tóc")
+              .setContentTitle("Chúc Mừng Bạn Đã Đặt Lịch Thành Công")
+              .setSmallIcon(R.drawable.ic_logo)
+              .build();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(NOTIFILYCATIONAPP_ID,notificationApp);
 
+    }
+    private void regiterTopic(String topic){
+        FirebaseMessaging.getInstance().subscribeToTopic(topic)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subscribed";
+                        if (!task.isSuccessful()) {
+                            msg = "Subscribe failed";
+                        }
+                        Log.d("TAG", msg);
+                       // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    @SuppressLint("HardwareIds")
+    private String getUniqueId() {
+        return Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
 }

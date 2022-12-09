@@ -22,6 +22,62 @@ public class OrderResponse {
     @Expose
     private String[] serviceIds;
 
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String[] getServiceIds() {
+        return serviceIds;
+    }
+
+    public void setServiceIds(String[] serviceIds) {
+        this.serviceIds = serviceIds;
+    }
+
+    public String getStylistId() {
+        return stylistId;
+    }
+
+    public void setStylistId(String stylistId) {
+        this.stylistId = stylistId;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
     @SerializedName("stylistId")
     @Expose
     private String stylistId;
