@@ -140,6 +140,7 @@ public class DatlichActivity extends AppCompatActivity {
         listText = new ArrayList<>();
         tv_namestylist.setText("");
         recyclerView_btnTime = findViewById(R.id.rec_btnTime);
+        recyclerView_btnTime.setVisibility(View.GONE);
 //        add_timeBtn();
 //        adapter_rec_btnTime = new Adapter_rec_btnTime(listTime, new ItemClickListener() {
 //            @Override
@@ -155,8 +156,8 @@ public class DatlichActivity extends AppCompatActivity {
 
 
         rcy_Stylist = findViewById(R.id.rec_stylist);
-        regiterTopic(getUniqueId());
-        mtopicId=getUniqueId();
+        regiterTopic(getUserID());
+        mtopicId=getUserID();
         getdataService();
         intentControl();
         getHairStylishAPI();
@@ -385,6 +386,7 @@ public class DatlichActivity extends AppCompatActivity {
                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DatlichActivity.this, 4);
                 recyclerView_btnTime.setLayoutManager(mLayoutManager);
                 recyclerView_btnTime.setAdapter(adapter_rec_btnTime);
+                recyclerView_btnTime.setVisibility(View.VISIBLE);
                 adapter_rec_btnTime.notifyDataSetChanged();
 
             }
@@ -435,6 +437,8 @@ public class DatlichActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentHome = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intentHome);
+                finish();
+
             }
         });
 
@@ -709,8 +713,10 @@ public class DatlichActivity extends AppCompatActivity {
                     }
                 });
     }
-    @SuppressLint("HardwareIds")
-    private String getUniqueId() {
-        return Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+
+    private String getUserID() {
+        prefs = getSharedPreferences("HAIR", MODE_PRIVATE);
+       String id =prefs.getString("token", toString());
+        return id;
     }
 }
