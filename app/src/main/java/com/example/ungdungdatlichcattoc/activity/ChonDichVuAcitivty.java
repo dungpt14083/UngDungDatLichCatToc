@@ -127,6 +127,7 @@ public class ChonDichVuAcitivty extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivity(intent);
 
+                finish();
             }
         });
     }
