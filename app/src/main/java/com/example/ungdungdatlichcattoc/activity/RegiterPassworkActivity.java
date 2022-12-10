@@ -1,5 +1,6 @@
 package com.example.ungdungdatlichcattoc.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -15,7 +16,10 @@ import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.Utils;
 import com.example.ungdungdatlichcattoc.model.RegisterResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,25 +34,26 @@ public class RegiterPassworkActivity extends AppCompatActivity {
     TextInputEditText edt_regiterPass_pass;
     AppCompatButton button_Regiter;
     SharedPreferences prefs;
-    String phone, pass;
+    String phone, pass,mtopicId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getPhone();
         setContentView(com.example.ungdungdatlichcattoc.R.layout.activity_regiter_passwork);
         edt_regiterPass_pass = findViewById(R.id.edt_regiterPass_pass);
         button_Regiter = findViewById(R.id.button_Regiter);
+        regiterTopic();
 
+        mtopicId =prefs.getString("phone", toString());
         button_Regiter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                prefs = getSharedPreferences("Register", MODE_PRIVATE);
 
-                phone = prefs.getString("phone", toString());
                 pass = edt_regiterPass_pass.getText().toString();
                 try {
                     if (check()) {
-                        register(phone, pass);
+                        register(phone, pass,mtopicId,"Đăng Ký Thành Công","Chào Mừng bạn tới với Happy Baber Shop");
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.clear();
                     }
@@ -58,7 +63,11 @@ public class RegiterPassworkActivity extends AppCompatActivity {
             }
         });
     }
+private void getPhone(){
+    prefs = getSharedPreferences("Register", MODE_PRIVATE);
 
+    phone = prefs.getString("phone", toString());
+}
     private Boolean check() {
         Boolean x = true;
         if (edt_regiterPass_pass.getText().toString().trim().length() == 0) {
@@ -71,15 +80,28 @@ public class RegiterPassworkActivity extends AppCompatActivity {
         }
         return x;
     }
-
-    private void register(String phone, String password) {
+    private void regiterTopic(){
+        FirebaseMessaging.getInstance().subscribeToTopic(prefs.getString("phone", toString()))
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subscribed";
+                        if (!task.isSuccessful()) {
+                            msg = "Subscribe failed";
+                        }
+                        Log.d("TAG", msg);
+                        // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    private void register(String phone, String password,String topicId,String body,String title) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/customer/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         ApiService api = retrofit.create(ApiService.class);
-        Call<RegisterResponse> call = api.register(phone, password);
+        Call<RegisterResponse> call = api.register(phone, password,topicId,body,title);
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
@@ -90,7 +112,7 @@ public class RegiterPassworkActivity extends AppCompatActivity {
                         Intent intent = new Intent(RegiterPassworkActivity.this, LoginActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(RegiterPassworkActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegiterPassworkActivity.this, "Đăng ký thất bại hãy thử lại", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -145,6 +145,12 @@
                         android:text="COMBO CẮT UỐN NHUỘM CAO CẤP"
                         android:textColor="@color/black" />
                 </LinearLayout>
+                <Button
+                    android:id="@+id/btn_history_datlai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đặt Lại"
+                    android:backgroundTint="#FFCA39"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

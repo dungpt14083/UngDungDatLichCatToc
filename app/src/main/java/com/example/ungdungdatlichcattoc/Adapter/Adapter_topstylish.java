@@ -9,6 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.Service;
@@ -16,50 +20,57 @@ import com.example.ungdungdatlichcattoc.model.TopStylish;
 
 import java.util.List;
 
-public class Adapter_topstylish extends BaseAdapter {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class Adapter_topstylish extends RecyclerView.Adapter<Adapter_topstylish.ViewHolder> {
     private Context context;
     private int idLayout;
     private List<TopStylish> topStylishList;
 
-    public Adapter_topstylish(Context context, int idLayout, List<TopStylish> topStylishes) {
+    public Adapter_topstylish(Context context, List<TopStylish> topStylishList) {
         this.context = context;
-        this.idLayout = idLayout;
-        this.topStylishList = topStylishes;
+        this.topStylishList = topStylishList;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+      LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+      View view = layoutInflater.inflate(R.layout.item_hotstylish_rcv,parent,false);
+      ViewHolder viewHolder = new ViewHolder(view);
+      return viewHolder;
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final TopStylish topStylish = topStylishList.get(position);
+        holder.tvname.setText(topStylish.getNameStylist());
+        holder.tvdesc.setText(topStylish.getDescription());
+        Glide.with(holder.avatar.getContext()).load("http://io.supermeo.com:8000/" + topStylish.getImageStylist()).into(holder.avatar);
+
+
+
+    }
+
+    @Override
+    public int getItemCount() {
         if (topStylishList.size() != 0 && !topStylishList.isEmpty()) {
             return topStylishList.size();
         }
         return 0;
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public ImageView avatar;
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(idLayout, viewGroup, false);
+        public TextView tvname,tvdesc;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            this.avatar = (ImageView) itemView.findViewById(R.id.item_topstylish_imgavatar);
+            this.tvname = itemView.findViewById(R.id.item_topstylish_tvName);
+            this.tvdesc = (TextView) itemView.findViewById(R.id.item_topstylish_desc);
+
         }
-        TextView tile = (TextView) view.findViewById(R.id.title_nameStylist);
-        TextView description = (TextView) view.findViewById(R.id.item_stylishtop_description);
-        TextView count = (TextView) view.findViewById(R.id.item_stylishtop_count);
-        ImageView img = (ImageView) view.findViewById(R.id.img_stylishtop);
-        final TopStylish service = topStylishList.get(i);
-        if (topStylishList != null && !topStylishList.isEmpty()) {
-            tile.setText(service.getNameStylist());
-            description.setText(service.getDescription());
-            count.setText("Số Lượt cắt: "+service.getCount());
-            Glide.with(img.getContext()).load("http://io.supermeo.com:8000/"+service.getImageStylist()).into(img);
-        }
-        return view;
     }
 }
