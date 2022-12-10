@@ -6,10 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ungdungdatlichcattoc.Interface.InterfaceHistory;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.History;
 import com.example.ungdungdatlichcattoc.model.Newfeed;
@@ -22,9 +24,11 @@ import java.util.List;
 public class Adapter_lichsu extends BaseAdapter {
     List<Order> orderList ;
     Context context ;
-    public Adapter_lichsu(List<Order> orderList, Context context) {
+    private InterfaceHistory interfaceHistory;
+    public Adapter_lichsu(List<Order> orderList, Context context,InterfaceHistory interfaceHistory) {
         this.orderList = orderList;
         this.context = context;
+        this.interfaceHistory =interfaceHistory;
     }
 
     @Override
@@ -57,6 +61,7 @@ public class Adapter_lichsu extends BaseAdapter {
             viewHolderls.lsNamedichvu = view.findViewById(R.id.tv_lichsu_namedichvu);
             viewHolderls.lsTime = view.findViewById(R.id.tv_lichsu_thoigian) ;
             viewHolderls.lsdiachi = view.findViewById(R.id.tv_lichsu_diachi) ;
+            viewHolderls.btn_datlai =view.findViewById(R.id.btn_history_datlai);
             //viewHolderls.imglichsu = view.findViewById(R.id.img_lichsu_avatar);
             view.setTag(viewHolderls);
         }
@@ -69,6 +74,12 @@ public class Adapter_lichsu extends BaseAdapter {
         viewHolderls.lsdiachi.setText("Số 7 Thiền Quang");
         viewHolderls.lsNameskinner.setText(order.getNameStylist());
         String a [] = orderList.get(i).getNameServices();
+        viewHolderls.btn_datlai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                interfaceHistory.onClickItemHistory(order);
+            }
+        });
         Log.e("TAG3", "getView:"+a );
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -89,5 +100,6 @@ public class Adapter_lichsu extends BaseAdapter {
     class ViewHolderls{
         TextView lsNamestylist, lsNameskinner , lsNamedichvu , lsTime , lsdiachi;
         ImageView imglichsu;
+        Button btn_datlai;
     }
 }

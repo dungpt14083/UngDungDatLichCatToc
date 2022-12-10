@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
@@ -63,7 +64,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Fragment_home extends Fragment {
     //    CardView btnDatLich, btnBangGia, btnLichSuCut;
     ImageView imgNewFeed, home_img_btn_discorver;
-    ListView lv,home_rcv_hotstylish;
+    ListView lv;
+    RecyclerView home_rcv_hotstylish;
     SharedPreferences prefs;
     String token,userName,Imageavt;
     CircleImageView home_img_avt_user;
@@ -117,8 +119,11 @@ public class Fragment_home extends Fragment {
             public void onClick(View view) {
             }
         });
-        Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),R.layout.item_hotstylish,topStylishList);
+        Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),topStylishList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
         home_rcv_hotstylish.setAdapter(adapter_topstylish);
+
         lv = view.findViewById(R.id.home_rcv_dichvu);
         serviceList1 = new ArrayList<>();
         Adapter_traiNhiem adapter_traiNhiem = new Adapter_traiNhiem(getContext(), R.layout.item_trai_nhiem, serviceList1);
@@ -178,7 +183,9 @@ public class Fragment_home extends Fragment {
             public void onResponse(Call<List<TopStylish>> call, Response<List<TopStylish>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     topStylishList.addAll(response.body());
-                    Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),R.layout.item_hotstylish,topStylishList);
+                    Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),topStylishList);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+                    home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
                     home_rcv_hotstylish.setAdapter(adapter_topstylish);
                     adapter_topstylish.notifyDataSetChanged();
                 }

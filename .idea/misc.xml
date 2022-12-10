@@ -37,6 +37,8 @@
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1585" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/bt_indicator.xml" value="0.1095" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/custom_avatar_stylist.xml" value="0.1935" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/custom_border_image.xml" value="0.197" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/custom_border_image2.xml" value="0.216" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/custom_border_text.xml" value="0.162" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1585" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/drawable/my_corner_button_gray.xml" value="0.165" />
@@ -95,7 +97,8 @@
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_chondichvu.xml" value="0.4282238442822384" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_discover_image.xml" value="0.36666666666666664" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_grid_khampha.xml" value="0.2975630611372381" />
-        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_hotstylish.xml" value="0.36666666666666664" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_hotstylish.xml" value="0.25" />
+        <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_hotstylish_rcv.xml" value="0.22" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_lichsucut.xml" value="0.23889392565729828" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/item_trai_nhiem.xml" value="0.36666666666666664" />
         <entry key="..\:/hoctap/LuyenCong/GitUp/UngDungDatLichCatToc/app/src/main/res/layout/itemstylish.xml" value="0.18" />

@@ -18,6 +18,7 @@ import com.example.ungdungdatlichcattoc.API.ApiOrder;
 import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.Adapter.Adapter_lichsu;
 import com.example.ungdungdatlichcattoc.Adapter.HairStylishSpinerAdapter;
+import com.example.ungdungdatlichcattoc.Interface.InterfaceHistory;
 import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.LoginResponse;
@@ -25,6 +26,7 @@ import com.example.ungdungdatlichcattoc.model.Order;
 import com.example.ungdungdatlichcattoc.model.OrderResponse;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -42,14 +44,21 @@ public class LichSuCutActivity extends AppCompatActivity {
     ListView listView ;
     AppCompatButton btn_lichsucut_order;
     CardView btn_lichsucut_null;
+    public ArrayList<String> listnamesevice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_lichsucut);
 
+        listnamesevice= new ArrayList<>();
         btnhomebhack = findViewById(R.id.btnhomeLichSuCut);
-        adapterLichsu = new Adapter_lichsu(orderList,getApplicationContext());
+        adapterLichsu = new Adapter_lichsu(orderList, getApplicationContext(), new InterfaceHistory() {
+            @Override
+            public void onClickItemHistory(Order order) {
+
+            }
+        });
         listView = findViewById(R.id.lv_lichsucut);
         btn_lichsucut_order =findViewById(R.id.btn_lichsucut_order);
         btn_lichsucut_null =findViewById(R.id.crv_lichsucut_null);
@@ -88,7 +97,20 @@ public class LichSuCutActivity extends AppCompatActivity {
             public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
 
                 orderList.addAll(response.body());
-                adapterLichsu = new Adapter_lichsu(orderList,getApplicationContext());
+                adapterLichsu = new Adapter_lichsu(orderList, getApplicationContext(), new InterfaceHistory() {
+                    @Override
+                    public void onClickItemHistory(Order order) {
+                        String[] namesv = order.getNameServices();
+                        listnamesevice.addAll(Arrays.asList(namesv));
+                        Intent intent = new Intent(getApplicationContext(), DatlichActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("sumprice", Integer.parseInt(order.getSumPrice()));
+                        bundle.putStringArray("listidservice", order.getServiceIds());
+                        bundle.putStringArrayList("listnameservice", listnamesevice);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
+                });
                 listView.setAdapter(adapterLichsu);
                 if(orderList.size()>0){
                     btn_lichsucut_null.setVisibility(View.GONE);

@@ -80,7 +80,7 @@ public class DatlichActivity extends AppCompatActivity {
     private static final int NOTIFILYCATIONAPP_ID=16;
     ImageView btnHomeBack;
     private List<HairStylish> hairStylishList;
-    LinearLayout layouthairstylish;
+
     SharedPreferences prefs;
     String token;
     Spinner spinnerStylish, spnfake;
@@ -141,6 +141,7 @@ public class DatlichActivity extends AppCompatActivity {
         tv_namestylist.setText("");
         recyclerView_btnTime = findViewById(R.id.rec_btnTime);
         recyclerView_btnTime.setVisibility(View.GONE);
+
 //        add_timeBtn();
 //        adapter_rec_btnTime = new Adapter_rec_btnTime(listTime, new ItemClickListener() {
 //            @Override
@@ -156,6 +157,13 @@ public class DatlichActivity extends AppCompatActivity {
 
 
         rcy_Stylist = findViewById(R.id.rec_stylist);
+        rcy_Stylist.setVisibility(View.GONE);
+        crv_selectstylish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rcy_Stylist.setVisibility(View.VISIBLE);
+            }
+        });
         regiterTopic(getUserID());
         mtopicId=getUserID();
         getdataService();
