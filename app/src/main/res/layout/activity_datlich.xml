@@ -176,6 +176,7 @@
                     android:src="@drawable/ic_vt_arrow_24" />
             </LinearLayout>
             <ListView
+                android:divider="@null"
                 android:layout_marginTop="15dp"
                 android:id="@+id/lv_nameSV"
                 android:layout_width="match_parent"

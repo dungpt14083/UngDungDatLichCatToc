@@ -40,7 +40,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuild = new NotificationCompat.Builder(this, MyAppliation.CHANNEL_ID)
                 .setContentTitle(strTitle)
                 .setContentText(strMesage)
-                .setSmallIcon(R.drawable.home)
+                .setSmallIcon(R.drawable.dat_lich_chinh)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setPriority(Notification.PRIORITY_MAX)
                 .setAutoCancel(true);

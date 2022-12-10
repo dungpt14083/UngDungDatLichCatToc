@@ -1,5 +1,6 @@
 package com.example.ungdungdatlichcattoc.API;
 
+import com.example.ungdungdatlichcattoc.model.CusstomerInfo;
 import com.example.ungdungdatlichcattoc.model.LoginResponse;
 import com.example.ungdungdatlichcattoc.model.RegisterResponse;
 import com.example.ungdungdatlichcattoc.model.Service;
@@ -16,11 +17,16 @@ public interface ApiService {
     @GET("get-all")
     Call<List<Service>> getServices();
 
+    @GET("get-all")
+    Call<List<CusstomerInfo>> getallUser();
     @FormUrlEncoded
     @POST("reg")
     Call<RegisterResponse> register(
             @Field("phone") String phone,
-            @Field("password") String password);
+            @Field("password") String password,
+            @Field("topicId") String topicId,
+            @Field("body") String body,
+            @Field("title") String title);
 
     @FormUrlEncoded
     @POST("login")
