@@ -40,6 +40,11 @@ public class Adapter_camket extends BaseAdapter {
     }
 
     @Override
+    public boolean isEnabled(int position) {
+        return false;
+    }
+
+    @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolde2 holder;
         if (view==null){
