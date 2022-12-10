@@ -112,7 +112,7 @@ private void getPhone(){
                         Intent intent = new Intent(RegiterPassworkActivity.this, LoginActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(RegiterPassworkActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegiterPassworkActivity.this, "Đăng ký thất bại hãy thử lại", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
