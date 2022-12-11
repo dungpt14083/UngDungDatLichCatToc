@@ -135,6 +135,7 @@ public class LichSuCutActivity extends AppCompatActivity {
                         bundle.putStringArrayList("listnameservice", listnamesevice);
                         intent.putExtras(bundle);
                         startActivity(intent);
+                        finish();
                     }
                 });
                 listView.setAdapter(adapterLichsu);
