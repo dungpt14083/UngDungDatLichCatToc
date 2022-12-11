@@ -724,7 +724,7 @@ public class DatlichActivity extends AppCompatActivity {
 
     private String getUserID() {
         prefs = getSharedPreferences("HAIR", MODE_PRIVATE);
-       String id =prefs.getString("token", toString());
+       String id =prefs.getString("id", toString());
         return id;
     }
 }
