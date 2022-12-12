@@ -297,10 +297,43 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rec_btnTime"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="200dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginRight="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="4.Anh sẽ Happy hơn nếu có thêm yêu cầu đặc biệt"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/shipper_layout"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="24dp"
+               >
+
+                <EditText
+                    android:id="@+id/edt_luuy_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="Anh hãy nhập yêu cầu đặc biệt (Tùy Chọn)"
+                    android:inputType="textMultiLine"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
 
             <!--            <androidx.cardview.widget.CardView-->

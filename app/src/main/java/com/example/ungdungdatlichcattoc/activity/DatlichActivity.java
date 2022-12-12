@@ -77,7 +77,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
 
 public class DatlichActivity extends AppCompatActivity {
-    private static final int NOTIFILYCATIONAPP_ID=16;
+    private static final int NOTIFILYCATIONAPP_ID = 16;
     ImageView btnHomeBack;
     private List<HairStylish> hairStylishList;
 
@@ -98,7 +98,7 @@ public class DatlichActivity extends AppCompatActivity {
     Adapter_ryc_Stylist adapter_ryc_stylist;
     TextView tv_namestylist;
     String[] listidservice;
-    ArrayList<String> listnamesv ;
+    ArrayList<String> listnamesv;
     int sumprice;
     String idStylish = null;
     LinearLayout calenda;
@@ -116,6 +116,7 @@ public class DatlichActivity extends AppCompatActivity {
     private Date t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, t33, t34, t35, t36, t37, t38, t39, t40, t41, t42;
     Adapter_text adapter_text;
     List<String> listText;
+    EditText edt_luuy_order;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -132,10 +133,11 @@ public class DatlichActivity extends AppCompatActivity {
         lv_nameSV = findViewById(R.id.lv_nameSV);
         tv_datlich_time = findViewById(R.id.tv_datlich_time);
         btn_order_hoantat = findViewById(R.id.btn_order_hoantat);
+        edt_luuy_order=findViewById(R.id.edt_luuy_order);
         listnamesv = new ArrayList<>();
         hour = "";
-        mtopicId="";
-        steporder=0;
+        mtopicId = "";
+        steporder = 0;
         getTimenow();
         listText = new ArrayList<>();
         tv_namestylist.setText("");
@@ -165,14 +167,14 @@ public class DatlichActivity extends AppCompatActivity {
             }
         });
         regiterTopic(getUserID());
-        mtopicId=getUserID();
+        mtopicId = getUserID();
         getdataService();
         intentControl();
         getHairStylishAPI();
         getAdapterHairStylish();
         token();
 
-        if(steporder<2){
+        if (steporder < 2) {
             btn_order_hoantat.setEnabled(false);
         }
         adapter_ryc_stylist = new Adapter_ryc_Stylist(stylishList, new ItemClickListenerRcv() {
@@ -222,7 +224,7 @@ public class DatlichActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String tokencus = token();
-                String note = " ! ";
+                String note = edt_luuy_order.getText().toString()+" ! ";
                 String date = tv_datlich_time.getText().toString();
 
                 //     Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
@@ -241,7 +243,7 @@ public class DatlichActivity extends AppCompatActivity {
                         for (int i = 0; i < listidservice.length; i++) {
                             stringList.add(new ServiceIDs(listidservice[i]));
                         }
-                        Order(tokencus, jsonArray, idStylish, date2, note, sumprice,mtopicId,"Ứng Dụng Đặt Lịch Cắt Tóc","Chúc Mừng Bạn Đặt Lịch Thành Công");
+                        Order(tokencus, jsonArray, idStylish, date2, note, sumprice, mtopicId, "Ứng Dụng Đặt Lịch Cắt Tóc", "Chúc Mừng Bạn Đặt Lịch Thành Công");
                         sttTime = 0;
 
                     } catch (Exception e) {
@@ -380,15 +382,15 @@ public class DatlichActivity extends AppCompatActivity {
                     @Override
                     public void onClickItemTime(String time) {
                         hour = time;
-                        if(steporder==1){
-                            steporder =2;
-                            if(steporder==2){
+                        if (steporder == 1) {
+                            steporder = 2;
+                            if (steporder == 2) {
                                 btn_order_hoantat.setBackgroundColor(Color.parseColor("#FFCA39"));
                                 btn_order_hoantat.setEnabled(true);
                             }
                         }
 
-                            // Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(getApplicationContext(),hour,Toast.LENGTH_SHORT).show();
                     }
                 });
                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DatlichActivity.this, 4);
@@ -416,15 +418,14 @@ public class DatlichActivity extends AppCompatActivity {
             listnamesv = bundle.getStringArrayList("listnameservice");
 
 
+            if (sumprice >= 1) {
 
-            if(sumprice>=1){
-
-                steporder=1;
+                steporder = 1;
                 tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
             }
 
 
-            listText =listnamesv;
+            listText = listnamesv;
             Adapter_text adapter_text = new Adapter_text(this, listText);
             lv_nameSV.setAdapter(adapter_text);
 
@@ -452,13 +453,13 @@ public class DatlichActivity extends AppCompatActivity {
 
     }
 
-    private void Order(String customerId, JSONArray serviceIds, String stylistId, Date time, String note, int sumPrice,String topicId,String body,String title) {
+    private void Order(String customerId, JSONArray serviceIds, String stylistId, Date time, String note, int sumPrice, String topicId, String body, String title) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/order/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiOrder apiOrder = retrofit.create(ApiOrder.class);
-        Call<OrderResponse> call = apiOrder.order(customerId, serviceIds, stylistId, time, note, sumPrice,topicId,body,title);
+        Call<OrderResponse> call = apiOrder.order(customerId, serviceIds, stylistId, time, note, sumPrice, topicId, body, title);
         call.enqueue(new Callback<OrderResponse>() {
             @Override
             public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
@@ -467,7 +468,7 @@ public class DatlichActivity extends AppCompatActivity {
 //                    regiterTopic(orderResponse.get_id());
 //                    mtopicId = orderResponse.get_id();
                     Toast.makeText(DatlichActivity.this, "Đặt Lịch Thành Công!", Toast.LENGTH_SHORT).show();
-                  //  sendNotifilycation();
+                    //  sendNotifilycation();
                     Log.e("TAGmess", "onResponse: " + response.message());
                     finish();
                     Intent intent = new Intent(DatlichActivity.this, DatlichActivity.class);
@@ -697,17 +698,19 @@ public class DatlichActivity extends AppCompatActivity {
         getFreeTimeHairStylishAPI(idStylish, strDate);
         sttTime += 1;
     }
-    private void sendNotifilycation(){
-      Notification notificationApp = new Notification.Builder(this)
-              .setContentTitle("Ứng Dụng Đặt Lịch Cắt Tóc")
-              .setContentTitle("Chúc Mừng Bạn Đã Đặt Lịch Thành Công")
-              .setSmallIcon(R.drawable.ic_logo)
-              .build();
+
+    private void sendNotifilycation() {
+        Notification notificationApp = new Notification.Builder(this)
+                .setContentTitle("Ứng Dụng Đặt Lịch Cắt Tóc")
+                .setContentTitle("Chúc Mừng Bạn Đã Đặt Lịch Thành Công")
+                .setSmallIcon(R.drawable.ic_logo)
+                .build();
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(NOTIFILYCATIONAPP_ID,notificationApp);
+        notificationManager.notify(NOTIFILYCATIONAPP_ID, notificationApp);
 
     }
-    private void regiterTopic(String topic){
+
+    private void regiterTopic(String topic) {
         FirebaseMessaging.getInstance().subscribeToTopic(topic)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -717,14 +720,14 @@ public class DatlichActivity extends AppCompatActivity {
                             msg = "Subscribe failed";
                         }
                         Log.d("TAG", msg);
-                       // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private String getUserID() {
         prefs = getSharedPreferences("HAIR", MODE_PRIVATE);
-       String id =prefs.getString("id", toString());
+        String id = prefs.getString("id", toString());
         return id;
     }
 }

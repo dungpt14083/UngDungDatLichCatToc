@@ -16,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.Adapter.SliderPageAdapter;
+import com.example.ungdungdatlichcattoc.Interface.LoadingDialog;
 import com.example.ungdungdatlichcattoc.MainActivity;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.UI.Fragment_Page1;
@@ -36,6 +37,7 @@ public class SplashActivity extends AppCompatActivity {
     private SliderPageAdapter pageAdapter;
     String token;
      ProgressDialog SplashmprogressDialog;
+    LoadingDialog loadingDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,7 @@ public class SplashActivity extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewPage2_splash);
         SplashmprogressDialog = new ProgressDialog(this);
         SplashmprogressDialog.setMessage("...");
+         loadingDialog = new LoadingDialog(SplashActivity.this);
         List<Fragment> mList = new ArrayList<>();
         mList.add(new Fragment_Page1());
         mList.add(new Fragment_Page2());
@@ -57,10 +60,10 @@ public class SplashActivity extends AppCompatActivity {
                     String phoneauto = sharedPreferences.getString("phone", "");
                     String passauto = sharedPreferences.getString("password", "");
                     if (phoneauto.trim().length() > 0 && passauto.trim().length() > 0) {
-                        SplashmprogressDialog.show();
+                        loadingDialog.startLoadingDialog();
                         loginUser(phoneauto, passauto);
                     } else {
-                        SplashmprogressDialog.show();
+                        loadingDialog.startLoadingDialog();
                         Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
