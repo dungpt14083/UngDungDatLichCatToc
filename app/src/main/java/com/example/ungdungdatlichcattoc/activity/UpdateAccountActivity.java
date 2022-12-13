@@ -139,14 +139,21 @@ public class UpdateAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                try {
-                    Date date1 = format.parse(edt_update_account_birthday.getText().toString());
-                    date1 = calendar.getTime();
-                    System.out.println(date1);
-                    Update(token, edt_update_account_username.getText().toString(), date1, edt_update_account_Adress.getText().toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if(edt_update_account_username.getText().length()>0&&edt_update_account_Adress.getText().length()>0&&edt_update_account_birthday.getText().length()>0){
+                    try {
+                        Date date1 = format.parse(edt_update_account_birthday.getText().toString());
+                        date1 = calendar.getTime();
+                        System.out.println(date1);
+
+                        Update(token, edt_update_account_username.getText().toString(), date1, edt_update_account_Adress.getText().toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+                else {
+                    Toast.makeText(getApplicationContext(),"Hãy Nhập Đủ THông Tin",Toast.LENGTH_SHORT).show();
+                }
+
 
 
             }

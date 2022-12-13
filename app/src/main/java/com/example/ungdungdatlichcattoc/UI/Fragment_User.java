@@ -66,7 +66,7 @@ public class Fragment_User extends Fragment {
         list.add(new user(R.drawable.ic_vt_account_32, "Thông tin khách hàng", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_time_32, "Lịch sử cắt", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_info_32, "Thông tin hỗ trợ khách hàng", R.drawable.ic_vt_back_16));
-        list.add(new user(R.drawable.ic_password, "Đổi Mật Khẩu", R.drawable.ic_vt_back_16));
+        list.add(new user(R.drawable.ic_vt_key, "Đổi Mật Khẩu", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_map_32, "Vị trí Salon", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_logout_32, "Đăng xuất", R.drawable.ic_vt_back_16));
         adapterUser = new Adapter_user(getContext(), list);
@@ -88,6 +88,7 @@ public class Fragment_User extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
+
                         startActivity(new Intent(getContext(), AccoutActivity.class));
                         break;
                     case 1:
@@ -178,4 +179,8 @@ public class Fragment_User extends Fragment {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
+
+
+
 }
