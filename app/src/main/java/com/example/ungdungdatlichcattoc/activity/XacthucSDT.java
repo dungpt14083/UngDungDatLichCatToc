@@ -226,21 +226,25 @@ public class XacthucSDT extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_DEL) {
             if (selectPosition == 6) {
                 selectPosition = 5;
-                showKeyBroad(editText5);
+                showKeyBroad(editText6);
             } else if (selectPosition == 5) {
                 selectPosition=4;
-                showKeyBroad(editText4);
+                showKeyBroad(editText5);
             }
             else if (selectPosition == 4) {
                 selectPosition=3;
-                showKeyBroad(editText3);
+                showKeyBroad(editText4);
             }
             else if (selectPosition == 3) {
                 selectPosition=2;
-                showKeyBroad(editText2);
+                showKeyBroad(editText3);
             }
             else if (selectPosition == 2) {
                 selectPosition=1;
+                showKeyBroad(editText2);
+            }
+            else if (selectPosition == 1) {
+                selectPosition=0;
                 showKeyBroad(editText1);
             }
         } else {
