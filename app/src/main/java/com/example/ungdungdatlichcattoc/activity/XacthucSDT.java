@@ -38,9 +38,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class XacthucSDT extends AppCompatActivity {
     private String verificationId;
     EditText editText1,editText2,editText3,editText4,editText5,editText6;
-    TextView tvphone;
+    TextView tvphone,btnthulaiveri;
     Button btnsucsses;
     SharedPreferences prefs;
+
     ImageView img_veri_back;
     String phone,pass;
     @SuppressLint("MissingInflatedId")
@@ -55,8 +56,16 @@ public class XacthucSDT extends AppCompatActivity {
         editText5 =findViewById(R.id.edt_verify_5);
         editText6 =findViewById(R.id.edt_verify_6);
         tvphone =findViewById(R.id.tv_verify_phone);
+        btnthulaiveri=findViewById(R.id.btnthulaiveri);
         btnsucsses =findViewById(R.id.btn_verify_tieptuc);
         img_veri_back=findViewById(R.id.img_veri_back);
+        btnthulaiveri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(XacthucSDT.this,RegiterPhoneActivity.class);
+                startActivity(intent);
+            }
+        });
         img_veri_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
