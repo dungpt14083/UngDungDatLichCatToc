@@ -226,7 +226,10 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
                     edt_update_account_username.setText(nameUser);
                     edt_update_account_Adress.setText(andress);
-
+                    SharedPreferences.Editor editor = getSharedPreferences("HAIR", MODE_PRIVATE).edit();
+                    editor.putString("nameUser",nameUser);
+                    editor.putString("imageAvatar",profileCus.getImage());
+                    editor.apply();
 
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
@@ -313,6 +316,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CusstomerInfo> call, Response<CusstomerInfo> response) {
                 if (response.isSuccessful()) {
+                    Profile(token);
                     Toast.makeText(getApplicationContext(), "Dã Thay đổi thành công", Toast.LENGTH_SHORT).show();
                     finishAndRemoveTask();
                     Intent intent = new Intent(UpdateAccountActivity.this, AccoutActivity.class);

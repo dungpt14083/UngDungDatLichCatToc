@@ -3,6 +3,7 @@ package com.example.ungdungdatlichcattoc.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,7 +49,9 @@ public class LichSuCutActivity extends AppCompatActivity {
     AppCompatButton btn_lichsucut_order;
     CardView btn_lichsucut_null;
     public ArrayList<String> listnamesevice;
+    public ArrayList<String> listnameseviceNew;
     private String[] listIdService;
+    private ArrayList<String> listIdServiceNew;
     int sumprice;
     private ArrayList<Service> serviceArrayList;
 
@@ -59,6 +62,10 @@ public class LichSuCutActivity extends AppCompatActivity {
 
         listnamesevice = new ArrayList<>();
         serviceArrayList=new ArrayList<>();
+        //check dk
+        listnameseviceNew= new ArrayList<>();
+        listIdServiceNew= new ArrayList<>();
+        //end
         btnhomebhack = findViewById(R.id.btnhomeLichSuCut);
         adapterLichsu = new Adapter_lichsu(orderList, getApplicationContext(), new InterfaceHistory() {
             @Override
@@ -114,6 +121,7 @@ public class LichSuCutActivity extends AppCompatActivity {
                         String[] namesv = order.getNameServices();
                         listnamesevice.addAll(Arrays.asList(namesv));
                         //sum price
+                        //start check dịch vụ đã dừng
                         listIdService = order.getServiceIds();
                         Iterator<Service> cusstomerInfoIterator = serviceArrayList.iterator();
                         while (cusstomerInfoIterator.hasNext()) {
@@ -121,21 +129,26 @@ public class LichSuCutActivity extends AppCompatActivity {
                             for (String idsv : listIdService) {
                                 if (id.get_id().equals(idsv)) {
                                     sumprice+=id.getPrice();
+                                    listnameseviceNew.add(id.getNameService());
+                                    listIdServiceNew.add(id.get_id());
                                 }
                             }
 
                         }
+                        //end check
+                        //check sumpricee
                         System.out.println(sumprice);
-
-
+                        //end check
+                        //start push data
                         Intent intent = new Intent(getApplicationContext(), DatlichActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("sumprice", sumprice);
                         bundle.putStringArray("listidservice", order.getServiceIds());
-                        bundle.putStringArrayList("listnameservice", listnamesevice);
+                        bundle.putStringArrayList("listnameservice", listnameseviceNew);
                         intent.putExtras(bundle);
                         startActivity(intent);
                         finish();
+                        //end activity
                     }
                 });
                 listView.setAdapter(adapterLichsu);

@@ -145,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("birthday",loginResponse.getBirthOfYear());
                         editor.putString("nameUser",loginResponse.getNameUser());
                         editor.putString("address",loginResponse.getAddress());
-
+                        editor.putString("imageAvatar",loginResponse.getImage());
                         editor.apply();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
