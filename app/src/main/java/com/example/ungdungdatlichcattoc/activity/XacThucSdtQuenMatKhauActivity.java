@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 public class XacThucSdtQuenMatKhauActivity extends AppCompatActivity {
     private String verificationId;
     EditText editText1,editText2,editText3,editText4,editText5,editText6;
-    TextView tvphone;
+    TextView tvphone,btn_thulai_xacthuc;
     Button btnsucsses;
     ImageView img_fogot_back;
     @Override
@@ -42,6 +42,14 @@ public class XacThucSdtQuenMatKhauActivity extends AppCompatActivity {
         editText6 =findViewById(R.id.edt_fogot_verify_6);
         tvphone =findViewById(R.id.tv_fogot_verify_phone);
         img_fogot_back =findViewById(R.id.img_fogot_back);
+        btn_thulai_xacthuc=findViewById(R.id.btn_thulai_xacthuc);
+        btn_thulai_xacthuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(XacThucSdtQuenMatKhauActivity.this,QuenMatKhauActivity.class);
+                startActivity(intent);
+            }
+        });
         img_fogot_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -81,36 +81,42 @@
                 android:id="@+id/edt_verify_1"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:maxLength="1"
                 />
             <EditText
                 android:backgroundTint="@color/black"
                 android:id="@+id/edt_verify_2"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:maxLength="1"
                 />
             <EditText
                 android:backgroundTint="@color/black"
                 android:id="@+id/edt_verify_3"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:maxLength="1"
                 />
             <EditText
                 android:backgroundTint="@color/black"
                 android:id="@+id/edt_verify_4"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:maxLength="1"
                 />
             <EditText
                 android:backgroundTint="@color/black"
                 android:id="@+id/edt_verify_5"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:maxLength="1"
                 />
             <EditText
                 android:backgroundTint="@color/black"
                 android:id="@+id/edt_verify_6"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
+                android:maxLength="1"
                 />
         </LinearLayout>
         <LinearLayout
@@ -128,6 +134,7 @@
                 android:textSize="16dp"
                 />
             <TextView
+                android:id="@+id/btnthulaiveri"
                 android:fontFamily="@font/robotoregular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

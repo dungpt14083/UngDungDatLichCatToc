@@ -12,8 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.ungdungdatlichcattoc.API.ApiService;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.Utils;
+import com.example.ungdungdatlichcattoc.model.CusstomerInfo;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -21,8 +23,15 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class QuenMatKhauActivity extends AppCompatActivity {
     EditText editTextphone;
@@ -30,7 +39,7 @@ public class QuenMatKhauActivity extends AppCompatActivity {
     ImageView Img_regerterphone_homback;
     private FirebaseAuth mAuth;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-
+    List<CusstomerInfo> loginResponseList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +47,9 @@ public class QuenMatKhauActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         editTextphone = findViewById(R.id.edt_fogot_sdt);
         btn_nextfogot = findViewById(R.id.btn_fogot_continue);
+        loginResponseList= new ArrayList<>();
         Img_regerterphone_homback = findViewById(R.id.Img_regerterphone_homback);
+        getallUser();
         Img_regerterphone_homback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,13 +68,18 @@ public class QuenMatKhauActivity extends AppCompatActivity {
                 }
                 try {
                     if (check(phone)) {
-                        SharedPreferences.Editor editor = getSharedPreferences("Fogot", MODE_PRIVATE).edit();
-                        editor.putString("phone", phone);
+                        if(checkphone(phone)){
+                            SharedPreferences.Editor editor = getSharedPreferences("Fogot", MODE_PRIVATE).edit();
+                            editor.putString("phone", phone);
+                            editor.apply();
+                            otpsend(phone);
+                            Intent intent = new Intent(QuenMatKhauActivity.this, XacThucSdtQuenMatKhauActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Số điện thoại chưa được đăng ký", Toast.LENGTH_SHORT).show();
+                        }
 
-                        editor.apply();
-                        otpsend(phone);
-                        Intent intent = new Intent(QuenMatKhauActivity.this, XacThucSdtQuenMatKhauActivity.class);
-                        startActivity(intent);
                     }
                     else{
                         editTextphone.setError("Vui Lòng Nhập Đúng Số Điện Thoại");
@@ -72,6 +88,44 @@ public class QuenMatKhauActivity extends AppCompatActivity {
 
                 }
 
+
+            }
+        });
+
+
+    }
+
+    private boolean checkphone(String phone) {
+        boolean x= false;
+
+        Iterator<CusstomerInfo> cusstomerInfoIterator = loginResponseList.iterator();
+        while (cusstomerInfoIterator.hasNext()) {
+            CusstomerInfo id = cusstomerInfoIterator.next();
+            if (id.getPhone().equals(phone.substring(1))) {
+
+                x=true;
+            }
+        }
+        return x;
+    }
+
+    void getallUser() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://io.supermeo.com:8000/customer/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiService apiService = retrofit.create(ApiService.class);
+        Call<List<CusstomerInfo>> callallUser = apiService.getallUser();
+        callallUser.enqueue(new Callback<List<CusstomerInfo>>() {
+            @Override
+            public void onResponse(Call<List<CusstomerInfo>> call, Response<List<CusstomerInfo>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    loginResponseList.addAll(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CusstomerInfo>> call, Throwable t) {
 
             }
         });
