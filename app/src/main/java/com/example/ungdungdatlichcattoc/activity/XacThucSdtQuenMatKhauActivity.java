@@ -229,10 +229,11 @@ public class XacThucSdtQuenMatKhauActivity extends AppCompatActivity {
                 selectPosition = 0;
                 showKeyBroad(editText1);
             }
+            return true;
         } else {
             return super.onKeyUp(keyCode, event);
         }
-        return super.onKeyUp(keyCode, event);
+
     }
 
     private void countdowntime(){

@@ -53,7 +53,7 @@ public class Fragment_User extends Fragment {
     List<user> list;
     Adapter_user adapterUser;
     SharedPreferences prefs;
-    String token,nameUser,avatar;
+    String token, nameUser, avatar;
     CircleImageView user_img_avt_user;
     TextView user_tv_name_user;
 
@@ -82,7 +82,7 @@ public class Fragment_User extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-      //  Profile(token);
+       // Profile(token);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -117,8 +117,11 @@ public class Fragment_User extends Fragment {
     void getUserinfo() {
         prefs = getActivity().getSharedPreferences("HAIR", getActivity().MODE_PRIVATE);
         token = prefs.getString("token", toString());
-        nameUser = prefs.getString("nameUser", toString());
-        avatar = prefs.getString("imageAvatar",toString());
+        nameUser = prefs.getString("nameUser", null);
+        if(nameUser==null){
+            nameUser="GUEST";
+        }
+        avatar = prefs.getString("imageAvatar", toString());
     }
 
     private void Profile(String customerId) {
@@ -136,12 +139,12 @@ public class Fragment_User extends Fragment {
                     // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
                     try {
-                     //   user_tv_name_user.setText(profileCus.getNameUser());
+                         user_tv_name_user.setText(profileCus.getNameUser());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
 
-                 //   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    //   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
                         Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(user_img_avt_user);
 
