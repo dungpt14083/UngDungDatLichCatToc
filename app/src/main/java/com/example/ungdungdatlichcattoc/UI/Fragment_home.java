@@ -89,13 +89,13 @@ public class Fragment_home extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         getUserinfo();
-        Profile(token);
+     //   Profile(token);
         home_img_avt_user = view.findViewById(R.id.home_img_avt_user);
         grv_item = view.findViewById(R.id.grid_item);
         grv_camket = view.findViewById(R.id.grv_camket);
         home_tv_name_user = view.findViewById(R.id.home_tv_name_user);
         viewPager = view.findViewById(R.id.viewPager);
-        imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
+       imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
         home_img_btn_discorver = view.findViewById(R.id.home_img_btn_discorver);
         circleIndicator = view.findViewById(R.id.circleIndicator);
         home_rcv_hotstylish=view.findViewById(R.id.home_rcv_hotstylish);
@@ -168,6 +168,12 @@ public class Fragment_home extends Fragment {
         AutoSlideImage();
         setDataCamket();
         gettopstylish();
+        try {
+            home_tv_name_user.setText(userName);
+            Glide.with(getContext()).load("http://io.supermeo.com:8000/" +Imageavt).into(home_img_avt_user);
+        }catch (Exception e){
+
+        }
 
         return view;
     }
@@ -285,7 +291,7 @@ public class Fragment_home extends Fragment {
         prefs = getContext().getSharedPreferences("HAIR", getContext().MODE_PRIVATE);
         token = prefs.getString("token", toString());
         userName=prefs.getString("nameUser",toString());
-        Imageavt =prefs.getString("image",toString());
+        Imageavt =prefs.getString("imageAvatar",toString());
     }
 
     void getGridViewItemMenu() {
@@ -300,8 +306,8 @@ public class Fragment_home extends Fragment {
         listItem.add(new itemmenu(R.drawable.ic_vt_time_32, "Lịch sử cắt"));
         listItem.add(new itemmenu(R.drawable.ic_vt_newr_32, "Bảng giá"));
         listItem.add(new itemmenu(R.drawable.ic_vt_location_32, "Vị trí Salon"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_cut_32, "Bí kíp chăm sóc tóc"));
-        listItem.add(new itemmenu(R.drawable.ic_vt_date_32, "Vị trí Salon"));
+//        listItem.add(new itemmenu(R.drawable.ic_vt_cut_32, "Bí kíp chăm sóc tóc"));
+//        listItem.add(new itemmenu(R.drawable.ic_vt_date_32, "Vị trí Salon"));
     }
 
     private void Profile(String customerId) {
@@ -319,7 +325,7 @@ public class Fragment_home extends Fragment {
                     // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
                     try {
-                        home_tv_name_user.setText(profileCus.getNameUser());
+                      //  home_tv_name_user.setText(profileCus.getNameUser());
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -327,7 +333,7 @@ public class Fragment_home extends Fragment {
 
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
-                        Glide.with(getContext()).load("http://io.supermeo.com:8000/" +profileCus.getImage()).into(home_img_avt_user);
+                     //   Glide.with(getContext()).load("http://io.supermeo.com:8000/" +profileCus.getImage()).into(home_img_avt_user);
 
                     } catch (Exception e) {
 

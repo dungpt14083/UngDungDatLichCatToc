@@ -53,7 +53,7 @@ public class Fragment_User extends Fragment {
     List<user> list;
     Adapter_user adapterUser;
     SharedPreferences prefs;
-    String token;
+    String token,nameUser,avatar;
     CircleImageView user_img_avt_user;
     TextView user_tv_name_user;
 
@@ -66,6 +66,7 @@ public class Fragment_User extends Fragment {
         list.add(new user(R.drawable.ic_vt_account_32, "Thông tin khách hàng", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_time_32, "Lịch sử cắt", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_info_32, "Thông tin hỗ trợ khách hàng", R.drawable.ic_vt_back_16));
+        list.add(new user(R.drawable.ic_password, "Đổi Mật Khẩu", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_map_32, "Vị trí Salon", R.drawable.ic_vt_back_16));
         list.add(new user(R.drawable.ic_vt_logout_32, "Đăng xuất", R.drawable.ic_vt_back_16));
         adapterUser = new Adapter_user(getContext(), list);
@@ -73,7 +74,15 @@ public class Fragment_User extends Fragment {
         //---------------------
 
         getUserinfo();
-        Profile(token);
+        try {
+            user_tv_name_user.setText(nameUser);
+            Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + avatar).into(user_img_avt_user);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+      //  Profile(token);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -89,11 +98,15 @@ public class Fragment_User extends Fragment {
 
                         break;
                     case 3:
-                        startActivity(new Intent(getContext(), MapGGActivity.class));
+                        startActivity(new Intent(getContext(), RepassActivity.class));
+
                         break;
                     case 4:
+                        startActivity(new Intent(getContext(), MapGGActivity.class));
+                        break;
+                    case 5:
                         logout();
-                        Toast.makeText(getContext(), i + "Đăng xuất", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Đăng xuất", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -104,6 +117,8 @@ public class Fragment_User extends Fragment {
     void getUserinfo() {
         prefs = getActivity().getSharedPreferences("HAIR", getActivity().MODE_PRIVATE);
         token = prefs.getString("token", toString());
+        nameUser = prefs.getString("nameUser", toString());
+        avatar = prefs.getString("imageAvatar",toString());
     }
 
     private void Profile(String customerId) {
@@ -121,12 +136,12 @@ public class Fragment_User extends Fragment {
                     // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
                     try {
-                        user_tv_name_user.setText(profileCus.getNameUser());
+                     //   user_tv_name_user.setText(profileCus.getNameUser());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
 
-                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                 //   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
                         Glide.with(getActivity()).load("http://io.supermeo.com:8000/" + profileCus.getImage()).into(user_img_avt_user);
 

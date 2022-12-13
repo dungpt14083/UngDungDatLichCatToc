@@ -308,7 +308,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/robotomedium"
-                android:text="4.Anh sẽ Happy hơn nếu có thêm yêu cầu đặc biệt"
+                android:text="4.Anh sẽ Happy hơn nếu có thêm yêu cầu đặc biệt(Tùy Chọn)"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
             <com.google.android.material.textfield.TextInputLayout
@@ -327,7 +327,7 @@
                     android:padding="15dp"
                     android:background="@null"
                     android:gravity="top"
-                    android:hint="Anh hãy nhập yêu cầu đặc biệt (Tùy Chọn)"
+                    android:hint="vd:gội đầu nhẹ nhàng hơn"
                     android:inputType="textMultiLine"
                     android:overScrollMode="always"
                     android:scrollbarStyle="insideInset"

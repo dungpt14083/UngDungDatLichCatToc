@@ -62,6 +62,7 @@ public class AccoutActivity extends AppCompatActivity {
         btn_back_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                onRestart();
                 onBackPressed();
             }
         });
@@ -141,5 +142,10 @@ public class AccoutActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }
