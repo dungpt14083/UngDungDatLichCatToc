@@ -67,7 +67,7 @@ public class Fragment_home extends Fragment {
     ListView lv;
     RecyclerView home_rcv_hotstylish;
     SharedPreferences prefs;
-    String token,userName,Imageavt;
+    String token, userName, Imageavt;
     CircleImageView home_img_avt_user;
     private List<Service> serviceList1;
     TextView home_tv_name_user;
@@ -81,7 +81,7 @@ public class Fragment_home extends Fragment {
     Adapter_image_slide image_slide;
     List<camket> listCamket;
     Adapter_camket camket;
-    List<TopStylish> topStylishList ;
+    List<TopStylish> topStylishList;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -89,17 +89,17 @@ public class Fragment_home extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         getUserinfo();
-     //   Profile(token);
+        //Profile(token);
         home_img_avt_user = view.findViewById(R.id.home_img_avt_user);
         grv_item = view.findViewById(R.id.grid_item);
         grv_camket = view.findViewById(R.id.grv_camket);
         home_tv_name_user = view.findViewById(R.id.home_tv_name_user);
         viewPager = view.findViewById(R.id.viewPager);
-       imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
+        imgNewFeed = view.findViewById(R.id.home_img_btn_newfeed);
         home_img_btn_discorver = view.findViewById(R.id.home_img_btn_discorver);
         circleIndicator = view.findViewById(R.id.circleIndicator);
-        home_rcv_hotstylish=view.findViewById(R.id.home_rcv_hotstylish);
-        topStylishList= new ArrayList<>();
+        home_rcv_hotstylish = view.findViewById(R.id.home_rcv_hotstylish);
+        topStylishList = new ArrayList<>();
         home_img_btn_discorver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,8 +119,8 @@ public class Fragment_home extends Fragment {
             public void onClick(View view) {
             }
         });
-        Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),topStylishList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(), topStylishList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
         home_rcv_hotstylish.setAdapter(adapter_topstylish);
 
@@ -170,14 +170,15 @@ public class Fragment_home extends Fragment {
         gettopstylish();
         try {
             home_tv_name_user.setText(userName);
-            Glide.with(getContext()).load("http://io.supermeo.com:8000/" +Imageavt).into(home_img_avt_user);
-        }catch (Exception e){
+            Glide.with(getContext()).load("http://io.supermeo.com:8000/" + Imageavt).into(home_img_avt_user);
+        } catch (Exception e) {
 
         }
 
         return view;
     }
-    void gettopstylish(){
+
+    void gettopstylish() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://io.supermeo.com:8000/order/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -189,8 +190,8 @@ public class Fragment_home extends Fragment {
             public void onResponse(Call<List<TopStylish>> call, Response<List<TopStylish>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     topStylishList.addAll(response.body());
-                    Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(),topStylishList);
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+                    Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(), topStylishList);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                     home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
                     home_rcv_hotstylish.setAdapter(adapter_topstylish);
                     adapter_topstylish.notifyDataSetChanged();
@@ -290,8 +291,11 @@ public class Fragment_home extends Fragment {
     void getUserinfo() {
         prefs = getContext().getSharedPreferences("HAIR", getContext().MODE_PRIVATE);
         token = prefs.getString("token", toString());
-        userName=prefs.getString("nameUser",toString());
-        Imageavt =prefs.getString("imageAvatar",toString());
+        userName = prefs.getString("nameUser", null);
+        if(userName==null){
+            userName="GUEST";
+        }
+        Imageavt = prefs.getString("imageAvatar", toString());
     }
 
     void getGridViewItemMenu() {
@@ -325,7 +329,7 @@ public class Fragment_home extends Fragment {
                     // Log.e("TAGsize", "onResponse: " + cusstomerInfoList.size());
                     ProfileCus profileCus = response.body();
                     try {
-                      //  home_tv_name_user.setText(profileCus.getNameUser());
+                         home_tv_name_user.setText(profileCus.getNameUser());
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -333,7 +337,7 @@ public class Fragment_home extends Fragment {
 
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     try {
-                     //   Glide.with(getContext()).load("http://io.supermeo.com:8000/" +profileCus.getImage()).into(home_img_avt_user);
+                        Glide.with(getContext()).load("http://io.supermeo.com:8000/" +profileCus.getImage()).into(home_img_avt_user);
 
                     } catch (Exception e) {
 
