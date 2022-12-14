@@ -4,6 +4,7 @@ import com.example.ungdungdatlichcattoc.model.CusstomerInfo;
 import com.example.ungdungdatlichcattoc.model.LoginResponse;
 import com.example.ungdungdatlichcattoc.model.RegisterResponse;
 import com.example.ungdungdatlichcattoc.model.Service;
+import com.example.ungdungdatlichcattoc.model.TopService;
 
 import java.util.List;
 
@@ -16,6 +17,9 @@ import retrofit2.http.POST;
 public interface ApiService {
     @GET("get-all")
     Call<List<Service>> getServices();
+
+    @GET("topService")
+    Call<List<TopService>> getTopServices();
 
     @GET("get-all")
     Call<List<CusstomerInfo>> getallUser();

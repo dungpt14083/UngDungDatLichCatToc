@@ -324,7 +324,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
             public void onResponse(Call<CusstomerInfo> call, Response<CusstomerInfo> response) {
                 if (response.isSuccessful()) {
                     Profile(token);
-                    Toast.makeText(getApplicationContext(), "Dã Thay đổi thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Đã Thay đổi thành công", Toast.LENGTH_SHORT).show();
                     finishAndRemoveTask();
                     Intent intent = new Intent(UpdateAccountActivity.this, AccoutActivity.class);
                     startActivity(intent);

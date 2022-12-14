@@ -40,6 +40,7 @@ import com.example.ungdungdatlichcattoc.activity.BangGiaActivity;
 import com.example.ungdungdatlichcattoc.activity.DatlichActivity;
 import com.example.ungdungdatlichcattoc.activity.LichSuCutActivity;
 import com.example.ungdungdatlichcattoc.activity.MapGGActivity;
+import com.example.ungdungdatlichcattoc.activity.TopServiceActivity;
 import com.example.ungdungdatlichcattoc.model.ProfileCus;
 import com.example.ungdungdatlichcattoc.model.Service;
 import com.example.ungdungdatlichcattoc.model.TopStylish;
@@ -280,6 +281,7 @@ public class Fragment_home extends Fragment {
                         startActivity(new Intent(getContext(), MapGGActivity.class));
                         break;
                     case 4:
+                        startActivity(new Intent(getContext(), TopServiceActivity.class));
                         break;
                     case 5:
                         break;
@@ -310,7 +312,7 @@ public class Fragment_home extends Fragment {
         listItem.add(new itemmenu(R.drawable.ic_vt_time_32, "Lịch sử cắt"));
         listItem.add(new itemmenu(R.drawable.ic_vt_newr_32, "Bảng giá"));
         listItem.add(new itemmenu(R.drawable.ic_vt_location_32, "Vị trí Salon"));
-//        listItem.add(new itemmenu(R.drawable.ic_vt_cut_32, "Bí kíp chăm sóc tóc"));
+        listItem.add(new itemmenu(R.drawable.ic_vt_cut_32, "Dịch Vụ Hot"));
 //        listItem.add(new itemmenu(R.drawable.ic_vt_date_32, "Vị trí Salon"));
     }
 
