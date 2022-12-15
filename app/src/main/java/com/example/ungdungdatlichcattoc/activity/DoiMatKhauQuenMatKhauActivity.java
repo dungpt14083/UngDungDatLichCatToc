@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ungdungdatlichcattoc.API.ApiCustomer;
@@ -28,6 +29,7 @@ public class DoiMatKhauQuenMatKhauActivity extends AppCompatActivity {
     AppCompatButton Btn_fogot;
     SharedPreferences prefs;
     String phone, pass, pascf;
+    TextView tv_intent_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,15 @@ public class DoiMatKhauQuenMatKhauActivity extends AppCompatActivity {
         edt_fogot_repass_repass = findViewById(R.id.edt_fogot_repass_repass);
         edt_fogot_repass_pass = findViewById(R.id.edt_fogot_repass_pass);
         Btn_fogot = findViewById(R.id.button_fogot_repass);
+        tv_intent_login=findViewById(R.id.tv_intent_login);
+        tv_intent_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DoiMatKhauQuenMatKhauActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         Btn_fogot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
