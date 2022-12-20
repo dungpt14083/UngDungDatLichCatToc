@@ -41,9 +41,16 @@ public class Activity_newfeed extends AppCompatActivity {
         btnhomeBangGia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finishAndRemoveTask();
-                Intent intentHOme =new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intentHOme);
+
+                try{
+                    Intent intentHOme =new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intentHOme);
+                    finishAndRemoveTask();
+                }catch (Exception e)
+                {
+
+                }
+
             }
         });
         //
