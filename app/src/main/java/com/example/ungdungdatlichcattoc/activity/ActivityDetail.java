@@ -46,11 +46,16 @@ public class ActivityDetail extends AppCompatActivity {
         img_back_detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(ActivityDetail.this,Activity_newfeed.class);
+                    startActivity(intent);
+                    finishAndRemoveTask();
+                }catch (Exception e)
+                {
 
-                Intent intent = new Intent(ActivityDetail.this,Activity_newfeed.class);
+                }
 
-                startActivity(intent);
-                finishAndRemoveTask();
+
             }
         });
      //   lv = findViewById(R.id.imgDetail);
