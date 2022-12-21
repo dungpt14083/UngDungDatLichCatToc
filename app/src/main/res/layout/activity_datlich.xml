@@ -176,6 +176,7 @@
                     android:src="@drawable/ic_vt_arrow_24" />
             </LinearLayout>
             <ListView
+                android:nestedScrollingEnabled="true"
                 android:divider="@null"
                 android:layout_marginTop="15dp"
                 android:id="@+id/lv_nameSV"
@@ -297,7 +298,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rec_btnTime"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginRight="30dp" />
