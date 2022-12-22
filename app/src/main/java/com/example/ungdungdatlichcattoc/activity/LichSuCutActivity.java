@@ -119,6 +119,7 @@ public class LichSuCutActivity extends AppCompatActivity {
                     @Override
                     public void onClickItemHistory(Order order) {
                         String[] namesv = order.getNameServices();
+
                         listnamesevice.addAll(Arrays.asList(namesv));
                         //sum price
                         //start check dịch vụ đã dừng
@@ -135,19 +136,35 @@ public class LichSuCutActivity extends AppCompatActivity {
                             }
 
                         }
+                      String[]  idservicenew = new String [listIdServiceNew.size()];
+                        listIdServiceNew.toArray(idservicenew);
                         //end check
                         //check sumpricee
                         System.out.println(sumprice);
                         //end check
                         //start push data
-                        Intent intent = new Intent(getApplicationContext(), DatlichActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("sumprice", sumprice);
-                        bundle.putStringArray("listidservice", order.getServiceIds());
-                        bundle.putStringArrayList("listnameservice", listnameseviceNew);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                        finish();
+
+                        if(idservicenew.length>0)
+                        {
+                            try {
+                                Intent intent = new Intent(getApplicationContext(), DatlichActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putInt("sumprice", sumprice);
+                                bundle.putStringArray("listidservice", idservicenew);
+                                bundle.putStringArrayList("listnameservice", listnameseviceNew);
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                                finish();
+                            }catch (Exception e)
+                            {
+                                e.printStackTrace();
+                            }
+
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Các dịch vụ bạn đặt đã không còn được phục vụ",Toast.LENGTH_SHORT).show();
+                        }
+
                         //end activity
                     }
                 });
