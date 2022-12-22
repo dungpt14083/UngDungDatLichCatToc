@@ -410,26 +410,34 @@ public class DatlichActivity extends AppCompatActivity {
     }
 
     void getdataService() {
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if (bundle != null) {
-            listidservice = bundle.getStringArray("listidservice");
-            sumprice = bundle.getInt("sumprice");
-            listnamesv = bundle.getStringArrayList("listnameservice");
+
+        try {
+            Intent intent = getIntent();
+            Bundle bundle = intent.getExtras();
+            if (bundle != null) {
+                listidservice = bundle.getStringArray("listidservice");
+                sumprice = bundle.getInt("sumprice");
+                listnamesv = bundle.getStringArrayList("listnameservice");
 
 
-            if (sumprice >= 1) {
+                if (listidservice.length >= 1) {
 
-                steporder = 1;
-                tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
+                    steporder = 1;
+                    tvservice.setText("Bạn đã chọn: " + listidservice.length + " dịch Vụ " + "tổng tiền " + String.valueOf(bundle.getInt("sumprice")));
+                }
+
+
+                listText = listnamesv;
+                Adapter_text adapter_text = new Adapter_text(this, listText);
+                lv_nameSV.setAdapter(adapter_text);
+
             }
-
-
-            listText = listnamesv;
-            Adapter_text adapter_text = new Adapter_text(this, listText);
-            lv_nameSV.setAdapter(adapter_text);
-
         }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
 
