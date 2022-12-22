@@ -172,6 +172,7 @@ public class XacthucSDT extends AppCompatActivity {
                 }
             }
         });
+        btnthulaiveri.setActivated(false);
 
     }
     private void showKeyBroad(EditText otpText) {

@@ -41,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView textViewRegister,forget_password;
     String token =null;
     String phoneauto,passauto;
+    private long Pressed;
+    Toast mToas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,6 +184,18 @@ public class LoginActivity extends AppCompatActivity {
                     //    Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (Pressed + 2000 > System.currentTimeMillis()) {
+            mToas.cancel();
+            moveTaskToBack(true);
+        } else {
+            mToas = Toast.makeText(getApplicationContext(), "ấn 2 lần để thoát", Toast.LENGTH_LONG);
+            mToas.show();
+        }
+        Pressed = System.currentTimeMillis();
     }
 }
 

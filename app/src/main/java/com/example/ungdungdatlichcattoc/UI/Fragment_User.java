@@ -174,11 +174,12 @@ public class Fragment_User extends Fragment {
         editor.clear();
         editor.commit();
         //AppState.getSingleInstance().setLoggingOut(true);
-        getActivity().finishAndRemoveTask();
+
         Intent intent = new Intent(getContext(),
                 LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        getActivity().finish();
     }
 
 

@@ -158,6 +158,7 @@ public class XacThucSdtQuenMatKhauActivity extends AppCompatActivity {
                 }
             }
         });
+        btn_thulai_xacthuc.setActivated(false);
     }
 
     private void showKeyBroad(EditText otpText) {
