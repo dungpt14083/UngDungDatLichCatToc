@@ -109,6 +109,9 @@ public class SplashActivity extends AppCompatActivity {
                         }
                         else if(loginResponse.getStatusC()==1) {
                             Toast.makeText(getApplicationContext(),"Tài Khoản của bạn đã bị Khóa",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
 
                     } else {
