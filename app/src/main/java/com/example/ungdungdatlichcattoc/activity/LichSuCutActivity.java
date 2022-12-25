@@ -118,6 +118,7 @@ public class LichSuCutActivity extends AppCompatActivity {
                 adapterLichsu = new Adapter_lichsu(orderList, getApplicationContext(), new InterfaceHistory() {
                     @Override
                     public void onClickItemHistory(Order order) {
+
                         String[] namesv = order.getNameServices();
 
                         listnamesevice.addAll(Arrays.asList(namesv));

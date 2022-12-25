@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ungdungdatlichcattoc.Interface.InterfaceClickServiceDetail;
 import com.example.ungdungdatlichcattoc.R;
 import com.example.ungdungdatlichcattoc.model.Service;
 import com.google.android.material.button.MaterialButton;
@@ -20,11 +21,13 @@ public class Adapter_BangGia extends BaseAdapter {
     private Context context;
     private int idLayout;
     List<Service> serviceList ;
+    InterfaceClickServiceDetail interfaceClickServiceDetail;
 
-    public Adapter_BangGia(Context context, int idLayout, List<Service> serviceList) {
+    public Adapter_BangGia(Context context, int idLayout, List<Service> serviceList,InterfaceClickServiceDetail interfaceClickServiceDetail) {
         this.context = context;
         this.idLayout = idLayout;
         this.serviceList = serviceList;
+        this.interfaceClickServiceDetail =interfaceClickServiceDetail;
     }
 
     @Override
@@ -61,8 +64,15 @@ public class Adapter_BangGia extends BaseAdapter {
             DecimalFormat formatter = new DecimalFormat("###,###,###");
             String price = formatter.format(service.getPrice());
             item_chondichvu_tvPrice.setText(price + " VNĐ");
+
             // Glide.with(holder.img_avatar.getContext()).load(comics.getImage()).into(holder.img_avatar);
             Glide.with(item_banggia_img.getContext()).load("http://io.supermeo.com:8000/"+service.getImages()).into(item_banggia_img);
+            item_banggia_img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    interfaceClickServiceDetail.clickService(service);
+                }
+            });
         }
         return view;
     }

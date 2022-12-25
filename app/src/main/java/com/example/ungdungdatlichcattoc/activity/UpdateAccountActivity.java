@@ -153,7 +153,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),"Hãy Nhập Đủ THông Tin",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Hãy nhập đủ thông tin",Toast.LENGTH_SHORT).show();
                 }
 
 

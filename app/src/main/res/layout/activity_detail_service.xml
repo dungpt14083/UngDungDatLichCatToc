@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".activity.DetailServiceActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back"
+            android:id="@+id/btn_back_detail_service"/>
+        <TextView
+            android:id="@+id/tv_nameService_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/Img_detail_service"
+        android:src="@drawable/logo2"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_weight="9"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="233"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/barlowcondensedextralight"
+                    android:id="@+id/tv_desc_detail"/>
+                <TextView
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="122"
+                    android:textColor="#CDDC39"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/tv_price_detail"/>
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_weight="1"
+            android:id="@+id/chondichvu_btn_detailservice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/my_corner_button"
+            android:fontFamily="@font/barlowcondensedsemibold"
+            android:text="Đặt Lịch"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
