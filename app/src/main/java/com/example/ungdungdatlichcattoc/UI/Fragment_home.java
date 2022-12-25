@@ -120,10 +120,15 @@ public class Fragment_home extends Fragment {
             public void onClick(View view) {
             }
         });
-        Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(), topStylishList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
-        home_rcv_hotstylish.setAdapter(adapter_topstylish);
+        try {
+            Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(), topStylishList);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+            home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
+            home_rcv_hotstylish.setAdapter(adapter_topstylish);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         lv = view.findViewById(R.id.home_rcv_dichvu);
         serviceList1 = new ArrayList<>();
@@ -190,12 +195,17 @@ public class Fragment_home extends Fragment {
             @Override
             public void onResponse(Call<List<TopStylish>> call, Response<List<TopStylish>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    topStylishList.addAll(response.body());
-                    Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(), topStylishList);
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-                    home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
-                    home_rcv_hotstylish.setAdapter(adapter_topstylish);
-                    adapter_topstylish.notifyDataSetChanged();
+                    try {
+                        topStylishList.addAll(response.body());
+                        Adapter_topstylish adapter_topstylish = new Adapter_topstylish(getContext(), topStylishList);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        home_rcv_hotstylish.setLayoutManager(linearLayoutManager);
+                        home_rcv_hotstylish.setAdapter(adapter_topstylish);
+                        adapter_topstylish.notifyDataSetChanged();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                 }
             }
 

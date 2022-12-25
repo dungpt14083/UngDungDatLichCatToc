@@ -161,6 +161,14 @@
                 android:text="@string/GDCTitle1_contentPart34"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:fontFamily="@font/robotoregular"
+                android:text="@string/GDCTitle1_contentPart35"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
             <!---->
             <TextView
                 android:layout_width="match_parent"

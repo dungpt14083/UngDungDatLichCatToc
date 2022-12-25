@@ -73,12 +73,13 @@
         android:textColor="@color/black"
         android:textSize="15dp"/>
 
+
     <TextView
-        android:fontFamily="@font/robotoregular"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/robotoregular"
         android:text="* Thông tin các  hân thu thập được sẽ cjir được sử dụng \n
 trong nội bộ công ty nhằm mục đích: xác nhân lịch cắt tóc \n
 cho khách hàng, xác nhân đơn đặt hàng, theo dõi đơn đặt \n
@@ -87,9 +88,7 @@ hàng, chăm sóc khách hàng\n
 thông tin của khách hàng(trừ trường hợp được khách hàng \n
 đồng ý )"
         android:textColor="@color/black"
-        android:textSize="14dp"/>
-
-
+        android:textSize="14dp" />
 
     <TextView
         android:fontFamily="@font/robotoregular"

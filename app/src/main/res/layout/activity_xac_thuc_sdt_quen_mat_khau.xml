@@ -150,18 +150,19 @@
                 android:textColor="#FB0101"
                 />
         </LinearLayout>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_fogot_verify_tieptuc"
-            android:layout_marginTop="80dp"
             android:layout_width="215dp"
             android:layout_height="55dp"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="78dp"
-            android:text="Thay đổi "
-            android:textSize="24dp"
-            android:fontFamily="@font/robotomedium"
-            android:textColor="#ffff"
+            android:layout_marginTop="80dp"
             android:background="@drawable/my_corner_button"
-            />
+            android:fontFamily="@font/robotomedium"
+            android:text="Tiếp Tục"
+            android:textColor="#ffff"
+            android:textSize="24dp" />
     </LinearLayout>
 
 </LinearLayout>

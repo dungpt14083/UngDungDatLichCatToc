@@ -55,7 +55,7 @@ public class TopServiceActivity extends AppCompatActivity {
                     intent.putExtras(bundle);
                     startActivity(intent);
 
-                    finish();
+
                 }catch (Exception e)
                 {
 
@@ -102,7 +102,7 @@ public class TopServiceActivity extends AppCompatActivity {
                                 intent.putExtras(bundle);
                                 startActivity(intent);
 
-                                finish();
+
                             }catch (Exception e)
                             {
 
