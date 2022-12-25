@@ -138,19 +138,25 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         LoginResponse loginResponse = response.body();
-                        token = loginResponse.getToken();
-                        SharedPreferences.Editor editor = getSharedPreferences("HAIR", MODE_PRIVATE).edit();
-                        editor.putString("phone", phone);
-                        editor.putString("password", password);
-                        editor.putString("id", response.body().getId());
-                        editor.putString("token",token);
-                        editor.putString("birthday",loginResponse.getBirthOfYear());
-                        editor.putString("nameUser",loginResponse.getNameUser());
-                        editor.putString("address",loginResponse.getAddress());
-                        editor.putString("imageAvatar",loginResponse.getImage());
-                        editor.apply();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                        finish();
+                        if(loginResponse.getStatusC()==0){
+                            token = loginResponse.getToken();
+                            SharedPreferences.Editor editor = getSharedPreferences("HAIR", MODE_PRIVATE).edit();
+                            editor.putString("phone", phone);
+                            editor.putString("password", password);
+                            editor.putString("id", response.body().getId());
+                            editor.putString("token",token);
+                            editor.putString("birthday",loginResponse.getBirthOfYear());
+                            editor.putString("nameUser",loginResponse.getNameUser());
+                            editor.putString("address",loginResponse.getAddress());
+                            editor.putString("imageAvatar",loginResponse.getImage());
+                            editor.apply();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
+                        }
+                        else if(loginResponse.getStatusC()==1){
+                            Toast.makeText(LoginActivity.this, "Tài khoản của bạn đã bị khóa", Toast.LENGTH_SHORT).show();
+                        }
+
                     } else {
                         Toast.makeText(LoginActivity.this, "Hãy Thử Đăng Nhập Lại", Toast.LENGTH_SHORT).show();
                     }
