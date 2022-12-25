@@ -24,6 +24,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.DetailServiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.TopServiceActivity"
             android:exported="true" />
 

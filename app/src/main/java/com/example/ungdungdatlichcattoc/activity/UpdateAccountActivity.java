@@ -21,6 +21,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -106,6 +107,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
         edt_update_account_username = findViewById(R.id.edt_update_account_username);
         edt_update_account_birthday = findViewById(R.id.edt_update_account_birthday);
         edt_update_account_Adress = findViewById(R.id.edt_update_account_Adress);
+        edt_update_account_birthday.setInputType(InputType.TYPE_NULL);
         txtluuthongtin = findViewById(R.id.tvLuuthongtin);
         img_update_avt = findViewById(R.id.img_update_avt);
         mprogressDialog = new ProgressDialog(this);
@@ -151,7 +153,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),"Hãy Nhập Đủ THông Tin",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Hãy nhập đủ thông tin",Toast.LENGTH_SHORT).show();
                 }
 
 
