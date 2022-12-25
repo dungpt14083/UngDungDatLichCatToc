@@ -37,6 +37,18 @@ public class LoginResponse {
     @Expose
     private String image;
 
+    @SerializedName("statusC")
+    @Expose
+    private int statusC;
+
+    public int getStatusC() {
+        return statusC;
+    }
+
+    public void setStatusC(int statusC) {
+        this.statusC = statusC;
+    }
+
     public String getImage() {
         return image;
     }
